@@ -1,4 +1,4 @@
-# 叶结点
+
 class Leaf:
     def __init__(self, type, content, min_cost=99999, trust_cost=99999,parent_cost=99999):
         self.type = type
@@ -9,7 +9,6 @@ class Leaf:
         self.trust_cost = trust_cost
         self.parent_cost = parent_cost
 
-    # tick 叶节点，返回返回值以及对应的条件或行动对象self.content
     def tick(self, state):
         if self.type == 'cond':
             if self.content <= state:
@@ -36,9 +35,6 @@ class Leaf:
             else:
                 return 'failure', self.content, cost, ticks
 
-    # def __str__(self):
-    #     print(self.content)
-    #     return ''
 
     def print_nodes(self):
         print(self.content)
@@ -46,8 +42,6 @@ class Leaf:
     def count_size(self):
         return 1
 
-
-# 可能包含控制结点的行为树
 class ControlBT:
     def __init__(self, type):
         self.type = type
@@ -61,11 +55,11 @@ class ControlBT:
             subtree.parent = self
             subtree.parent_index = len(self.children) - 1
 
-    # tick行为树，根据不同控制结点逻辑tick子结点
+
     def tick(self, state):
         if len(self.children) < 1:
             print("error,no child")
-        if self.type == '?':  # 选择结点，即或结点
+        if self.type == '?':
             for child in self.children:
                 val, obj = child.tick(state)
                 if val == 'success':
@@ -73,7 +67,7 @@ class ControlBT:
                 if val == 'running':
                     return val, obj
             return 'failure', '?fails'
-        if self.type == '>':  # 顺序结点，即与结点
+        if self.type == '>':
             for child in self.children:
                 val, obj = child.tick(state)
                 if val == 'failure':
@@ -81,15 +75,15 @@ class ControlBT:
                 if val == 'running':
                     return val, obj
             return 'success', '>success'
-        if self.type == 'act':  # 行动结点
+        if self.type == 'act':
             return self.children[0].tick(state)
-        if self.type == 'cond':  # 条件结点
+        if self.type == 'cond':
             return self.children[0].tick(state)
 
     def cost_tick(self, state, cost, ticks):
         if len(self.children) < 1:
             print("error,no child")
-        if self.type == '?':  # 选择结点，即或结点
+        if self.type == '?':
             ticks += 1
             for child in self.children:
                 ticks += 1
@@ -99,9 +93,8 @@ class ControlBT:
                 if val == 'running':
                     return val, obj, cost, ticks
             return 'failure', '?fails', cost, ticks
-        if self.type == '>':  # 顺序结点，即与结点
+        if self.type == '>':
             for child in self.children:
-                # print("state:",state,"cost",cost)
                 ticks += 1
                 val, obj, cost, ticks = child.cost_tick(state, cost, ticks)
                 if val == 'failure':
@@ -109,26 +102,19 @@ class ControlBT:
                 if val == 'running':
                     return val, obj, cost, ticks
             return 'success', '>success', cost, ticks
-        if self.type == 'act':  # 行动结点
+        if self.type == 'act':
             return self.children[0].cost_tick(state, cost, ticks)
-        if self.type == 'cond':  # 条件结点
+        if self.type == 'cond':
             return self.children[0].cost_tick(state, cost, ticks)
 
     def getFirstChild(self):
         return self.children[0]
-
-    # def __str__(self):
-    #     print(self.type + '\n')
-    #     for child in self.children:
-    #         print(child)
-    #     return ''
 
     def print_nodes(self):
         print(self.type)
         for child in self.children:
             child.print_nodes()
 
-    # 递归统计树中结点数
     def count_size(self):
         result = 1
         for child in self.children:

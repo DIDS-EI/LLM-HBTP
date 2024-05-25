@@ -17,7 +17,6 @@ class CondActPair:
         self.act_leaf = act_leaf
 
     def __lt__(self, other):
-        # 定义优先级比较：按照 cost 的值来比较
         return self.act_leaf.min_cost < other.act_leaf.min_cost
 
 
@@ -65,10 +64,8 @@ def update_state(c, state_dic):
         if state in c:
             obj = extract_argument(c)
             if obj in state_dic:
-                # 如果对象已经有一个反状态，返回False表示冲突
                 if state_dic[obj] == opposite:
                     return False
-            # 更新状态字典
             state_dic[obj] = state
             break
     return True

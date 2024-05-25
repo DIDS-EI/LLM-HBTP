@@ -13,7 +13,6 @@ seed=0
 random.seed(seed)
 np.random.seed(seed)
 
-# 封装好的主接口
 class BTExpInterface:
     def __init__(self, behavior_lib, cur_cond_set, priority_act_ls=[], key_predicates=[], key_objects=[], selected_algorithm="opt",
                  mode="big",
@@ -28,21 +27,14 @@ class BTExpInterface:
         self.selected_algorithm = selected_algorithm
         self.time_limit=time_limit
 
-        # 剪枝操作,现在的条件是以前扩展过的条件的超集
         self.consider_priopity = False
 
-        # 选择全是0的启发式，还是 cost/10000 的启发式，还是都不采用
-        # 定义变量 heuristic_choice：
-        # 0 表示全是 0 的启发式
-        # 1 表示 cost/10000 的启发式
-        # -1 表示不使用启发式
-        self.heuristic_choice = heuristic_choice  # 可以根据需要更改这个值
+        self.heuristic_choice = heuristic_choice
 
-        # 自定义动作空间
+
         if behavior_lib == None:
             self.actions = action_list
             self.big_actions=self.actions
-        # 默认的大动作空间
         else:
             self.big_actions = collect_action_nodes(behavior_lib)
 
@@ -72,8 +64,6 @@ class BTExpInterface:
         if self.priority_act_ls !=[]:
             self.consider_priopity=True
 
-        # if self.heuristic_choice==-1: 在 adjust_action_priority 里面已经写了这个控制
-        #     self.priority_act_ls=[]
 
         self.actions = self.adjust_action_priority(self.actions, self.priority_act_ls, self.priority_obj_ls,
                                                        self.selected_algorithm)
@@ -148,42 +138,9 @@ class BTExpInterface:
 
 
     def adjust_action_priority(self, action_list, priority_act_ls, priority_obj_ls, selected_algorithm):
-        # recommended_acts=["RightPutIn(bananas,fridge)",
-        #                   "Open(fridge)",
-        #                   "Walk(fridge)",
-        #                   "Close(fridge)",
-        #                   "RightGrab(bananas)",
-        #                   "Walk(bananas)"
-        #                   ]
 
         recommended_acts = priority_act_ls
         recommended_objs = priority_obj_ls
-
-        # for act in action_list:
-        #     act.cost = 0
-
-        # if selected_algorithm == "opt-h":
-        #     for act in action_list:
-        #         if act.name in recommended_acts:
-        #             act.priority = 0
-        # else:
-
-        # 根据目标中的物体，调整有这些物体的优先级
-        # 正则表达式用于找到括号中的内容
-        # print("============ Priority Objs: ==============")
-        # pattern = re.compile(r'\((.*?)\)')
-        # for act in action_list:
-        #     match = pattern.search(act.name)
-        #     if match:
-        #         # 将括号内的内容按逗号分割
-        #         action_objects = match.group(1).split(',')
-        #         # 遍历每个物体名称
-        #         if all(obj in recommended_objs for obj in action_objects):
-        #             # act.priority = 0.000001
-        #             # act.priority = 1
-        #             act.priority = 1
-        #             # print(act)
-        # print("============ Priority Objs: ==============")
 
         for act in action_list:
             act.priority = act.cost
@@ -193,20 +150,8 @@ class BTExpInterface:
                 elif self.heuristic_choice==1:
                     act.priority = act.priority * 1.0 / 10000
 
-                # act.cost= act.cost*1.0/10000
-                # act.cost=0
-                # act.priority = act.cost*1.0/100000
-
-        # 对action排序
-        # action_list.sort(key=lambda x: x.priority)
-        # action_list.sort(key=lambda x: x.cost)
-        # action_list.sort(key=lambda x: (x.priority, x.name))
-        # action_list.sort(key=lambda x: (x.priority, -ord(x.name[0])))
         action_list.sort(key=lambda x: (x.priority, x.real_cost, x.name ))
 
-        # for act in action_list:
-        #     if act.priority <= 1 :
-        #         act.cost = 1000000
 
         return action_list
 
@@ -217,31 +162,22 @@ class BTExpInterface:
         for act in self.big_actions:
             match = pattern.search(act.name)
 
-            # if "Put" in act.name and "apple" in act.name:
-            #     print(act.name)
-            #     pass
 
             if match:
-                # 将括号内的内容按逗号分割
                 action_objects = match.group(1).split(',')
-                # 遍历每个物体名称
                 if all(obj in key_objects for obj in action_objects):
                     small_act.append(act)
         return small_act
 
     def collect_compact_predicate_object_actions(self, key_predicates, key_objects):
         small_act = []
-        # 正则表达式提取括号内的内容
         pattern = re.compile(r'\((.*?)\)')
 
         for act in self.big_actions:
-            # 使用 `any()` 函数检查 act.name 是否包含任何一个 key_predicates 中的谓词
             if any(predicate in act.name for predicate in key_predicates):
-                # 提取括号内的对象列表
                 match = pattern.search(act.name)
                 if match:
                     action_objects = match.group(1).split(',')
-                    # 检查所有对象是否都在 key_objects 中
                     if all(obj in key_objects for obj in action_objects):
                         small_act.append(act)
 
@@ -278,53 +214,14 @@ class BTExpInterface:
                 error = True
                 break
             steps += 1
-            if (steps >= 500):  # 至多运行500步
+            if (steps >= 500):
                 break
-        if goal <= state:  # 错误解，目标条件不在执行后状态满足
+        if goal <= state:
             if verbose:
                 print("Finished!")
         else:
             error = True
-        # if verbose:
-        #     print(f"一定运行了 {act_num-1} 个动作步")
-        #     print("current_cost:",current_cost)
         return error,state,act_num-1,current_cost,record_act[:-1]
-
-
-    # 方法一：查找所有初始状态是否包含当前状态
-    def find_all_leaf_states_contain_start(self, start):
-        if not self.has_processed:
-            raise RuntimeError("The process method must be called before find_all_leaf_states_contain_start!")
-        # 返回所有能到达目标状态的初始状态
-        state_leafs = self.algo.get_all_state_leafs()
-        for state in state_leafs:
-            if start >= state:
-                return True
-        return False
-
-    # 方法二：模拟跑一遍行为树，看 start 能够通过执行一系列动作到达 goal
-    def run_bt_from_start(self, goal, start):
-        if not self.has_processed:
-            raise RuntimeError("The process method must be called before run_bt_from_start!")
-        # 检查是否能到达目标
-        right_bt = True
-        state = start
-        steps = 0
-        val, obj = self.algo.bt.tick(state)
-        while val != 'success' and val != 'failure':
-            state = state_transition(state, obj)
-            val, obj = self.algo.bt.tick(state)
-            if (val == 'failure'):
-                # print("bt fails at step", steps)
-                right_bt = False
-            steps += 1
-        if not goal <= state:
-            # print("wrong solution", steps)
-            right_bt = False
-        else:
-            pass
-            # print("right solution", steps)
-        return right_bt
 
 
 def collect_action_nodes(behavior_lib):
@@ -347,10 +244,6 @@ def collect_action_nodes(behavior_lib):
     print(f"共收集到 {len(action_list)} 个实例化动作")
     print(f"共收集到 {can_expand_ored} 个动作谓词")
 
-    # for a in self.action_list:
-    #     if "Turn" in a.name:
-    #         print(a.name)
-    # print("--------------------\n")
 
     return action_list
 
@@ -359,15 +252,11 @@ def collect_conditions(node):
     from btgym.algos.bt_autogen.behaviour_tree import Leaf
     conditions = set()
     if isinstance(node, Leaf) and node.type == 'cond':
-        # 如果是叶子节点并且类型为'cond'，则将内容添加到集合中
         conditions.update(node.content)
     elif hasattr(node, 'children'):
-        # 对于有子节点的控制节点，递归收集所有子节点的条件
         for child in node.children:
             conditions.update(collect_conditions(child))
     return conditions
-
-
 
 
 
