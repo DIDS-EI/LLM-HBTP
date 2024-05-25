@@ -1,0 +1,36 @@
+1
+Environment:1
+Instruction: Put the bag of chips on the corner of my desk.
+Goals: IsOn_chips_desk
+Optimal Actions: Walk_chips, RightGrab_chips, Walk_desk, RightPut_chips_desk
+Vital Action Predicates: Walk, RightGrab, RightPut
+Vital Objects: chips, desk
+Cost: 41
+
+2
+Environment:1
+Instruction: Ensure the coffee maker is powered on to brew your morning cup, and also turn on the TV to catch up with the early news
+Goals: IsSwitchedOn_coffeemaker & IsSwitchedOn_tv
+Optimal Actions: Walk_tv, PlugIn_tv, SwitchOn_tv, Walk_coffeemaker, PlugIn_coffeemaker, SwitchOn_coffeemaker
+Vital Action Predicates: Walk, PlugIn, SwitchOn
+Vital Objects: tv, coffeemaker
+Cost:  62
+
+3
+Environment:1
+Instruction: Place a slice of bread and a bottle of chocolate syrup on the kitchen table.
+Goals: IsOn_breadslice_kitchentable & IsOn_chocolatesyrup_kitchentable
+Optimal Actions: Walk_breadslice, RightGrab_breadslice, Walk_chocolatesyrup, LeftGrab_chocolatesyrup, Walk_kitchentable, RightPut_breadslice_kitchentable, LeftPut_chocolatesyrup_kitchentable
+Vital Action Predicates: Walk, RightGrab, LeftGrab, RightPut, LeftPut
+Vital Objects: breadslice, chocolatesyrup, kitchentable
+Cost: 67
+
+4
+Environment:1
+Instruction: Put the milk in the fridge and clean the kitchen counter.
+Goals: IsIn_milk_fridge & IsClean_kitchencounter
+Optimal Actions: Walk_milk, RightGrab_milk, Walk_fridge, Open_fridge, PlugIn_fridge, RightPutIn_milk_fridge, Walk_rag, RightGrab_rag, Walk_kitchencounter, Wipe_kitchencounter
+Vital Action Predicates: Walk, RightGrab, Open, PlugIn, RightPutIn, Wipe
+Vital Objects: milk, fridge, rag, kitchencounter
+Cost: 100
+
