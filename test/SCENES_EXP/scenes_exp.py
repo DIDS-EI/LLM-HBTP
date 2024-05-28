@@ -64,7 +64,7 @@ def perform_test(env, chosen_goal, database_index_path, reflect_time=0, train=Fa
             act_num, error, time_limit_exceeded, current_cost, expanded_num, planning_time_total, act_space = \
             None, None, None, None, None, None, None, None, None, None, None
 
-    # 搜索小动作空间得到一个解
+
     if not success and train:
         success, priority_act_ls, key_predicates, key_objects, \
             act_num, error, time_limit_exceeded, current_cost, expanded_num, planning_time_total, act_space = \
@@ -111,8 +111,7 @@ def validate_goal(env, chosen_goal, n, database_index_path=None, round_num=None,
             act_space = len(algo.actions)
             break
 
-        # 在这里添加例子，加入到
-        # 如果这里面把例子中的pred和obj也加进去
+
         nearest_examples, distances = search_nearest_examples(database_index_path, llm, chosen_goal,
                                                               top_n=5 * 2 ** (fail - 1))
         ex_preds = set()
@@ -136,11 +135,7 @@ def validate_goal(env, chosen_goal, n, database_index_path=None, round_num=None,
         success = not error and not time_limit_exceeded
         act_space = len(algo.actions)
 
-        # 疑问：动作空间如何每次计算？没加一个要遍历所有动作？加了物体又怎么判别呢
-        # 感觉可以加5个example、10个example、20个example....
 
-        # VD 实验， 简单、依赖、长序列、混合？ 成功率和expanded？ 要扩张吗
-        # 感觉体现向量数据库学习过程，可以不扩张，单纯看 四种数据集上的学习能力
 
     print(f"\033[92mtest:{n} {chosen_goal} {act_num}\033[0m")
     return {
@@ -175,7 +170,7 @@ big_actions = collect_action_nodes(env.behavior_lib)
 # cur_cond_set |= {f'IsClose({arg})' for arg in RHS.CAN_OPEN}
 # cur_cond_set |= {f'IsSwitchedOff({arg})' for arg in RHS.HAS_SWITCH}
 # cur_cond_set |= {f'IsUnplugged({arg})' for arg in RHS.HAS_PLUG}
-# print(f"共收集到 {len(RHS.AllObject)} 个物体")
+# print(f" {len(RHS.AllObject)} ")
 
 # =========================  RHS ======================
 # name = "RHS"
@@ -210,22 +205,21 @@ metrics_df = pd.DataFrame(columns=[
     "Test Success Rate", "Average Expanded Num", "Average Planning Time Total", "Average Current Cost"
 ])
 
-# ========================= 并行 ========================
+# ========================= ========================
 # with concurrent.futures.ThreadPoolExecutor() as executor:
 #     futures = [executor.submit(validate_goal, env, d['Goals'], database_index_path, round_num, n, database_num,
 #                                reflect_time=reflect_time,choose_database=True) \
 #                for n, d in enumerate(vaild_dataset_test)]
 #     for future in concurrent.futures.as_completed(futures):
 #         result, success, _ = future.result()
-# ========================= 并行 ========================
+# =================================================
 
-# ========================= 串行========================
 vaild_dataset = dataset[:vaild_num]
 for n, d in enumerate(vaild_dataset):
     result, success, avg_distance, fail, parsed_fail = validate_goal(env, d['Goals'], n, choose_database=True,
                                                                      database_index_path=database_index_path)
     test_results.append(result)
-    # 计算一次成功率
+
     if success and fail == 0:
         test_success_count += 1
     total_expanded_num += result.get('expanded_num')
