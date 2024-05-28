@@ -64,7 +64,6 @@ def perform_test(env, chosen_goal, database_index_path, reflect_time=0, train=Fa
             act_num, error, time_limit_exceeded, current_cost, expanded_num, planning_time_total, act_space = \
             None, None, None, None, None, None, None, None, None, None, None
 
-    # 搜索小动作空间得到一个解
     if not success and train:
         success, priority_act_ls, key_predicates, key_objects, \
             act_num, error, time_limit_exceeded, current_cost, expanded_num, planning_time_total, act_space = \
