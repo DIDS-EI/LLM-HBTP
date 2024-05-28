@@ -22,11 +22,10 @@ def load_result_csv(file_name):
 def load_dataset(data_path):
     data1 = read_dataset(data_path)
     len_data = len(data1)
-    print(f"导入 {len_data} 条数据")
+    print(f"load {len_data} data")
     return data1
 
 
-# 导入大模型的结果
 llm=LLMGPT3()
 # default_prompt_file = f"{ROOT_PATH}\\algos\\llm_client\\prompt_VHT_just_goal.txt"
 default_prompt_file = f"{ROOT_PATH}\\algos\\llm_client\\prompt_VHT_just_goal_old_example=0.425.txt"
@@ -37,22 +36,22 @@ dataset1 = load_dataset(f"{ROOT_PATH}/../test/dataset/data1_env1_40_test_reflect
 results = []
 error_count = 0  # Initialize error count
 start_time = time.time()
-for id, d in enumerate(dataset1): # 5可以
+for id, d in enumerate(dataset1): #
     print("\n== ID:", id, "  ", d['Instruction'])
 
     instruction = d['Instruction']
     goals = d['Goals']
     d['Optimal Actions'] = act_str_process(d['Optimal Actions'], already_split=True)
-    # 大模型推荐的结果
+
     priority_act_ls, llm_key_pred, llm_key_obj, messages ,_= \
         extract_llm_from_instr_goal(llm, default_prompt_file, instruction, goals, verbose=False)
-    # 增加板块，解析错误，直接重来，3次以上认定为错误
+
 
     print("Rec Act:", priority_act_ls)
     print("Rec Pred", llm_key_pred)
     print("Rec Obj:", llm_key_obj)
 
-    # key_predicates 和 key_objects 要将推荐的 priority_act_ls 补充进来
+
     _, pred, obj = act_format_records(priority_act_ls)
     key_predicates = list(set(llm_key_pred + pred))
     key_objects = list(set(llm_key_obj + obj))

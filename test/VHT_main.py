@@ -22,7 +22,7 @@ np.random.seed(seed)
 
 env = btgym.make("VHT-PutMilkInFridge")
 
-# 初始环境
+
 cur_cond_set = env.agents[0].condition_set = {"IsRightHandEmpty(self)", "IsLeftHandEmpty(self)", "IsStanding(self)"}
 cur_cond_set |= {f'IsClose({arg})' for arg in VHTAction.CAN_OPEN}
 cur_cond_set |= {f'IsSwitchedOff({arg})' for arg in VHTAction.HAS_SWITCH}
@@ -56,9 +56,6 @@ goal_set, priority_act_ls, key_predicates, key_objects,messages = \
 MAX_TIME = 1
 for try_time in range(MAX_TIME):
 
-    # 在小动作空间里搜索
-    # 需要重新写一下，小动作空间是 key_predicate 和 key_objects 的组合
-    # 这个函数提供四种模式： 大动作空间、指定的动作空间、由物体组成的小动作空间、key_predicate和key_objects的小动作空间、
     algo = BTExpInterface(env.behavior_lib,cur_cond_set=cur_cond_set,priority_act_ls=priority_act_ls,\
                           key_predicates=key_predicates,key_objects=key_objects,\
                           selected_algorithm="opt", mode="small-predicate-objs", \
@@ -69,7 +66,7 @@ for try_time in range(MAX_TIME):
     algo.process(goal_set)
     end_time = time.time()
 
-    ptml_string, cost, expanded_num = algo.post_process()  # 后处理
+    ptml_string, cost, expanded_num = algo.post_process()
     print("Expanded Conditions: ", expanded_num)
     planning_time_total = (end_time - start_time)
     print("planning_time_total:", planning_time_total)
@@ -79,7 +76,7 @@ for try_time in range(MAX_TIME):
     with open(file_path, 'w') as file:
         file.write(ptml_string)
 
-    # 读取执行
+
     bt = BehaviorTree(file_name + ".btml", env.behavior_lib)
     # bt.print()
     # bt.draw()
@@ -93,36 +90,7 @@ for try_time in range(MAX_TIME):
     goal = goal_set[0]
     state = cur_cond_set
     error, state, act_num, current_cost, record_act_ls = algo.execute_bt(goal, state, verbose=True)
-    print(f"一定运行了 {act_num - 1} 个动作步")
+    print(f"{act_num - 1} ")
     print("current_cost:", current_cost)
     print("================ ")
 
-    # 大模型反馈
-    if not error:
-        break
-    print("大模型重推荐......")
-    reflect_prompt = ""
-    reflect_prompt += (
-            "The list of actions, predicates, and objects you provided is insufficient to accomplish the Goals, "
-            "as it seems to have overlooked the dependencies between actions, "
-            "such as the need to plug in an electrical appliance before using it, "
-            "the requirement of a rag for wiping, and the necessity of a cutlery knife for cutting.")
-
-    # messages.append({"role": "user", "content": prompt})
-    # answer = llm.request(message=messages)
-    # messages.append({"role": "assistant", "content": answer})
-    # print("answer:",answer)
-    # act_str = answer.split("Actions:")[1]
-    # # act_str = re.sub(r'\s+|[\[\]\(\)\n]', '', act_str)
-    # # priority_act_ls = act_str_process(act_str)
-    # priority_act_ls = [action.replace(" ", "") for action in act_str.split(",")]
-    # print(priority_act_ls)
-
-    # goal_set, priority_act_ls, key_predicates, key_objects, messages = \
-    #     llm_reflect(llm, messages, reflect_prompt)
-
-    # priority_act_ls, priority_obj_ls
-    # 问题：小动作空间，是不是不是分级启发式，priority_obj_ls限制动作空间，priority_act_ls采用计数的启发式
-    # 问题：大模型重新推荐，是不是全部都要重新推荐
-
-# env.close()

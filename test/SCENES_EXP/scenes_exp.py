@@ -41,7 +41,7 @@ def perform_test(env, chosen_goal, database_index_path, reflect_time=0, train=Fa
         _priority_act_ls, pred, obj = act_format_records(priority_act_ls)
         key_predicates = list(set(llm_key_pred + pred))
         key_objects = list(set(llm_key_obj + obj))
-        # goal里的目标也要加进去
+
         algo = BTExpInterface(env.behavior_lib, cur_cond_set=cur_cond_set,
                               priority_act_ls=priority_act_ls, key_predicates=key_predicates,
                               key_objects=key_objects,
