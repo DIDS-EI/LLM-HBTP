@@ -5,7 +5,7 @@ Source code for the paper "Efficient Behavior Tree Planning with Commonsense Pru
 [![Python Version](https://img.shields.io/badge/Python-3.9-blue.svg)](https://github.com/MineDojo/Voyager)
 [![GitHub license](https://img.shields.io/github/license/MineDojo/Voyager)](https://github.com/MineDojo/Voyager/blob/main/LICENSE)
 
-<img src="images/framework.png" width="500" height="300">
+<img src="images/framework.png" width="50%">
 
 ## 🌳 Introduction
 
