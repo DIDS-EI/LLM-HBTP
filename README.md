@@ -2,8 +2,8 @@
 
 Source code for the paper "Efficient Behavior Tree Planning with Commonsense Pruning and Heuristics"
 
-[![Python Version](https://img.shields.io/badge/Python-3.9-blue.svg)](https://github.com/MineDojo/Voyager)
-[![GitHub license](https://img.shields.io/github/license/MineDojo/Voyager)](https://github.com/MineDojo/Voyager/blob/main/LICENSE)
+[![Python Version]()
+[![GitHub license]()
 
 <img src="images/framework.png" width="50%">
 
