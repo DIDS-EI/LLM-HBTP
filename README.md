@@ -53,13 +53,19 @@ cd BTGym
 pip install -e .
 ```
 
-Download the VirtualHome executable for your operating system (currently tested on Windows):
+### 1. Download the VirtualHome executable for your platform (Only Windows is tested now):
 
-| Operating System | Download Link                                                |
-| :--------------- | :----------------------------------------------------------- |
-| Linux            | [Download](http://virtual-home.org/release/simulator/v2.0/v2.3.0/linux_exec.zip) |
-| MacOS            | [Download](http://virtual-home.org/release/simulator/v2.0/v2.3.0/macos_exec.zip) |
+| Operating System | Download Link                                                                      |
+|:-----------------|:-----------------------------------------------------------------------------------|
+| Linux            | [Download](http://virtual-home.org/release/simulator/v2.0/v2.3.0/linux_exec.zip)   |
+| MacOS            | [Download](http://virtual-home.org/release/simulator/v2.0/v2.3.0/macos_exec.zip)   |
 | Windows          | [Download](http://virtual-home.org/release/simulator/v2.0/v2.3.0/windows_exec.zip) |
+
+### 2. Download the RoboWaiter executable (Only Windows is tested now):
+
+👉 [Download RoboWaiter](https://drive.google.com/file/d/1ayAQZbPOyQV2W-V_ZdYv6AoqLOg0zvm1/view?usp=sharing)
+
+Download the simulator, unzip it, and run `CafeSimulator.exe` to open the simulator. The simulator will display an empty scene, awaiting the code to generate the scene and complete robot interactions.
 
 ## 🚀 Usage
 
