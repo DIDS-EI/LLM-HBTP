@@ -69,8 +69,7 @@ Download the simulator, unzip it, and run `CafeSimulator.exe` to open the simula
 
 ## 🚀 Usage
 
-1. Download the Windows version of the simulator:
-   - [Download Simulator](http://virtual-home.org/release/simulator/v2.0/v2.3.0/windows_exec.zip)
+1. Download the simulator.
 2. Unzip the downloaded files and move them to `simulators/virtualhome/windows`.
 3. Execute `watch_tv.py` to view the simulation:
    ```python
