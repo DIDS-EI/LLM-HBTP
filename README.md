@@ -90,12 +90,14 @@ The images below illustrate examples from two simulation scenarios, including be
 The RoboWaiter scenario involves a service robot performing tasks in a café setting. 
 
 **Goal:** `On(Coffee,Table3) & Active(AC)`
+
 <img src="images/RW.svg" width="60%">
 
 ### VirtualHome
 The VirtualHome scenario simulates a household environment where a robot performs various domestic tasks.
 
 **Goal:** `IsIn(bananas,fridge) & IsClose(fridge)`
+
 <img src="images/VH.svg" width="60%">
 
 
