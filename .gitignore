@@ -172,3 +172,8 @@ simulators/virtualhome/windows/VirtualHome_Data/ScriptingAssemblies.json
 simulators/virtualhome/windows/VirtualHome_Data/sharedassets0.assets
 simulators/virtualhome/windows/VirtualHome_Data/sharedassets0.assets.resS
 simulators/virtualhome/windows/VirtualHome_Data/sharedassets1.assets
+btgym/algos/llm_client/apis/ERNIE_KEYS.txt
+btgym/algos/llm_client/apis/gpt3.txt
+btgym/algos/llm_client/llms/ERNIE_Bot_4.py
+btgym/algos/llm_client/llms/gpt3.py
+btgym/algos/llm_client/llms/gpt4.py
