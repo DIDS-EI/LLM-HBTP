@@ -7,7 +7,7 @@ from btgym.algos.llm_client.llms.gpt3 import LLMGPT3
 from btgym.algos.llm_client.llms.gpt4 import LLMGPT4
 
 def parse_and_prepare_data(file_path):
-    """从文本文件中解析数据，并生成键值对"""
+    """Parse data from a text file and generate key-value pairs"""
     data = {}
     current_id = None
 
@@ -206,7 +206,7 @@ if __name__ == '__main__':
         print(f"Record ID: {record_id}, Distance: {distance}")
         print(f"Key: {key}, Value: {value}\n")
 
-    print("=============== 添加新数据后 ================")
+    print("=============== Add New Data ================")
 
     new_environment = "01"
     new_goal = "IsClean_magazine & IsCut_apple & IsPlugged_toaster"
