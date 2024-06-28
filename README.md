@@ -76,3 +76,11 @@ Download the VirtualHome executable for your operating system (currently tested 
    ```
 
 These modifications include the addition of relevant icons to each section header for better visual distinction and to match the content topics more closely.
+
+
+## 🚀 Simulation
+### RoboWaiter
+<img src="images/RW.svg" width="50%">
+
+### VirtualHome
+<img src="images/VH.svg" width="50%">
