@@ -7,9 +7,13 @@ import httpx
 import asyncio
 import re
 
+# API_KEY = ["wxACDRkIWRr0rG4g6GkxKl0f", "K3o8g2Zref6Cdd6rlrSthqTs"]
+# SECRET_KEY = ["dBdFoFSgbYGX0GGXY39LEXxTSCcS2Nb1","NVxhNg7u5fjIdwGdnsCOLEpmj96hmDuZ"]
+
 API_KEY = []
 SECRET_KEY = []
 key_file = "../apis/ERNIE_KEYS.txt"
+# key_file = "C:\Users\caiyi\Desktop\BTExpansionCode\llm_test\ERNIE_KEYS.txt"
 with open(key_file, 'r', encoding="utf-8") as f:
     keys = f.read().strip()
 sections = re.split(r'\n\s*\n', keys)
@@ -23,6 +27,10 @@ for s in sections:
 
 
 def get_access_token(apy_key,secret_key):
+    """
+    使用 AK，SK 生成鉴权签名（Access Token）
+    :return: access_token，或是None(如果错误)
+    """
     url = "https://aip.baidubce.com/oauth/2.0/token"
     params = {"grant_type": "client_credentials", "client_id": apy_key, "client_secret": secret_key}
     return str(requests.post(url, params=params).json().get("access_token"))
