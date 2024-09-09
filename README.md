@@ -1,6 +1,6 @@
 # HBTP
 
-Source code for the paper "Efficient Behavior Tree Planning with Commonsense Pruning and Heuristics"
+Source code for the paper "Efficient Behavior Tree Planning with Task-Specific and Heuristics"
 
 ![Python Version](images/python39.svg)
 ![GitHub license](images/license.svg)
