@@ -1,4 +1,4 @@
-# LLM-HOBTEA
+# HBTP
 
 Source code for the paper "Efficient Behavior Tree Planning with Commonsense Pruning and Heuristics"
 
