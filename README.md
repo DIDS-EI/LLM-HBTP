@@ -1,6 +1,6 @@
 # HBTP
 
-Source code for the paper "Efficient Behavior Tree Planning with Task-Specific and Heuristics"
+Source code for the paper "HBTP: Heuristic Behavior Tree Planning with Large Language Model Reasoning"
 
 ![Python Version](images/python39.svg)
 ![GitHub license](images/license.svg)
