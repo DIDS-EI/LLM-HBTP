@@ -1,40 +1,43 @@
-# HBTP
+# HBTP: Heuristic Behavior Tree Planning with Large Language Model Reasoning
 
-Source code for the paper "HBTP: Heuristic Behavior Tree Planning with Large Language Model Reasoning"
+<div align="center">
 
-![Python Version](images/python39.svg)
+[[Website]](https://dids-ei.github.io/Project/HBTP/)
+
+![Python Version](images/python310.svg)
 ![GitHub license](images/license.svg)
 
-<img src="images/framework.png" width="50%">
+______________________________________________________________________
+
+<img src="images/framework.png" width="70%">
+</div>
 
 ## 🌳 Introduction
 
-This repository houses the Btgym package, which integrates large language models, behavior trees, and simulation platforms to foster the development of intelligent agents.
+This repository houses the HBTP package, which integrates large language models, behavior trees, and simulation platforms to foster the development of intelligent agents.
 
 ## 📂 Directory Structure
 
 ```
-Btgym
-│
-├── agent - Configuration for intelligent agents.
-├── algos - Training and decision-making algorithms.
-├── bt_autogen - Autonomous behavior tree generation.
-│   └── OptimalBTExpansionAlgorithm.py - Core HOBTEA algorithm implementation.
-├── llm_client - Modules for large language model integration.
-│   └── vector_database_env_goal.py - Core vector database functionality.
-├── behavior_tree - Behavior tree engine components.
-├── envs - Scene environments for agent interaction.
-│   ├── base - Foundational elements for environments.
-│   ├── gridworld - Grid-based testing environment.
-│   ├── robowaiter - Café service robot scenario.
-│   ├── virtualhome - Household robot scenario.
-│   ├── virtualhomwtest - Testing environment for household robots.
-│   └── virtualhomwtestsmall - Smaller version of the household robot testing environment.
-└── utils - Supporting functions and utilities.
+LLM-HBTP
+└── btgym
+    ├── agent                     # Configuration for intelligent agents.
+    ├── algos                     # Training and decision-making algorithms.
+    │   ├── bt_autogen            # Autonomous behavior tree generation.
+    │   │   └── OptimalBTExpansionAlgorithm.py  # Core HOBTEA algorithm implementation.
+    │   └── llm_client            # Modules for large language model integration.
+    ├── behavior_tree              # Behavior tree engine components.
+    ├── envs                       # Scene environments for agent interaction.
+    │   ├── base                   # Foundational elements for environments.
+    │   ├── gridworld              # Grid-based testing environment.
+    │   ├── robowaiter             # Café service robot scenario.
+    │   ├── virtualhome            # Household robot scenario.
+    │   ├── virtualhomwtest        # Testing environment for household robots.
+    │   └── virtualhomwtestsmall    # Smaller version of the household robot testing environment.
+    └── utils                      # Supporting functions and utilities.
+└── simulators                    # Platforms for realistic training environments.
+└── test                          # Testing modules for behavior trees, LLMs, and scene environments.
 
-simulators - Platforms for realistic training environments.
-
-test - Testing modules for behavior trees, vector databases, LLMs, and scene environments.
 ```
 
 ## 🔧 Installation
@@ -42,7 +45,7 @@ test - Testing modules for behavior trees, vector databases, LLMs, and scene env
 Create and activate a new Conda environment:
 
 ```shell
-conda create --name btgym python=3.9
+conda create --name btgym python=3.10
 conda activate btgym
 ```
 
