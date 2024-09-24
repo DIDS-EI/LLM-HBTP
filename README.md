@@ -9,7 +9,7 @@
 
 ______________________________________________________________________
 
-<img src="images/framework.png" width="70%">
+<img src="images/framework.png" width="80%">
 </div>
 
 ## 🌳 Introduction
