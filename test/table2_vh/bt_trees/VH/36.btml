@@ -1,0 +1,51 @@
+selector
+    sequence
+        cond IsSwitchedOff(faucet)
+        cond IsOn(waterglass,kitchentable)
+        cond IsOn(fryingpan,stove)
+    sequence
+        cond IsSwitchedOff(faucet)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(waterglass,kitchentable)
+                            selector
+                                selector
+                                    sequence
+                                        cond IsRightHolding(self,fryingpan)
+                                        selector
+                                            sequence
+                                                cond IsNear(self,stove)
+                                                act RightPut(fryingpan,stove)
+                                            sequence
+                                                cond IsStanding(self)
+                                                act Walk(stove)
+                                    sequence
+                                        cond IsRightHandEmpty(self)
+                                        cond IsNear(self,fryingpan)
+                                        cond IsStanding(self)
+                                        act RightGrab(fryingpan)
+                                sequence
+                                    cond IsRightHandEmpty(self)
+                                    cond IsStanding(self)
+                                    act Walk(fryingpan)
+                        sequence
+                            cond IsRightHolding(self,waterglass)
+                            cond IsNear(self,kitchentable)
+                            cond IsStanding(self)
+                            act RightPut(waterglass,kitchentable)
+                    sequence
+                        cond IsRightHolding(self,waterglass)
+                        cond IsStanding(self)
+                        act Walk(kitchentable)
+                sequence
+                    cond IsNear(self,waterglass)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(waterglass)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(waterglass)

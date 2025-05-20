@@ -1,0 +1,36 @@
+selector
+    sequence
+        cond IsOn(rag,kitchencabinet)
+        cond IsPlugged(mouse)
+    sequence
+        cond IsPlugged(mouse)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,rag)
+                    selector
+                        sequence
+                            cond IsNear(self,kitchencabinet)
+                            act RightPut(rag,kitchencabinet)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(kitchencabinet)
+                sequence
+                    cond IsStanding(self)
+                    cond IsNear(self,rag)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(rag)
+            sequence
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Walk(rag)
+    sequence
+        cond IsUnplugged(mouse)
+        cond IsStanding(self)
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,mouse)
+                act PlugIn(mouse)
+            act Walk(mouse)

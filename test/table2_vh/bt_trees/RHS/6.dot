@@ -1,0 +1,15 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"f9af55a9-4bc8-4fe7-a79b-9896185622fc" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"221aa12a-023a-4ead-aea3-2ac86ae56b7b" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsNear(self,bed)", shape=ellipse, style=filled];
+"f9af55a9-4bc8-4fe7-a79b-9896185622fc" -> "221aa12a-023a-4ead-aea3-2ac86ae56b7b";
+"966a934e-735d-4e31-a016-165728c4fa96" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"f9af55a9-4bc8-4fe7-a79b-9896185622fc" -> "966a934e-735d-4e31-a016-165728c4fa96";
+"18b00a29-2e2d-4b48-89c3-fd560388dea3" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsStanding(self)", shape=ellipse, style=filled];
+"966a934e-735d-4e31-a016-165728c4fa96" -> "18b00a29-2e2d-4b48-89c3-fd560388dea3";
+"1a930c4e-42cb-47a5-948f-b6972cc90419" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Walk(bed)", shape=box, style=filled];
+"966a934e-735d-4e31-a016-165728c4fa96" -> "1a930c4e-42cb-47a5-948f-b6972cc90419";
+}

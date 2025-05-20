@@ -1,0 +1,36 @@
+selector
+    sequence
+        cond IsSwitchedOn(candle)
+        cond IsOn(plate,kitchencabinet)
+    sequence
+        cond IsSwitchedOn(candle)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,plate)
+                    selector
+                        sequence
+                            cond IsNear(self,kitchencabinet)
+                            act RightPut(plate,kitchencabinet)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(kitchencabinet)
+                sequence
+                    cond IsStanding(self)
+                    cond IsNear(self,plate)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(plate)
+            sequence
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Walk(plate)
+    sequence
+        cond IsStanding(self)
+        cond IsSwitchedOff(candle)
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,candle)
+                act SwitchOn(candle)
+            act Walk(candle)

@@ -1,0 +1,18 @@
+selector
+    cond On(Softdrink,Bar)
+    sequence
+        cond Holding(Softdrink)
+        selector
+            sequence
+                cond RobotNear(Bar)
+                act PutDown(Softdrink,Bar)
+            act MoveTo(Bar)
+    sequence
+        cond Holding(Nothing)
+        selector
+            sequence
+                cond RobotNear(Softdrink)
+                act PickUp(Softdrink)
+            sequence
+                cond Exists(Softdrink)
+                act MoveTo(Softdrink)

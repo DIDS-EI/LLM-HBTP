@@ -1,0 +1,44 @@
+selector
+    sequence
+        cond IsOn(bananas,desk)
+        cond IsOn(apple,desk)
+    sequence
+        cond IsOn(apple,desk)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,bananas)
+                    selector
+                        sequence
+                            cond IsNear(self,desk)
+                            act RightPut(bananas,desk)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(desk)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    cond IsNear(self,bananas)
+                    act RightGrab(bananas)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(bananas)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,apple)
+                    selector
+                        sequence
+                            cond IsNear(self,desk)
+                            act RightPut(apple,desk)
+                        act Walk(desk)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,apple)
+                    act RightGrab(apple)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(apple)

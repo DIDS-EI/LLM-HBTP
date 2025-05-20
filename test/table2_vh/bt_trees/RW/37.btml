@@ -1,0 +1,5 @@
+selector
+    cond Active(HallLight)
+    sequence
+        cond Holding(Nothing)
+        act Turn(HallLight,On)

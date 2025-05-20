@@ -1,0 +1,72 @@
+selector
+    sequence
+        cond IsSwitchedOff(tv)
+        cond IsIn(milk,fridge)
+        cond IsOn(cupcake,nightstand)
+    sequence
+        cond IsSwitchedOff(tv)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(cupcake,nightstand)
+                            selector
+                                selector
+                                    sequence
+                                        cond IsRightHolding(self,milk)
+                                        selector
+                                            sequence
+                                                cond IsNear(self,fridge)
+                                                selector
+                                                    sequence
+                                                        cond IsOpen(fridge)
+                                                        act RightPutIn(milk,fridge)
+                                                    sequence
+                                                        cond IsClose(fridge)
+                                                        cond IsLeftHandEmpty(self)
+                                                        act Open(fridge)
+                                            sequence
+                                                cond IsClose(fridge)
+                                                cond IsLeftHandEmpty(self)
+                                                cond IsStanding(self)
+                                                act Walk(fridge)
+                                    sequence
+                                        cond IsNear(self,milk)
+                                        cond IsRightHandEmpty(self)
+                                        cond IsLeftHandEmpty(self)
+                                        cond IsClose(fridge)
+                                        cond IsStanding(self)
+                                        act RightGrab(milk)
+                                sequence
+                                    cond IsClose(fridge)
+                                    cond IsLeftHandEmpty(self)
+                                    cond IsRightHandEmpty(self)
+                                    cond IsStanding(self)
+                                    act Walk(milk)
+                        sequence
+                            cond IsNear(self,nightstand)
+                            cond IsRightHolding(self,cupcake)
+                            cond IsLeftHandEmpty(self)
+                            cond IsClose(fridge)
+                            cond IsStanding(self)
+                            act RightPut(cupcake,nightstand)
+                    sequence
+                        cond IsClose(fridge)
+                        cond IsRightHolding(self,cupcake)
+                        cond IsLeftHandEmpty(self)
+                        cond IsStanding(self)
+                        act Walk(nightstand)
+                sequence
+                    cond IsNear(self,cupcake)
+                    cond IsRightHandEmpty(self)
+                    cond IsLeftHandEmpty(self)
+                    cond IsClose(fridge)
+                    cond IsStanding(self)
+                    act RightGrab(cupcake)
+            sequence
+                cond IsClose(fridge)
+                cond IsLeftHandEmpty(self)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(cupcake)

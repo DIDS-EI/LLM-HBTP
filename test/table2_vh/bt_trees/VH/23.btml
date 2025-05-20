@@ -1,0 +1,54 @@
+selector
+    sequence
+        cond IsIn(cutlets,microwave)
+        cond IsIn(breadslice,microwave)
+    sequence
+        cond IsOpen(microwave)
+        selector
+            sequence
+                cond IsIn(cutlets,microwave)
+                selector
+                    selector
+                        sequence
+                            cond IsRightHolding(self,breadslice)
+                            selector
+                                sequence
+                                    cond IsNear(self,microwave)
+                                    act RightPutIn(breadslice,microwave)
+                                sequence
+                                    cond IsStanding(self)
+                                    act Walk(microwave)
+                        sequence
+                            cond IsNear(self,breadslice)
+                            cond IsRightHandEmpty(self)
+                            cond IsStanding(self)
+                            act RightGrab(breadslice)
+                    sequence
+                        cond IsRightHandEmpty(self)
+                        cond IsStanding(self)
+                        act Walk(breadslice)
+            sequence
+                cond IsRightHolding(self,cutlets)
+                cond IsNear(self,microwave)
+                cond IsStanding(self)
+                act RightPutIn(cutlets,microwave)
+    sequence
+        cond IsClose(microwave)
+        cond IsLeftHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,cutlets)
+                    selector
+                        sequence
+                            cond IsNear(self,microwave)
+                            act Open(microwave)
+                        act Walk(microwave)
+                sequence
+                    cond IsNear(self,cutlets)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(cutlets)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(cutlets)

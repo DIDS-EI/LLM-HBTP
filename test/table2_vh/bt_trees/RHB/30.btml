@@ -1,0 +1,63 @@
+selector
+    sequence
+        cond IsPlugged(keyboard)
+        cond IsPlugged(mouse)
+        cond IsOpen(curtains)
+        cond IsSwitchedOn(computer)
+        cond IsSwitchedOff(tv)
+    sequence
+        cond IsClose(curtains)
+        cond IsLeftHandEmpty(self)
+        cond IsSwitchedOff(tv)
+        selector
+            selector
+                sequence
+                    cond IsPlugged(keyboard)
+                    selector
+                        selector
+                            sequence
+                                cond IsSwitchedOn(computer)
+                                selector
+                                    selector
+                                        sequence
+                                            cond IsPlugged(mouse)
+                                            selector
+                                                sequence
+                                                    cond IsNear(self,curtains)
+                                                    act Open(curtains)
+                                                sequence
+                                                    cond IsStanding(self)
+                                                    act Walk(curtains)
+                                        sequence
+                                            cond IsNear(self,mouse)
+                                            cond IsStanding(self)
+                                            cond IsUnplugged(mouse)
+                                            act PlugIn(mouse)
+                                    sequence
+                                        cond IsStanding(self)
+                                        cond IsUnplugged(mouse)
+                                        act Walk(mouse)
+                            sequence
+                                cond IsNear(self,computer)
+                                cond IsStanding(self)
+                                cond IsSwitchedOff(computer)
+                                cond IsUnplugged(mouse)
+                                act SwitchOn(computer)
+                        sequence
+                            cond IsStanding(self)
+                            cond IsSwitchedOff(computer)
+                            cond IsUnplugged(mouse)
+                            act Walk(computer)
+                sequence
+                    cond IsSwitchedOff(computer)
+                    cond IsNear(self,keyboard)
+                    cond IsUnplugged(keyboard)
+                    cond IsUnplugged(mouse)
+                    cond IsStanding(self)
+                    act PlugIn(keyboard)
+            sequence
+                cond IsStanding(self)
+                cond IsUnplugged(keyboard)
+                cond IsSwitchedOff(computer)
+                cond IsUnplugged(mouse)
+                act Walk(keyboard)

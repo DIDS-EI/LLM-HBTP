@@ -1,0 +1,67 @@
+selector
+    sequence
+        cond IsSwitchedOn(tv)
+        cond IsPlugged(dishwasher)
+        cond IsOn(waterglass,tvstand)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsSwitchedOff(tv)
+        selector
+            selector
+                sequence
+                    cond IsPlugged(dishwasher)
+                    selector
+                        selector
+                            selector
+                                selector
+                                    sequence
+                                        cond IsOn(waterglass,tvstand)
+                                        selector
+                                            sequence
+                                                cond IsNear(self,tv)
+                                                selector
+                                                    sequence
+                                                        cond IsPlugged(tv)
+                                                        act SwitchOn(tv)
+                                                    sequence
+                                                        cond IsUnplugged(tv)
+                                                        act PlugIn(tv)
+                                            sequence
+                                                cond IsUnplugged(tv)
+                                                cond IsStanding(self)
+                                                act Walk(tv)
+                                    sequence
+                                        cond IsUnplugged(tv)
+                                        cond IsNear(self,tvstand)
+                                        cond IsStanding(self)
+                                        cond IsRightHolding(self,waterglass)
+                                        act RightPut(waterglass,tvstand)
+                                sequence
+                                    cond IsUnplugged(tv)
+                                    cond IsStanding(self)
+                                    cond IsRightHolding(self,waterglass)
+                                    act Walk(tvstand)
+                            sequence
+                                cond IsUnplugged(tv)
+                                cond IsRightHandEmpty(self)
+                                cond IsStanding(self)
+                                cond IsNear(self,waterglass)
+                                act RightGrab(waterglass)
+                        sequence
+                            cond IsUnplugged(tv)
+                            cond IsRightHandEmpty(self)
+                            cond IsStanding(self)
+                            act Walk(waterglass)
+                sequence
+                    cond IsUnplugged(tv)
+                    cond IsUnplugged(dishwasher)
+                    cond IsNear(self,dishwasher)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act PlugIn(dishwasher)
+            sequence
+                cond IsUnplugged(tv)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                cond IsUnplugged(dishwasher)
+                act Walk(dishwasher)

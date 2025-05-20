@@ -1,0 +1,18 @@
+selector
+    cond On(VacuumCup,WaterStation)
+    sequence
+        cond Holding(VacuumCup)
+        selector
+            sequence
+                cond RobotNear(WaterStation)
+                act PutDown(VacuumCup,WaterStation)
+            act MoveTo(WaterStation)
+    sequence
+        cond Holding(Nothing)
+        selector
+            sequence
+                cond RobotNear(VacuumCup)
+                act PickUp(VacuumCup)
+            sequence
+                cond Exists(VacuumCup)
+                act MoveTo(VacuumCup)

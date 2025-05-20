@@ -1,0 +1,18 @@
+selector
+    cond On(VacuumCup,Table1)
+    sequence
+        cond Holding(VacuumCup)
+        selector
+            sequence
+                cond RobotNear(Table1)
+                act PutDown(VacuumCup,Table1)
+            act MoveTo(Table1)
+    sequence
+        cond Holding(Nothing)
+        selector
+            sequence
+                cond RobotNear(VacuumCup)
+                act PickUp(VacuumCup)
+            sequence
+                cond Exists(VacuumCup)
+                act MoveTo(VacuumCup)

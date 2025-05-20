@@ -1,0 +1,5 @@
+selector
+    cond IsNear(self,window)
+    sequence
+        cond IsStanding(self)
+        act Walk(window)

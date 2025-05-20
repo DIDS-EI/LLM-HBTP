@@ -1,0 +1,47 @@
+selector
+    sequence
+        cond IsSwitchedOn(cellphone)
+        cond IsSwitchedOn(washingmachine)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsClose(washingmachine)
+        cond IsSwitchedOff(washingmachine)
+        selector
+            selector
+                selector
+                    sequence
+                        cond IsSwitchedOn(cellphone)
+                        selector
+                            sequence
+                                cond IsNear(self,washingmachine)
+                                selector
+                                    sequence
+                                        cond IsPlugged(washingmachine)
+                                        act SwitchOn(washingmachine)
+                                    sequence
+                                        cond IsUnplugged(washingmachine)
+                                        act PlugIn(washingmachine)
+                            sequence
+                                cond IsStanding(self)
+                                cond IsUnplugged(washingmachine)
+                                act Walk(washingmachine)
+                    sequence
+                        cond IsNear(self,cellphone)
+                        cond IsSwitchedOff(cellphone)
+                        cond IsPlugged(cellphone)
+                        cond IsStanding(self)
+                        cond IsUnplugged(washingmachine)
+                        act SwitchOn(cellphone)
+                sequence
+                    cond IsNear(self,cellphone)
+                    cond IsUnplugged(cellphone)
+                    cond IsSwitchedOff(cellphone)
+                    cond IsStanding(self)
+                    cond IsUnplugged(washingmachine)
+                    act PlugIn(cellphone)
+            sequence
+                cond IsUnplugged(washingmachine)
+                cond IsSwitchedOff(cellphone)
+                cond IsStanding(self)
+                cond IsUnplugged(cellphone)
+                act Walk(cellphone)

@@ -1,0 +1,69 @@
+selector
+    sequence
+        cond IsOn(bananas,kitchentable)
+        cond IsOn(pear,kitchentable)
+        cond IsOn(apple,kitchentable)
+    sequence
+        cond IsOn(apple,kitchentable)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(bananas,kitchentable)
+                            selector
+                                selector
+                                    sequence
+                                        cond IsRightHolding(self,pear)
+                                        selector
+                                            sequence
+                                                cond IsNear(self,kitchentable)
+                                                act RightPut(pear,kitchentable)
+                                            sequence
+                                                cond IsStanding(self)
+                                                act Walk(kitchentable)
+                                    sequence
+                                        cond IsRightHandEmpty(self)
+                                        cond IsStanding(self)
+                                        cond IsNear(self,pear)
+                                        act RightGrab(pear)
+                                sequence
+                                    cond IsRightHandEmpty(self)
+                                    cond IsStanding(self)
+                                    act Walk(pear)
+                        sequence
+                            cond IsNear(self,kitchentable)
+                            cond IsRightHolding(self,bananas)
+                            cond IsStanding(self)
+                            act RightPut(bananas,kitchentable)
+                    sequence
+                        cond IsRightHolding(self,bananas)
+                        cond IsStanding(self)
+                        act Walk(kitchentable)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    cond IsNear(self,bananas)
+                    act RightGrab(bananas)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(bananas)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,apple)
+                    selector
+                        sequence
+                            cond IsNear(self,kitchentable)
+                            act RightPut(apple,kitchentable)
+                        act Walk(kitchentable)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,apple)
+                    act RightGrab(apple)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(apple)

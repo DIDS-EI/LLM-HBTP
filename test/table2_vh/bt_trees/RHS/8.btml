@@ -1,0 +1,38 @@
+selector
+    sequence
+        cond IsClean(faucet)
+        cond IsPlugged(tv)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsUnplugged(tv)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsClean(faucet)
+                            selector
+                                sequence
+                                    cond IsNear(self,tv)
+                                    act PlugIn(tv)
+                                sequence
+                                    cond IsStanding(self)
+                                    act Walk(tv)
+                        sequence
+                            cond IsStanding(self)
+                            cond IsHoldingCleaningTool(self)
+                            cond IsNear(self,faucet)
+                            act Wipe(faucet)
+                    sequence
+                        cond IsStanding(self)
+                        cond IsHoldingCleaningTool(self)
+                        act Walk(faucet)
+                sequence
+                    cond IsStanding(self)
+                    cond IsNear(self,rag)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(rag)
+            sequence
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Walk(rag)

@@ -1,0 +1,30 @@
+selector
+    cond IsIn(chicken,microwave)
+    sequence
+        cond IsRightHolding(self,chicken)
+        selector
+            sequence
+                cond IsNear(self,microwave)
+                selector
+                    sequence
+                        cond IsOpen(microwave)
+                        act RightPutIn(chicken,microwave)
+                    sequence
+                        cond IsClose(microwave)
+                        cond IsLeftHandEmpty(self)
+                        act Open(microwave)
+            sequence
+                cond IsClose(microwave)
+                cond IsLeftHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(microwave)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsClose(microwave)
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,chicken)
+                act RightGrab(chicken)
+            act Walk(chicken)

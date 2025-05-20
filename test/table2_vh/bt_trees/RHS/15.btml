@@ -1,0 +1,12 @@
+selector
+    cond IsPlugged(tv)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsUnplugged(tv)
+        selector
+            sequence
+                cond IsNear(self,tv)
+                act PlugIn(tv)
+            sequence
+                cond IsStanding(self)
+                act Walk(tv)

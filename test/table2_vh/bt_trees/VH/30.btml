@@ -1,0 +1,44 @@
+selector
+    sequence
+        cond IsOn(book,desk)
+        cond IsOn(plate,nightstand)
+    sequence
+        cond IsOn(book,desk)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,plate)
+                    selector
+                        sequence
+                            cond IsNear(self,nightstand)
+                            act RightPut(plate,nightstand)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(nightstand)
+                sequence
+                    cond IsNear(self,plate)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(plate)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(plate)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,book)
+                    selector
+                        sequence
+                            cond IsNear(self,desk)
+                            act RightPut(book,desk)
+                        act Walk(desk)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,book)
+                    act RightGrab(book)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(book)

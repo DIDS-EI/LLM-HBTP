@@ -1,0 +1,81 @@
+selector
+    sequence
+        cond IsIn(paper,folder)
+        cond IsClose(folder)
+        cond IsOpen(book)
+        cond IsOn(book,desk)
+    sequence
+        cond IsIn(paper,folder)
+        selector
+            sequence
+                cond IsClose(folder)
+                selector
+                    selector
+                        sequence
+                            cond IsOpen(book)
+                            selector
+                                sequence
+                                    cond IsRightHolding(self,book)
+                                    selector
+                                        sequence
+                                            cond IsNear(self,desk)
+                                            act RightPut(book,desk)
+                                        sequence
+                                            cond IsStanding(self)
+                                            act Walk(desk)
+                                sequence
+                                    cond IsNear(self,book)
+                                    cond IsRightHandEmpty(self)
+                                    cond IsStanding(self)
+                                    act RightGrab(book)
+                        sequence
+                            cond IsNear(self,book)
+                            cond IsClose(book)
+                            cond IsLeftHandEmpty(self)
+                            cond IsRightHandEmpty(self)
+                            cond IsStanding(self)
+                            act Open(book)
+                    sequence
+                        cond IsClose(book)
+                        cond IsLeftHandEmpty(self)
+                        cond IsRightHandEmpty(self)
+                        cond IsStanding(self)
+                        act Walk(book)
+            sequence
+                cond IsOpen(folder)
+                cond IsClose(book)
+                cond IsLeftHandEmpty(self)
+                cond IsNear(self,folder)
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Close(folder)
+    sequence
+        cond IsClose(book)
+        cond IsLeftHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,paper)
+                    selector
+                        sequence
+                            cond IsNear(self,folder)
+                            selector
+                                sequence
+                                    cond IsOpen(folder)
+                                    act RightPutIn(paper,folder)
+                                sequence
+                                    cond IsClose(folder)
+                                    act Open(folder)
+                        sequence
+                            cond IsClose(folder)
+                            act Walk(folder)
+                sequence
+                    cond IsClose(folder)
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,paper)
+                    act RightGrab(paper)
+            sequence
+                cond IsClose(folder)
+                cond IsRightHandEmpty(self)
+                act Walk(paper)

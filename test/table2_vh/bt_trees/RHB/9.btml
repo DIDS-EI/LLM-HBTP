@@ -1,0 +1,69 @@
+selector
+    sequence
+        cond IsOn(book,desk)
+        cond IsOn(waterglass,desk)
+        cond IsOn(breadslice,desk)
+    sequence
+        cond IsOn(breadslice,desk)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(waterglass,desk)
+                            selector
+                                selector
+                                    sequence
+                                        cond IsRightHolding(self,book)
+                                        selector
+                                            sequence
+                                                cond IsNear(self,desk)
+                                                act RightPut(book,desk)
+                                            sequence
+                                                cond IsStanding(self)
+                                                act Walk(desk)
+                                    sequence
+                                        cond IsNear(self,book)
+                                        cond IsRightHandEmpty(self)
+                                        cond IsStanding(self)
+                                        act RightGrab(book)
+                                sequence
+                                    cond IsRightHandEmpty(self)
+                                    cond IsStanding(self)
+                                    act Walk(book)
+                        sequence
+                            cond IsStanding(self)
+                            cond IsNear(self,desk)
+                            cond IsRightHolding(self,waterglass)
+                            act RightPut(waterglass,desk)
+                    sequence
+                        cond IsStanding(self)
+                        cond IsRightHolding(self,waterglass)
+                        act Walk(desk)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    cond IsNear(self,waterglass)
+                    act RightGrab(waterglass)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(waterglass)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,breadslice)
+                    selector
+                        sequence
+                            cond IsNear(self,desk)
+                            act RightPut(breadslice,desk)
+                        act Walk(desk)
+                sequence
+                    cond IsNear(self,breadslice)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(breadslice)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(breadslice)

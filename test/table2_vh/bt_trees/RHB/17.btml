@@ -1,0 +1,41 @@
+selector
+    sequence
+        cond IsClose(kitchencabinet)
+        cond IsIn(milk,kitchencabinet)
+    sequence
+        cond IsLeftHandEmpty(self)
+        selector
+            selector
+                selector
+                    sequence
+                        cond IsNear(self,kitchencabinet)
+                        selector
+                            sequence
+                                cond IsOpen(kitchencabinet)
+                                selector
+                                    sequence
+                                        cond IsIn(milk,kitchencabinet)
+                                        act Close(kitchencabinet)
+                                    sequence
+                                        cond IsRightHolding(self,milk)
+                                        act RightPutIn(milk,kitchencabinet)
+                            sequence
+                                cond IsClose(kitchencabinet)
+                                cond IsRightHolding(self,milk)
+                                act Open(kitchencabinet)
+                    sequence
+                        cond IsClose(kitchencabinet)
+                        cond IsStanding(self)
+                        cond IsRightHolding(self,milk)
+                        act Walk(kitchencabinet)
+                sequence
+                    cond IsNear(self,milk)
+                    cond IsClose(kitchencabinet)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(milk)
+            sequence
+                cond IsClose(kitchencabinet)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(milk)

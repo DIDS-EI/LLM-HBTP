@@ -1,0 +1,58 @@
+selector
+    sequence
+        cond IsSwitchedOn(dishwasher)
+        cond IsPlugged(dishwasher)
+        cond IsCut(chicken)
+    sequence
+        cond IsPlugged(dishwasher)
+        selector
+            sequence
+                cond IsSwitchedOn(dishwasher)
+                selector
+                    selector
+                        sequence
+                            cond IsLeftHolding(self,chicken)
+                            selector
+                                selector
+                                    sequence
+                                        cond IsHoldingKnife(self)
+                                        act Cut(chicken)
+                                    sequence
+                                        cond IsNear(self,kitchenknife)
+                                        cond IsRightHandEmpty(self)
+                                        act RightGrab(kitchenknife)
+                                sequence
+                                    cond IsRightHandEmpty(self)
+                                    cond IsStanding(self)
+                                    act Walk(kitchenknife)
+                        sequence
+                            cond IsLeftHandEmpty(self)
+                            cond IsRightHandEmpty(self)
+                            cond IsStanding(self)
+                            cond IsNear(self,chicken)
+                            act LeftGrab(chicken)
+                    sequence
+                        cond IsLeftHandEmpty(self)
+                        cond IsRightHandEmpty(self)
+                        cond IsStanding(self)
+                        act Walk(chicken)
+            sequence
+                cond IsSwitchedOff(dishwasher)
+                cond IsLeftHandEmpty(self)
+                cond IsClose(dishwasher)
+                cond IsNear(self,dishwasher)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act SwitchOn(dishwasher)
+    sequence
+        cond IsSwitchedOff(dishwasher)
+        cond IsLeftHandEmpty(self)
+        cond IsClose(dishwasher)
+        cond IsUnplugged(dishwasher)
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,dishwasher)
+                act PlugIn(dishwasher)
+            act Walk(dishwasher)

@@ -1,0 +1,49 @@
+selector
+    sequence
+        cond IsIn(bellpepper,box)
+        cond IsOpen(curtains)
+    sequence
+        cond IsClose(curtains)
+        cond IsLeftHandEmpty(self)
+        selector
+            selector
+                selector
+                    selector
+                        selector
+                            sequence
+                                cond IsIn(bellpepper,box)
+                                selector
+                                    sequence
+                                        cond IsNear(self,curtains)
+                                        act Open(curtains)
+                                    sequence
+                                        cond IsStanding(self)
+                                        act Walk(curtains)
+                            sequence
+                                cond IsNear(self,box)
+                                cond IsOpen(box)
+                                cond IsStanding(self)
+                                cond IsRightHolding(self,bellpepper)
+                                act RightPutIn(bellpepper,box)
+                        sequence
+                            cond IsRightHolding(self,bellpepper)
+                            cond IsNear(self,box)
+                            cond IsStanding(self)
+                            cond IsClose(box)
+                            act Open(box)
+                    sequence
+                        cond IsRightHolding(self,bellpepper)
+                        cond IsStanding(self)
+                        cond IsClose(box)
+                        act Walk(box)
+                sequence
+                    cond IsNear(self,bellpepper)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    cond IsClose(box)
+                    act RightGrab(bellpepper)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                cond IsClose(box)
+                act Walk(bellpepper)

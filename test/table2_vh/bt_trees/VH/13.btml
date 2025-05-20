@@ -1,0 +1,30 @@
+selector
+    cond IsIn(wine,dishwasher)
+    sequence
+        cond IsRightHolding(self,wine)
+        selector
+            sequence
+                cond IsNear(self,dishwasher)
+                selector
+                    sequence
+                        cond IsOpen(dishwasher)
+                        act RightPutIn(wine,dishwasher)
+                    sequence
+                        cond IsClose(dishwasher)
+                        cond IsLeftHandEmpty(self)
+                        act Open(dishwasher)
+            sequence
+                cond IsClose(dishwasher)
+                cond IsLeftHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(dishwasher)
+    sequence
+        cond IsClose(dishwasher)
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,wine)
+                act RightGrab(wine)
+            act Walk(wine)

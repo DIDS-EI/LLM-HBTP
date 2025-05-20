@@ -1,0 +1,36 @@
+selector
+    sequence
+        cond IsOn(kitchenknife,bed)
+        cond IsPlugged(microwave)
+    sequence
+        cond IsPlugged(microwave)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,kitchenknife)
+                    selector
+                        sequence
+                            cond IsNear(self,bed)
+                            act RightPut(kitchenknife,bed)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(bed)
+                sequence
+                    cond IsStanding(self)
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,kitchenknife)
+                    act RightGrab(kitchenknife)
+            sequence
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Walk(kitchenknife)
+    sequence
+        cond IsStanding(self)
+        cond IsUnplugged(microwave)
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,microwave)
+                act PlugIn(microwave)
+            act Walk(microwave)

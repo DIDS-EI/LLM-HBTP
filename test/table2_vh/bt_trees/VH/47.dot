@@ -1,0 +1,29 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"cbf0f429-b79a-4601-8a72-28df7f69b364" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"2153051c-460e-4fc8-88a5-d334d0081db7" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsSwitchedOn(faucet)", shape=ellipse, style=filled];
+"cbf0f429-b79a-4601-8a72-28df7f69b364" -> "2153051c-460e-4fc8-88a5-d334d0081db7";
+"c865eaa7-2edd-49a5-bb8b-4147d22e878a" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"cbf0f429-b79a-4601-8a72-28df7f69b364" -> "c865eaa7-2edd-49a5-bb8b-4147d22e878a";
+"43dcfdb7-b67f-45bb-acc8-2719bfb6e3be" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsSwitchedOff(faucet)", shape=ellipse, style=filled];
+"c865eaa7-2edd-49a5-bb8b-4147d22e878a" -> "43dcfdb7-b67f-45bb-acc8-2719bfb6e3be";
+"606b294a-ab68-419f-9384-37e95962d9ed" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsLeftHandEmpty(self)", shape=ellipse, style=filled];
+"c865eaa7-2edd-49a5-bb8b-4147d22e878a" -> "606b294a-ab68-419f-9384-37e95962d9ed";
+"709975a1-c8c3-454f-ba00-eadcebdf9bfb" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"c865eaa7-2edd-49a5-bb8b-4147d22e878a" -> "709975a1-c8c3-454f-ba00-eadcebdf9bfb";
+"a548f012-7509-4928-b140-1cf7a0430eee" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"709975a1-c8c3-454f-ba00-eadcebdf9bfb" -> "a548f012-7509-4928-b140-1cf7a0430eee";
+"eecf7a90-9c75-4fe0-814e-e1f988e7449f" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsNear(self,faucet)", shape=ellipse, style=filled];
+"a548f012-7509-4928-b140-1cf7a0430eee" -> "eecf7a90-9c75-4fe0-814e-e1f988e7449f";
+"12b26823-5339-4f54-88ae-c1bc4b08b381" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="SwitchOn(faucet)", shape=box, style=filled];
+"a548f012-7509-4928-b140-1cf7a0430eee" -> "12b26823-5339-4f54-88ae-c1bc4b08b381";
+"35685fa8-ac29-4a3c-8cc2-86f30b6ff1fb" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"709975a1-c8c3-454f-ba00-eadcebdf9bfb" -> "35685fa8-ac29-4a3c-8cc2-86f30b6ff1fb";
+"6649ee55-a7d7-42e6-8608-690ea83521ad" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsStanding(self)", shape=ellipse, style=filled];
+"35685fa8-ac29-4a3c-8cc2-86f30b6ff1fb" -> "6649ee55-a7d7-42e6-8608-690ea83521ad";
+"51ef9be1-6fec-4605-8c2b-2644ddb6c84f" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Walk(faucet)", shape=box, style=filled];
+"35685fa8-ac29-4a3c-8cc2-86f30b6ff1fb" -> "51ef9be1-6fec-4605-8c2b-2644ddb6c84f";
+}

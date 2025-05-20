@@ -1,0 +1,27 @@
+selector
+    sequence
+        cond IsOn(rag,bed)
+        cond IsNear(self,window)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(rag,bed)
+                            act Walk(window)
+                        sequence
+                            cond IsNear(self,bed)
+                            cond IsRightHolding(self,rag)
+                            act RightPut(rag,bed)
+                    sequence
+                        cond IsRightHolding(self,rag)
+                        act Walk(bed)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,rag)
+                    act RightGrab(rag)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(rag)

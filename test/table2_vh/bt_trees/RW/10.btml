@@ -1,0 +1,20 @@
+selector
+    cond On(Coffee,Table3)
+    sequence
+        cond Holding(Coffee)
+        selector
+            sequence
+                cond RobotNear(Table3)
+                act PutDown(Coffee,Table3)
+            act MoveTo(Table3)
+    sequence
+        cond Holding(Nothing)
+        selector
+            selector
+                sequence
+                    cond RobotNear(Coffee)
+                    act PickUp(Coffee)
+                sequence
+                    cond Exists(Coffee)
+                    act MoveTo(Coffee)
+            act Make(Coffee)

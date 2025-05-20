@@ -1,0 +1,26 @@
+selector
+    cond IsCut(apple)
+    sequence
+        cond IsLeftHolding(self,apple)
+        selector
+            selector
+                sequence
+                    cond IsHoldingKnife(self)
+                    act Cut(apple)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,kitchenknife)
+                    act RightGrab(kitchenknife)
+            sequence
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Walk(kitchenknife)
+    sequence
+        cond IsStanding(self)
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,apple)
+                act LeftGrab(apple)
+            act Walk(apple)

@@ -1,0 +1,5 @@
+selector
+    cond On(Dessert,Bar)
+    sequence
+        cond Holding(Nothing)
+        act Make(Dessert)

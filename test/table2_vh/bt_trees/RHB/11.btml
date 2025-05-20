@@ -1,0 +1,26 @@
+selector
+    cond IsCut(pancake)
+    sequence
+        cond IsLeftHolding(self,pancake)
+        selector
+            selector
+                sequence
+                    cond IsHoldingKnife(self)
+                    act Cut(pancake)
+                sequence
+                    cond IsNear(self,kitchenknife)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(kitchenknife)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(kitchenknife)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,pancake)
+                act LeftGrab(pancake)
+            act Walk(pancake)

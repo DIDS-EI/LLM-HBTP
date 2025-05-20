@@ -1,0 +1,5 @@
+selector
+    cond IsNear(self,bed)
+    sequence
+        cond IsStanding(self)
+        act Walk(bed)

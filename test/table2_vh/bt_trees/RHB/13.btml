@@ -1,0 +1,69 @@
+selector
+    sequence
+        cond IsOn(toothbrush,bathroomcabinet)
+        cond IsOn(towel,bathroomcabinet)
+        cond IsOn(toothpaste,bathroomcabinet)
+    sequence
+        cond IsOn(toothpaste,bathroomcabinet)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(towel,bathroomcabinet)
+                            selector
+                                selector
+                                    sequence
+                                        cond IsRightHolding(self,toothbrush)
+                                        selector
+                                            sequence
+                                                cond IsNear(self,bathroomcabinet)
+                                                act RightPut(toothbrush,bathroomcabinet)
+                                            sequence
+                                                cond IsStanding(self)
+                                                act Walk(bathroomcabinet)
+                                    sequence
+                                        cond IsNear(self,toothbrush)
+                                        cond IsStanding(self)
+                                        cond IsRightHandEmpty(self)
+                                        act RightGrab(toothbrush)
+                                sequence
+                                    cond IsRightHandEmpty(self)
+                                    cond IsStanding(self)
+                                    act Walk(toothbrush)
+                        sequence
+                            cond IsNear(self,bathroomcabinet)
+                            cond IsRightHolding(self,towel)
+                            cond IsStanding(self)
+                            act RightPut(towel,bathroomcabinet)
+                    sequence
+                        cond IsRightHolding(self,towel)
+                        cond IsStanding(self)
+                        act Walk(bathroomcabinet)
+                sequence
+                    cond IsNear(self,towel)
+                    cond IsStanding(self)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(towel)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(towel)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,toothpaste)
+                    selector
+                        sequence
+                            cond IsNear(self,bathroomcabinet)
+                            act RightPut(toothpaste,bathroomcabinet)
+                        act Walk(bathroomcabinet)
+                sequence
+                    cond IsNear(self,toothpaste)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(toothpaste)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(toothpaste)

@@ -1,0 +1,59 @@
+selector
+    sequence
+        cond IsOn(fryingpan,sofa)
+        cond IsIn(barsoap,nightstand)
+    sequence
+        cond IsOn(fryingpan,sofa)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,barsoap)
+                    selector
+                        sequence
+                            cond IsNear(self,nightstand)
+                            selector
+                                sequence
+                                    cond IsOpen(nightstand)
+                                    act RightPutIn(barsoap,nightstand)
+                                sequence
+                                    cond IsClose(nightstand)
+                                    cond IsLeftHandEmpty(self)
+                                    act Open(nightstand)
+                        sequence
+                            cond IsClose(nightstand)
+                            cond IsLeftHandEmpty(self)
+                            cond IsStanding(self)
+                            act Walk(nightstand)
+                sequence
+                    cond IsNear(self,barsoap)
+                    cond IsLeftHandEmpty(self)
+                    cond IsClose(nightstand)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(barsoap)
+            sequence
+                cond IsClose(nightstand)
+                cond IsLeftHandEmpty(self)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(barsoap)
+    sequence
+        cond IsClose(nightstand)
+        cond IsLeftHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,fryingpan)
+                    selector
+                        sequence
+                            cond IsNear(self,sofa)
+                            act RightPut(fryingpan,sofa)
+                        act Walk(sofa)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,fryingpan)
+                    act RightGrab(fryingpan)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(fryingpan)

@@ -1,0 +1,18 @@
+selector
+    cond On(NFCJuice,Table2)
+    sequence
+        cond Holding(NFCJuice)
+        selector
+            sequence
+                cond RobotNear(Table2)
+                act PutDown(NFCJuice,Table2)
+            act MoveTo(Table2)
+    sequence
+        cond Holding(Nothing)
+        selector
+            sequence
+                cond RobotNear(NFCJuice)
+                act PickUp(NFCJuice)
+            sequence
+                cond Exists(NFCJuice)
+                act MoveTo(NFCJuice)

@@ -1,0 +1,5 @@
+selector
+    cond IsNear(self,candle)
+    sequence
+        cond IsStanding(self)
+        act Walk(candle)

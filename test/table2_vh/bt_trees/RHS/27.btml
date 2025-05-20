@@ -1,0 +1,5 @@
+selector
+    cond IsNear(self,apple)
+    sequence
+        cond IsStanding(self)
+        act Walk(apple)

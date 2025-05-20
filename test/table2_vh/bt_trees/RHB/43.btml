@@ -1,0 +1,69 @@
+selector
+    sequence
+        cond IsOn(magazine,desk)
+        cond IsOn(book,desk)
+        cond IsOn(notes,desk)
+    sequence
+        cond IsOn(magazine,desk)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(notes,desk)
+                            selector
+                                selector
+                                    sequence
+                                        cond IsRightHolding(self,book)
+                                        selector
+                                            sequence
+                                                cond IsNear(self,desk)
+                                                act RightPut(book,desk)
+                                            sequence
+                                                cond IsStanding(self)
+                                                act Walk(desk)
+                                    sequence
+                                        cond IsNear(self,book)
+                                        cond IsRightHandEmpty(self)
+                                        cond IsStanding(self)
+                                        act RightGrab(book)
+                                sequence
+                                    cond IsRightHandEmpty(self)
+                                    cond IsStanding(self)
+                                    act Walk(book)
+                        sequence
+                            cond IsRightHolding(self,notes)
+                            cond IsStanding(self)
+                            cond IsNear(self,desk)
+                            act RightPut(notes,desk)
+                    sequence
+                        cond IsRightHolding(self,notes)
+                        cond IsStanding(self)
+                        act Walk(desk)
+                sequence
+                    cond IsNear(self,notes)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(notes)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(notes)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,magazine)
+                    selector
+                        sequence
+                            cond IsNear(self,desk)
+                            act RightPut(magazine,desk)
+                        act Walk(desk)
+                sequence
+                    cond IsNear(self,magazine)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(magazine)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(magazine)

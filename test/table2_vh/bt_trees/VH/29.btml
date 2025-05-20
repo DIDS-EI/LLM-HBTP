@@ -1,0 +1,69 @@
+selector
+    sequence
+        cond IsIn(cutlets,fridge)
+        cond IsIn(chips,microwave)
+    sequence
+        cond IsIn(chips,microwave)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,cutlets)
+                    selector
+                        sequence
+                            cond IsNear(self,fridge)
+                            selector
+                                sequence
+                                    cond IsOpen(fridge)
+                                    act RightPutIn(cutlets,fridge)
+                                sequence
+                                    cond IsClose(fridge)
+                                    cond IsLeftHandEmpty(self)
+                                    act Open(fridge)
+                        sequence
+                            cond IsClose(fridge)
+                            cond IsLeftHandEmpty(self)
+                            cond IsStanding(self)
+                            act Walk(fridge)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,cutlets)
+                    cond IsLeftHandEmpty(self)
+                    cond IsClose(fridge)
+                    cond IsStanding(self)
+                    act RightGrab(cutlets)
+            sequence
+                cond IsClose(fridge)
+                cond IsLeftHandEmpty(self)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(cutlets)
+    sequence
+        cond IsClose(fridge)
+        cond IsLeftHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,chips)
+                    selector
+                        sequence
+                            cond IsNear(self,microwave)
+                            selector
+                                sequence
+                                    cond IsOpen(microwave)
+                                    act RightPutIn(chips,microwave)
+                                sequence
+                                    cond IsClose(microwave)
+                                    act Open(microwave)
+                        sequence
+                            cond IsClose(microwave)
+                            act Walk(microwave)
+                sequence
+                    cond IsNear(self,chips)
+                    cond IsClose(microwave)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(chips)
+            sequence
+                cond IsClose(microwave)
+                cond IsRightHandEmpty(self)
+                act Walk(chips)

@@ -1,0 +1,44 @@
+selector
+    sequence
+        cond IsOn(milk,fryingpan)
+        cond IsOn(cutlets,bookshelf)
+    sequence
+        cond IsOn(milk,fryingpan)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,cutlets)
+                    selector
+                        sequence
+                            cond IsNear(self,bookshelf)
+                            act RightPut(cutlets,bookshelf)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(bookshelf)
+                sequence
+                    cond IsNear(self,cutlets)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(cutlets)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(cutlets)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,milk)
+                    selector
+                        sequence
+                            cond IsNear(self,fryingpan)
+                            act RightPut(milk,fryingpan)
+                        act Walk(fryingpan)
+                sequence
+                    cond IsNear(self,milk)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(milk)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(milk)

@@ -1,0 +1,22 @@
+selector
+    sequence
+        cond IsClose(curtains)
+        cond IsSwitchedOn(tablelamp)
+    sequence
+        cond IsClose(curtains)
+        cond IsSwitchedOff(tablelamp)
+        cond IsLeftHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,tablelamp)
+                selector
+                    sequence
+                        cond IsPlugged(tablelamp)
+                        act SwitchOn(tablelamp)
+                    sequence
+                        cond IsUnplugged(tablelamp)
+                        act PlugIn(tablelamp)
+            sequence
+                cond IsUnplugged(tablelamp)
+                cond IsStanding(self)
+                act Walk(tablelamp)

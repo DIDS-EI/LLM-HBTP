@@ -1,0 +1,20 @@
+selector
+    sequence
+        cond IsNear(self,kitchencabinet)
+        cond IsSwitchedOn(candle)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsSwitchedOn(candle)
+                    act Walk(kitchencabinet)
+                sequence
+                    cond IsNear(self,candle)
+                    cond IsSwitchedOff(candle)
+                    cond IsLeftHandEmpty(self)
+                    act SwitchOn(candle)
+            sequence
+                cond IsSwitchedOff(candle)
+                cond IsLeftHandEmpty(self)
+                act Walk(candle)

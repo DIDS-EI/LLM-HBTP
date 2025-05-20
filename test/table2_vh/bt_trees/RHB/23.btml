@@ -1,0 +1,90 @@
+selector
+    sequence
+        cond IsIn(clothespants,closet)
+        cond IsSwitchedOn(tv)
+        cond IsOn(remotecontrol,sofa)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsSwitchedOff(tv)
+        selector
+            selector
+                selector
+                    selector
+                        selector
+                            sequence
+                                cond IsIn(clothespants,closet)
+                                selector
+                                    selector
+                                        selector
+                                            selector
+                                                sequence
+                                                    cond IsOn(remotecontrol,sofa)
+                                                    selector
+                                                        sequence
+                                                            cond IsNear(self,tv)
+                                                            selector
+                                                                sequence
+                                                                    cond IsPlugged(tv)
+                                                                    act SwitchOn(tv)
+                                                                sequence
+                                                                    cond IsUnplugged(tv)
+                                                                    act PlugIn(tv)
+                                                        sequence
+                                                            cond IsUnplugged(tv)
+                                                            cond IsStanding(self)
+                                                            act Walk(tv)
+                                                sequence
+                                                    cond IsUnplugged(tv)
+                                                    cond IsNear(self,sofa)
+                                                    cond IsRightHolding(self,remotecontrol)
+                                                    cond IsStanding(self)
+                                                    act RightPut(remotecontrol,sofa)
+                                            sequence
+                                                cond IsUnplugged(tv)
+                                                cond IsRightHolding(self,remotecontrol)
+                                                cond IsStanding(self)
+                                                act Walk(sofa)
+                                        sequence
+                                            cond IsNear(self,remotecontrol)
+                                            cond IsUnplugged(tv)
+                                            cond IsRightHandEmpty(self)
+                                            cond IsStanding(self)
+                                            act RightGrab(remotecontrol)
+                                    sequence
+                                        cond IsUnplugged(tv)
+                                        cond IsRightHandEmpty(self)
+                                        cond IsStanding(self)
+                                        act Walk(remotecontrol)
+                            sequence
+                                cond IsUnplugged(tv)
+                                cond IsOpen(closet)
+                                cond IsRightHolding(self,clothespants)
+                                cond IsNear(self,closet)
+                                cond IsStanding(self)
+                                act RightPutIn(clothespants,closet)
+                        sequence
+                            cond IsUnplugged(tv)
+                            cond IsClose(closet)
+                            cond IsRightHolding(self,clothespants)
+                            cond IsNear(self,closet)
+                            cond IsStanding(self)
+                            act Open(closet)
+                    sequence
+                        cond IsUnplugged(tv)
+                        cond IsClose(closet)
+                        cond IsStanding(self)
+                        cond IsRightHolding(self,clothespants)
+                        act Walk(closet)
+                sequence
+                    cond IsUnplugged(tv)
+                    cond IsClose(closet)
+                    cond IsNear(self,clothespants)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(clothespants)
+            sequence
+                cond IsUnplugged(tv)
+                cond IsClose(closet)
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Walk(clothespants)

@@ -1,0 +1,69 @@
+selector
+    sequence
+        cond IsIn(cutleryknife,fridge)
+        cond IsIn(milk,microwave)
+    sequence
+        cond IsIn(milk,microwave)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,cutleryknife)
+                    selector
+                        sequence
+                            cond IsNear(self,fridge)
+                            selector
+                                sequence
+                                    cond IsOpen(fridge)
+                                    act RightPutIn(cutleryknife,fridge)
+                                sequence
+                                    cond IsClose(fridge)
+                                    cond IsLeftHandEmpty(self)
+                                    act Open(fridge)
+                        sequence
+                            cond IsClose(fridge)
+                            cond IsLeftHandEmpty(self)
+                            cond IsStanding(self)
+                            act Walk(fridge)
+                sequence
+                    cond IsNear(self,cutleryknife)
+                    cond IsRightHandEmpty(self)
+                    cond IsLeftHandEmpty(self)
+                    cond IsClose(fridge)
+                    cond IsStanding(self)
+                    act RightGrab(cutleryknife)
+            sequence
+                cond IsClose(fridge)
+                cond IsLeftHandEmpty(self)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(cutleryknife)
+    sequence
+        cond IsClose(fridge)
+        cond IsLeftHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,milk)
+                    selector
+                        sequence
+                            cond IsNear(self,microwave)
+                            selector
+                                sequence
+                                    cond IsOpen(microwave)
+                                    act RightPutIn(milk,microwave)
+                                sequence
+                                    cond IsClose(microwave)
+                                    act Open(microwave)
+                        sequence
+                            cond IsClose(microwave)
+                            act Walk(microwave)
+                sequence
+                    cond IsNear(self,milk)
+                    cond IsClose(microwave)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(milk)
+            sequence
+                cond IsClose(microwave)
+                cond IsRightHandEmpty(self)
+                act Walk(milk)

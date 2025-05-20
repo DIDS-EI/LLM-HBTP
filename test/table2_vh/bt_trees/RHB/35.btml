@@ -1,0 +1,44 @@
+selector
+    sequence
+        cond IsOn(apple,plate)
+        cond IsClean(apple)
+    sequence
+        cond IsRightHolding(self,apple)
+        selector
+            selector
+                selector
+                    sequence
+                        cond IsClean(apple)
+                        selector
+                            sequence
+                                cond IsNear(self,plate)
+                                act RightPut(apple,plate)
+                            sequence
+                                cond IsStanding(self)
+                                act Walk(plate)
+                    sequence
+                        cond IsSwitchedOn(faucet)
+                        cond IsNear(self,faucet)
+                        cond IsStanding(self)
+                        act Wash(apple)
+                sequence
+                    cond IsLeftHandEmpty(self)
+                    cond IsNear(self,faucet)
+                    cond IsStanding(self)
+                    cond IsSwitchedOff(faucet)
+                    act SwitchOn(faucet)
+            sequence
+                cond IsLeftHandEmpty(self)
+                cond IsStanding(self)
+                cond IsSwitchedOff(faucet)
+                act Walk(faucet)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        cond IsSwitchedOff(faucet)
+        selector
+            sequence
+                cond IsNear(self,apple)
+                act RightGrab(apple)
+            act Walk(apple)

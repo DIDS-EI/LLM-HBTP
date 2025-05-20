@@ -1,0 +1,19 @@
+selector
+    cond IsOn(plate,kitchencabinet)
+    sequence
+        cond IsRightHolding(self,plate)
+        selector
+            sequence
+                cond IsNear(self,kitchencabinet)
+                act RightPut(plate,kitchencabinet)
+            sequence
+                cond IsStanding(self)
+                act Walk(kitchencabinet)
+    sequence
+        cond IsStanding(self)
+        cond IsRightHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,plate)
+                act RightGrab(plate)
+            act Walk(plate)

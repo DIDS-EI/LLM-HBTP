@@ -1,0 +1,12 @@
+selector
+    cond IsOpen(kitchencabinet)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsClose(kitchencabinet)
+        selector
+            sequence
+                cond IsNear(self,kitchencabinet)
+                act Open(kitchencabinet)
+            sequence
+                cond IsStanding(self)
+                act Walk(kitchencabinet)

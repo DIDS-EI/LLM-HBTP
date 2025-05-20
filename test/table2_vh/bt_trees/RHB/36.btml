@@ -1,0 +1,32 @@
+selector
+    sequence
+        cond IsClean(toaster)
+        cond IsClean(rug)
+    sequence
+        cond IsHoldingCleaningTool(self)
+        selector
+            selector
+                sequence
+                    cond IsClean(toaster)
+                    selector
+                        sequence
+                            cond IsNear(self,rug)
+                            act Wipe(rug)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(rug)
+                sequence
+                    cond IsStanding(self)
+                    cond IsNear(self,toaster)
+                    act Wipe(toaster)
+            sequence
+                cond IsStanding(self)
+                act Walk(toaster)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,rag)
+                act RightGrab(rag)
+            act Walk(rag)

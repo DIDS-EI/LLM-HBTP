@@ -1,0 +1,40 @@
+selector
+    sequence
+        cond IsOn(wineglass,bookshelf)
+        cond IsSwitchedOff(candle)
+        cond IsOpen(magazine)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsSwitchedOff(candle)
+        cond IsClose(magazine)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(wineglass,bookshelf)
+                            selector
+                                sequence
+                                    cond IsNear(self,magazine)
+                                    act Open(magazine)
+                                sequence
+                                    cond IsStanding(self)
+                                    act Walk(magazine)
+                        sequence
+                            cond IsRightHolding(self,wineglass)
+                            cond IsStanding(self)
+                            cond IsNear(self,bookshelf)
+                            act RightPut(wineglass,bookshelf)
+                    sequence
+                        cond IsRightHolding(self,wineglass)
+                        cond IsStanding(self)
+                        act Walk(bookshelf)
+                sequence
+                    cond IsNear(self,wineglass)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(wineglass)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(wineglass)

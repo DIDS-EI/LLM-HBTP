@@ -1,0 +1,19 @@
+selector
+    cond IsClean(sofa)
+    sequence
+        cond IsHoldingCleaningTool(self)
+        selector
+            sequence
+                cond IsNear(self,sofa)
+                act Wipe(sofa)
+            sequence
+                cond IsStanding(self)
+                act Walk(sofa)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,rag)
+                act RightGrab(rag)
+            act Walk(rag)

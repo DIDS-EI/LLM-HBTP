@@ -1,0 +1,44 @@
+selector
+    sequence
+        cond IsOpen(door)
+        cond IsCut(salmon)
+    sequence
+        cond IsOpen(door)
+        selector
+            selector
+                sequence
+                    cond IsLeftHolding(self,salmon)
+                    selector
+                        selector
+                            sequence
+                                cond IsHoldingKnife(self)
+                                act Cut(salmon)
+                            sequence
+                                cond IsNear(self,kitchenknife)
+                                cond IsRightHandEmpty(self)
+                                act RightGrab(kitchenknife)
+                        sequence
+                            cond IsRightHandEmpty(self)
+                            cond IsStanding(self)
+                            act Walk(kitchenknife)
+                sequence
+                    cond IsLeftHandEmpty(self)
+                    cond IsNear(self,salmon)
+                    cond IsStanding(self)
+                    cond IsRightHandEmpty(self)
+                    act LeftGrab(salmon)
+            sequence
+                cond IsLeftHandEmpty(self)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(salmon)
+    sequence
+        cond IsClose(door)
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,door)
+                act Open(door)
+            act Walk(door)

@@ -1,0 +1,5 @@
+selector
+    cond Active(AC)
+    sequence
+        cond Holding(Nothing)
+        act Turn(AC,On)

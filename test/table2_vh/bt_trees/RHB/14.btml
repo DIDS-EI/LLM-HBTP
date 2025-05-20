@@ -1,0 +1,55 @@
+selector
+    sequence
+        cond IsClean(dishbowl)
+        cond IsOpen(box)
+        cond IsIn(wineglass,box)
+    sequence
+        cond IsOpen(box)
+        selector
+            sequence
+                cond IsIn(wineglass,box)
+                selector
+                    selector
+                        sequence
+                            cond IsHoldingCleaningTool(self)
+                            selector
+                                sequence
+                                    cond IsNear(self,dishbowl)
+                                    act Wipe(dishbowl)
+                                sequence
+                                    cond IsStanding(self)
+                                    act Walk(dishbowl)
+                        sequence
+                            cond IsNear(self,rag)
+                            cond IsRightHandEmpty(self)
+                            cond IsStanding(self)
+                            act RightGrab(rag)
+                    sequence
+                        cond IsRightHandEmpty(self)
+                        cond IsStanding(self)
+                        act Walk(rag)
+            sequence
+                cond IsRightHolding(self,wineglass)
+                cond IsNear(self,box)
+                cond IsStanding(self)
+                act RightPutIn(wineglass,box)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsStanding(self)
+        cond IsClose(box)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,wineglass)
+                    selector
+                        sequence
+                            cond IsNear(self,box)
+                            act Open(box)
+                        act Walk(box)
+                sequence
+                    cond IsNear(self,wineglass)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(wineglass)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(wineglass)

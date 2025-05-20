@@ -1,0 +1,83 @@
+selector
+    sequence
+        cond IsOn(chicken,nightstand)
+        cond IsSwitchedOn(coffeemaker)
+        cond IsIn(chips,microwave)
+    sequence
+        cond IsSwitchedOn(coffeemaker)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(chicken,nightstand)
+                            selector
+                                selector
+                                    sequence
+                                        cond IsRightHolding(self,chips)
+                                        selector
+                                            sequence
+                                                cond IsNear(self,microwave)
+                                                selector
+                                                    sequence
+                                                        cond IsOpen(microwave)
+                                                        act RightPutIn(chips,microwave)
+                                                    sequence
+                                                        cond IsClose(microwave)
+                                                        cond IsLeftHandEmpty(self)
+                                                        act Open(microwave)
+                                            sequence
+                                                cond IsClose(microwave)
+                                                cond IsLeftHandEmpty(self)
+                                                cond IsStanding(self)
+                                                act Walk(microwave)
+                                    sequence
+                                        cond IsNear(self,chips)
+                                        cond IsRightHandEmpty(self)
+                                        cond IsLeftHandEmpty(self)
+                                        cond IsClose(microwave)
+                                        cond IsStanding(self)
+                                        act RightGrab(chips)
+                                sequence
+                                    cond IsLeftHandEmpty(self)
+                                    cond IsClose(microwave)
+                                    cond IsRightHandEmpty(self)
+                                    cond IsStanding(self)
+                                    act Walk(chips)
+                        sequence
+                            cond IsNear(self,nightstand)
+                            cond IsRightHolding(self,chicken)
+                            cond IsLeftHandEmpty(self)
+                            cond IsClose(microwave)
+                            cond IsStanding(self)
+                            act RightPut(chicken,nightstand)
+                    sequence
+                        cond IsRightHolding(self,chicken)
+                        cond IsClose(microwave)
+                        cond IsLeftHandEmpty(self)
+                        cond IsStanding(self)
+                        act Walk(nightstand)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,chicken)
+                    cond IsLeftHandEmpty(self)
+                    cond IsClose(microwave)
+                    cond IsStanding(self)
+                    act RightGrab(chicken)
+            sequence
+                cond IsLeftHandEmpty(self)
+                cond IsClose(microwave)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(chicken)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsSwitchedOff(coffeemaker)
+        cond IsLeftHandEmpty(self)
+        cond IsClose(microwave)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,coffeemaker)
+                act SwitchOn(coffeemaker)
+            act Walk(coffeemaker)

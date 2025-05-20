@@ -1,0 +1,19 @@
+selector
+    cond IsOn(waterglass,desk)
+    sequence
+        cond IsRightHolding(self,waterglass)
+        selector
+            sequence
+                cond IsNear(self,desk)
+                act RightPut(waterglass,desk)
+            sequence
+                cond IsStanding(self)
+                act Walk(desk)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,waterglass)
+                act RightGrab(waterglass)
+            act Walk(waterglass)

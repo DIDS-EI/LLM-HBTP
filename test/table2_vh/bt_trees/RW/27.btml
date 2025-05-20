@@ -1,0 +1,5 @@
+selector
+    cond IsClean(Table1)
+    sequence
+        cond Holding(Nothing)
+        act Clean(Table1)

@@ -1,0 +1,44 @@
+selector
+    sequence
+        cond IsOn(chicken,kitchentable)
+        cond IsOn(cupcake,kitchentable)
+    sequence
+        cond IsOn(cupcake,kitchentable)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,chicken)
+                    selector
+                        sequence
+                            cond IsNear(self,kitchentable)
+                            act RightPut(chicken,kitchentable)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(kitchentable)
+                sequence
+                    cond IsNear(self,chicken)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(chicken)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(chicken)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,cupcake)
+                    selector
+                        sequence
+                            cond IsNear(self,kitchentable)
+                            act RightPut(cupcake,kitchentable)
+                        act Walk(kitchentable)
+                sequence
+                    cond IsNear(self,cupcake)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(cupcake)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(cupcake)

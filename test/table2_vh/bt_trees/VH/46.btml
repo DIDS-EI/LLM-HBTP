@@ -1,0 +1,19 @@
+selector
+    cond IsOn(cutlets,desk)
+    sequence
+        cond IsRightHolding(self,cutlets)
+        selector
+            sequence
+                cond IsNear(self,desk)
+                act RightPut(cutlets,desk)
+            sequence
+                cond IsStanding(self)
+                act Walk(desk)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,cutlets)
+                act RightGrab(cutlets)
+            act Walk(cutlets)

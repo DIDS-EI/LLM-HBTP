@@ -1,0 +1,61 @@
+
+
+[Condition]
+IsNear_self_<all>, IsOn_<item>_<place>, IsIn_<item>_<containers>, IsOpen_<containers>, IsClose_<containers>,
+IsSwitchedOn_<appliances>, IsSwitchedOff_<appliances>
+
+
+[Action]
+Walk_<all>, RightGrab_<item>, LeftGrab_<item>, RightPut_<item>_<place>, LeftPut_<item>_<place>,
+RightPutIn_<item>_<containers>, LeftPutIn_<item>_<containers>, RightGrabFrom_<item>_<containers>, LeftGrabFrom_<item>_<containers>,
+Open_<containers>, Close_<containers>, SwitchOn_<appliances>, SwitchOff_<appliances>
+
+
+[Object]
+<item>=["bananas",'chicken', 'breadslice','chips','chocolatesyrup',
+             'cupcake','milk','juice','wine',
+             'cutleryknife','fryingpan','dishbowl','plate',
+             'book',"waterglass"]
+<place>=["kitchentable","plate","nightstand","desk"]
+<containers>=["fridge","dishwasher","microwave"]
+<appliances>=["tv","faucet","lightswitch","dishwasher","coffeemaker","toaster","microwave",
+                        "tablelamp","computer"]
+<all>=<item>+<place>+<containers>+<appliances>
+
+[Environment]
+"IsSwitchedOff(tv)","IsSwitchedOff(faucet)","IsSwitchedOff(stove)", "IsSwitchedOff(dishwasher)","IsSwitchedOn(lightswitch)","IsSwitchedOn(tablelamp)",
+"IsSwitchedOff(coffeemaker)","IsSwitchedOff(toaster)","IsSwitchedOff(microwave)","IsSwitchedOff(computer)","IsSwitchedOff(radio)","IsClose(fridge)",
+"IsClose(bathroomcabinet)","IsClose(stove)","IsClose(dishwasher)","IsClose(microwave)","IsClose(toilet)","IsRightHandEmpty(self)","IsLeftHandEmpty(self)","IsStanding(self)"
+
+[Examples]
+Instruction: Put the bag of chips on the corner of my desk.
+Goals: IsOn_chips_desk
+Actions: Walk_chips, RightGrab_chips, Walk_desk, RightPut_chips_desk
+
+Instruction: Ensure the coffee maker is powered on to brew your morning cup, and also turn on the TV to catch up with the early news
+Goals: IsSwitchedOn_coffeemaker & IsSwitchedOn_tv
+Actions: Walk_coffeemaker, SwitchOn_coffeemaker, Walk_tv, SwitchOn_tv
+
+Instruction: Spread chocolate syrup on a slice of bread and place it on a plate for a quick snack.
+Goals: IsOn(breadslice,kitchentable) & IsOn_chocolatesyrup_kitchentable & IsOn_juice_kitchentable
+Actions: Walk_chocolatesyrup, RightGrab_chocolatesyrup, Walk_juice, LeftGrab_juice, Walk_kitchentable, LeftPut_juice_kitchentable, Walk_breadslice, LeftGrab_breadslice, Walk_kitchentable, LeftPut_breadslice_kitchentable, RightPut_chocolatesyrup_kitchentable
+
+Instruction: Put the milk in the fridge, and make sure the fridge door is closed.
+Goals: IsIn_milk_fridge & IsClose_fridge
+Actions: Walk_milk, RightGrab_milk, Walk_fridge, Open_fridge, RightPutIn_milk_fridge, Close_fridge
+
+Instruction: Place the chicken in the microwave, and then switch the microwave on to start cooking.
+Goals: IsIn_chicken_microwave & IsClose_microwave & IsSwitchedOn_microwave
+Actions: Walk_chicken, RightGrab_chicken, Walk_microwave, Open_microwave, RightPutIn_chicken_microwave, Close_microwave, SwitchOn_microwave
+
+
+[Prompt]
+[Condition] Lists all predicates representing conditions and their optional parameter sets.
+[Action] Listed all the actions.
+[Object] Lists all parameter sets.
+[Examples] Provide several examples of Instruction to Goal mapping and the list of actions required to complete the task.
+1. Your task involves parsing the given instruction and the goals mapped to the instruction, and compiling a necessary list of actions to accomplish the instruction and achieve the corresponding goals.
+2. Structure your response according to the previously demonstrated format. Begin with 'Actions:' to detail the steps needed for accomplishment.
+3. For listing 'Actions,' separate items with commas without assigning any numerical order.
+4. The current state of some objects and some Conditions are given as [Environment].
+5. Produce directly interpretable predicate logic formulas, omitting any supplementary elucidations.

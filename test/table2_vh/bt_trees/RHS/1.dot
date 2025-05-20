@@ -1,0 +1,31 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"abbb2dd4-a3d0-44eb-8adf-57df9ce925e4" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"9f75fc3c-b1ef-49c2-b0ba-8af5d38bd121" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsOpen(microwave)", shape=ellipse, style=filled];
+"abbb2dd4-a3d0-44eb-8adf-57df9ce925e4" -> "9f75fc3c-b1ef-49c2-b0ba-8af5d38bd121";
+"803630e7-0031-424b-a362-102605accdc2" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"abbb2dd4-a3d0-44eb-8adf-57df9ce925e4" -> "803630e7-0031-424b-a362-102605accdc2";
+"b1ddc6ca-8279-419f-968c-0b1708bea238" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsSwitchedOff(microwave)", shape=ellipse, style=filled];
+"803630e7-0031-424b-a362-102605accdc2" -> "b1ddc6ca-8279-419f-968c-0b1708bea238";
+"627c3a4b-d45a-4e8f-b34a-19c7521ea13e" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsLeftHandEmpty(self)", shape=ellipse, style=filled];
+"803630e7-0031-424b-a362-102605accdc2" -> "627c3a4b-d45a-4e8f-b34a-19c7521ea13e";
+"af599fba-d77b-491d-b910-ef92fdd41a88" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsClose(microwave)", shape=ellipse, style=filled];
+"803630e7-0031-424b-a362-102605accdc2" -> "af599fba-d77b-491d-b910-ef92fdd41a88";
+"4aeff97a-581f-4b52-9174-2d3f7c88fb2d" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"803630e7-0031-424b-a362-102605accdc2" -> "4aeff97a-581f-4b52-9174-2d3f7c88fb2d";
+"5f768c8b-6657-4a67-88d5-c4fba9514dd1" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"4aeff97a-581f-4b52-9174-2d3f7c88fb2d" -> "5f768c8b-6657-4a67-88d5-c4fba9514dd1";
+"23f75a4d-ccf0-4d5b-9b3e-3cee84e6e04c" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsNear(self,microwave)", shape=ellipse, style=filled];
+"5f768c8b-6657-4a67-88d5-c4fba9514dd1" -> "23f75a4d-ccf0-4d5b-9b3e-3cee84e6e04c";
+"94779ed8-d2b1-4c77-be1d-a516d446de56" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Open(microwave)", shape=box, style=filled];
+"5f768c8b-6657-4a67-88d5-c4fba9514dd1" -> "94779ed8-d2b1-4c77-be1d-a516d446de56";
+"fde8025b-7757-4650-97de-e015d71482d4" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"4aeff97a-581f-4b52-9174-2d3f7c88fb2d" -> "fde8025b-7757-4650-97de-e015d71482d4";
+"036640de-87cd-419f-90d1-79fe8fb7422d" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsStanding(self)", shape=ellipse, style=filled];
+"fde8025b-7757-4650-97de-e015d71482d4" -> "036640de-87cd-419f-90d1-79fe8fb7422d";
+"04ab8462-9036-4af5-910f-940cf78dffd2" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Walk(microwave)", shape=box, style=filled];
+"fde8025b-7757-4650-97de-e015d71482d4" -> "04ab8462-9036-4af5-910f-940cf78dffd2";
+}

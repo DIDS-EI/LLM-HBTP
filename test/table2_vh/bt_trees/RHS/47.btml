@@ -1,0 +1,41 @@
+selector
+    sequence
+        cond IsNear(self,plate)
+        cond IsIn(rag,garbagecan)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                selector
+                    selector
+                        selector
+                            sequence
+                                cond IsIn(rag,garbagecan)
+                                act Walk(plate)
+                            sequence
+                                cond IsOpen(garbagecan)
+                                cond IsNear(self,garbagecan)
+                                cond IsRightHolding(self,rag)
+                                act RightPutIn(rag,garbagecan)
+                        sequence
+                            cond IsLeftHandEmpty(self)
+                            cond IsNear(self,garbagecan)
+                            cond IsClose(garbagecan)
+                            cond IsRightHolding(self,rag)
+                            act Open(garbagecan)
+                    sequence
+                        cond IsLeftHandEmpty(self)
+                        cond IsClose(garbagecan)
+                        cond IsRightHolding(self,rag)
+                        act Walk(garbagecan)
+                sequence
+                    cond IsLeftHandEmpty(self)
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,rag)
+                    cond IsClose(garbagecan)
+                    act RightGrab(rag)
+            sequence
+                cond IsLeftHandEmpty(self)
+                cond IsRightHandEmpty(self)
+                cond IsClose(garbagecan)
+                act Walk(rag)

@@ -1,0 +1,15 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"42fe9e8c-5398-44bb-a71c-98d02cd4fbef" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"7fb7ee12-0581-47ec-a9bf-ad8ee1c53591" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="On(Dessert,Bar)", shape=ellipse, style=filled];
+"42fe9e8c-5398-44bb-a71c-98d02cd4fbef" -> "7fb7ee12-0581-47ec-a9bf-ad8ee1c53591";
+"f3ad3a57-ed6a-4672-af99-d6744c354cd9" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"42fe9e8c-5398-44bb-a71c-98d02cd4fbef" -> "f3ad3a57-ed6a-4672-af99-d6744c354cd9";
+"c0d3571a-a130-41c6-a227-aba3243498ce" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="Holding(Nothing)", shape=ellipse, style=filled];
+"f3ad3a57-ed6a-4672-af99-d6744c354cd9" -> "c0d3571a-a130-41c6-a227-aba3243498ce";
+"2664c0f4-acf8-4564-a546-937791f8fe34" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Make(Dessert)", shape=box, style=filled];
+"f3ad3a57-ed6a-4672-af99-d6744c354cd9" -> "2664c0f4-acf8-4564-a546-937791f8fe34";
+}

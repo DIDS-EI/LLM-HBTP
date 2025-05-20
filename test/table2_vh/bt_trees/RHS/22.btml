@@ -1,0 +1,39 @@
+selector
+    sequence
+        cond IsOn(rag,kitchencabinet)
+        cond IsOpen(microwave)
+    sequence
+        cond IsSwitchedOff(microwave)
+        cond IsLeftHandEmpty(self)
+        cond IsClose(microwave)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(rag,kitchencabinet)
+                            selector
+                                sequence
+                                    cond IsNear(self,microwave)
+                                    act Open(microwave)
+                                sequence
+                                    cond IsStanding(self)
+                                    act Walk(microwave)
+                        sequence
+                            cond IsNear(self,kitchencabinet)
+                            cond IsStanding(self)
+                            cond IsRightHolding(self,rag)
+                            act RightPut(rag,kitchencabinet)
+                    sequence
+                        cond IsRightHolding(self,rag)
+                        cond IsStanding(self)
+                        act Walk(kitchencabinet)
+                sequence
+                    cond IsStanding(self)
+                    cond IsNear(self,rag)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(rag)
+            sequence
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Walk(rag)

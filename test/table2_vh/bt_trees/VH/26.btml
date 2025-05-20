@@ -1,0 +1,44 @@
+selector
+    sequence
+        cond IsOn(cutleryknife,cabinet)
+        cond IsOn(plate,kitchentable)
+    sequence
+        cond IsOn(plate,kitchentable)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,cutleryknife)
+                    selector
+                        sequence
+                            cond IsNear(self,cabinet)
+                            act RightPut(cutleryknife,cabinet)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(cabinet)
+                sequence
+                    cond IsNear(self,cutleryknife)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(cutleryknife)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(cutleryknife)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,plate)
+                    selector
+                        sequence
+                            cond IsNear(self,kitchentable)
+                            act RightPut(plate,kitchentable)
+                        act Walk(kitchentable)
+                sequence
+                    cond IsNear(self,plate)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(plate)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(plate)

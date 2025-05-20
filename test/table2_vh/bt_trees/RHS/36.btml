@@ -1,0 +1,20 @@
+selector
+    sequence
+        cond IsNear(self,fridge)
+        cond IsOpen(kitchencabinet)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsOpen(kitchencabinet)
+                    act Walk(fridge)
+                sequence
+                    cond IsNear(self,kitchencabinet)
+                    cond IsLeftHandEmpty(self)
+                    cond IsClose(kitchencabinet)
+                    act Open(kitchencabinet)
+            sequence
+                cond IsLeftHandEmpty(self)
+                cond IsClose(kitchencabinet)
+                act Walk(kitchencabinet)

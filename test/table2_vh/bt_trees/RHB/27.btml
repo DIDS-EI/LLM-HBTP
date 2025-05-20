@@ -1,0 +1,57 @@
+selector
+    sequence
+        cond IsSwitchedOn(stove)
+        cond IsOn(fryingpan,stove)
+        cond IsIn(pancake,fryingpan)
+    sequence
+        cond IsIn(pancake,fryingpan)
+        selector
+            sequence
+                cond IsRightHolding(self,fryingpan)
+                selector
+                    sequence
+                        cond IsNear(self,stove)
+                        selector
+                            sequence
+                                cond IsSwitchedOn(stove)
+                                act RightPut(fryingpan,stove)
+                            sequence
+                                cond IsLeftHandEmpty(self)
+                                cond IsClose(stove)
+                                cond IsSwitchedOff(stove)
+                                act SwitchOn(stove)
+                    sequence
+                        cond IsLeftHandEmpty(self)
+                        cond IsStanding(self)
+                        cond IsClose(stove)
+                        cond IsSwitchedOff(stove)
+                        act Walk(stove)
+            sequence
+                cond IsSwitchedOff(stove)
+                cond IsNear(self,fryingpan)
+                cond IsLeftHandEmpty(self)
+                cond IsClose(stove)
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act RightGrab(fryingpan)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsSwitchedOff(stove)
+        cond IsClose(stove)
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,pancake)
+                    selector
+                        sequence
+                            cond IsNear(self,fryingpan)
+                            act RightPutIn(pancake,fryingpan)
+                        act Walk(fryingpan)
+                sequence
+                    cond IsNear(self,pancake)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(pancake)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(pancake)

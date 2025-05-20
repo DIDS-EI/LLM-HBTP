@@ -1,0 +1,38 @@
+selector
+    sequence
+        cond IsClean(kitchencabinet)
+        cond IsOpen(window)
+    sequence
+        cond IsClose(window)
+        cond IsLeftHandEmpty(self)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsClean(kitchencabinet)
+                            selector
+                                sequence
+                                    cond IsNear(self,window)
+                                    act Open(window)
+                                sequence
+                                    cond IsStanding(self)
+                                    act Walk(window)
+                        sequence
+                            cond IsNear(self,kitchencabinet)
+                            cond IsStanding(self)
+                            cond IsHoldingCleaningTool(self)
+                            act Wipe(kitchencabinet)
+                    sequence
+                        cond IsStanding(self)
+                        cond IsHoldingCleaningTool(self)
+                        act Walk(kitchencabinet)
+                sequence
+                    cond IsStanding(self)
+                    cond IsNear(self,rag)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(rag)
+            sequence
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Walk(rag)

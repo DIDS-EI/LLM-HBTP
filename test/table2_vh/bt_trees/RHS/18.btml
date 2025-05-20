@@ -1,0 +1,36 @@
+selector
+    sequence
+        cond IsPlugged(fridge)
+        cond IsOn(wine,bed)
+    sequence
+        cond IsPlugged(fridge)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,wine)
+                    selector
+                        sequence
+                            cond IsNear(self,bed)
+                            act RightPut(wine,bed)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(bed)
+                sequence
+                    cond IsStanding(self)
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,wine)
+                    act RightGrab(wine)
+            sequence
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Walk(wine)
+    sequence
+        cond IsStanding(self)
+        cond IsUnplugged(fridge)
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,fridge)
+                act PlugIn(fridge)
+            act Walk(fridge)

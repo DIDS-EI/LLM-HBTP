@@ -1,0 +1,39 @@
+selector
+    sequence
+        cond IsOpen(door)
+        cond IsSwitchedOn(washingmachine)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsClose(door)
+        selector
+            selector
+                selector
+                    sequence
+                        cond IsSwitchedOn(washingmachine)
+                        selector
+                            sequence
+                                cond IsNear(self,door)
+                                act Open(door)
+                            sequence
+                                cond IsStanding(self)
+                                act Walk(door)
+                    sequence
+                        cond IsSwitchedOff(washingmachine)
+                        cond IsPlugged(washingmachine)
+                        cond IsNear(self,washingmachine)
+                        cond IsClose(washingmachine)
+                        cond IsStanding(self)
+                        act SwitchOn(washingmachine)
+                sequence
+                    cond IsSwitchedOff(washingmachine)
+                    cond IsNear(self,washingmachine)
+                    cond IsClose(washingmachine)
+                    cond IsStanding(self)
+                    cond IsUnplugged(washingmachine)
+                    act PlugIn(washingmachine)
+            sequence
+                cond IsClose(washingmachine)
+                cond IsStanding(self)
+                cond IsUnplugged(washingmachine)
+                cond IsSwitchedOff(washingmachine)
+                act Walk(washingmachine)

@@ -1,0 +1,29 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"21be7bbf-e0d1-43b6-ace1-7f21a069f2f2" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"c1a287f0-f044-4760-9ca3-6952fdd5e84d" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsPlugged(microwave)", shape=ellipse, style=filled];
+"21be7bbf-e0d1-43b6-ace1-7f21a069f2f2" -> "c1a287f0-f044-4760-9ca3-6952fdd5e84d";
+"f4a5bacd-8d90-4e9c-b443-2019a9f303e7" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"21be7bbf-e0d1-43b6-ace1-7f21a069f2f2" -> "f4a5bacd-8d90-4e9c-b443-2019a9f303e7";
+"3b93fb67-0a8d-4223-8748-92f06d965334" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsLeftHandEmpty(self)", shape=ellipse, style=filled];
+"f4a5bacd-8d90-4e9c-b443-2019a9f303e7" -> "3b93fb67-0a8d-4223-8748-92f06d965334";
+"3b717ea4-826e-4d26-ad80-7cf09a37e53c" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsUnplugged(microwave)", shape=ellipse, style=filled];
+"f4a5bacd-8d90-4e9c-b443-2019a9f303e7" -> "3b717ea4-826e-4d26-ad80-7cf09a37e53c";
+"222aeedf-e9ee-45fd-9d65-de845463c8de" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"f4a5bacd-8d90-4e9c-b443-2019a9f303e7" -> "222aeedf-e9ee-45fd-9d65-de845463c8de";
+"6588e98a-f616-4bfd-b815-862dff622eb3" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"222aeedf-e9ee-45fd-9d65-de845463c8de" -> "6588e98a-f616-4bfd-b815-862dff622eb3";
+"f43fae2e-d32e-486f-b2a2-9901bd8ac5c6" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsNear(self,microwave)", shape=ellipse, style=filled];
+"6588e98a-f616-4bfd-b815-862dff622eb3" -> "f43fae2e-d32e-486f-b2a2-9901bd8ac5c6";
+"3e846303-6010-49e4-bde5-a0eb7e2c7bce" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="PlugIn(microwave)", shape=box, style=filled];
+"6588e98a-f616-4bfd-b815-862dff622eb3" -> "3e846303-6010-49e4-bde5-a0eb7e2c7bce";
+"8340b70d-d589-4f55-9d88-cba7d00bedb3" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"222aeedf-e9ee-45fd-9d65-de845463c8de" -> "8340b70d-d589-4f55-9d88-cba7d00bedb3";
+"8dc56811-32f0-42c9-84a8-91a639444044" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsStanding(self)", shape=ellipse, style=filled];
+"8340b70d-d589-4f55-9d88-cba7d00bedb3" -> "8dc56811-32f0-42c9-84a8-91a639444044";
+"ab66ba01-9ccc-467b-8fc7-c24f90ab3f76" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Walk(microwave)", shape=box, style=filled];
+"8340b70d-d589-4f55-9d88-cba7d00bedb3" -> "ab66ba01-9ccc-467b-8fc7-c24f90ab3f76";
+}

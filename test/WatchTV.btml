@@ -1,0 +1,15 @@
+selector
+    cond IsWatching(self,tv)
+    sequence
+        cond IsSittingOn(self,sofa)
+        act Watch(tv)
+    sequence
+        cond IsNear(self,sofa)
+        act Sit(sofa)
+    sequence
+        cond IsSwitchedOn(tv)
+        act Walk(sofa)
+    sequence
+        cond IsNear(self,tv)
+        act SwitchOn(tv)
+    act Walk(tv)

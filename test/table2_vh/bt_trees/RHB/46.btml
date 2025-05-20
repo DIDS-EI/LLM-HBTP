@@ -1,0 +1,68 @@
+selector
+    sequence
+        cond IsIn(clothespants,clothespile)
+        cond IsClose(clothespile)
+        cond IsIn(clothesshirt,clothespile)
+    sequence
+        cond IsLeftHandEmpty(self)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOpen(clothespile)
+                            selector
+                                sequence
+                                    cond IsIn(clothesshirt,clothespile)
+                                    selector
+                                        selector
+                                            selector
+                                                sequence
+                                                    cond IsNear(self,clothespile)
+                                                    selector
+                                                        sequence
+                                                            cond IsIn(clothespants,clothespile)
+                                                            act Close(clothespile)
+                                                        sequence
+                                                            cond IsRightHolding(self,clothespants)
+                                                            act RightPutIn(clothespants,clothespile)
+                                                sequence
+                                                    cond IsRightHolding(self,clothespants)
+                                                    cond IsStanding(self)
+                                                    act Walk(clothespile)
+                                            sequence
+                                                cond IsRightHandEmpty(self)
+                                                cond IsStanding(self)
+                                                cond IsNear(self,clothespants)
+                                                act RightGrab(clothespants)
+                                        sequence
+                                            cond IsRightHandEmpty(self)
+                                            cond IsStanding(self)
+                                            act Walk(clothespants)
+                                sequence
+                                    cond IsRightHolding(self,clothesshirt)
+                                    cond IsNear(self,clothespile)
+                                    cond IsStanding(self)
+                                    act RightPutIn(clothesshirt,clothespile)
+                        sequence
+                            cond IsRightHolding(self,clothesshirt)
+                            cond IsNear(self,clothespile)
+                            cond IsClose(clothespile)
+                            cond IsStanding(self)
+                            act Open(clothespile)
+                    sequence
+                        cond IsRightHolding(self,clothesshirt)
+                        cond IsClose(clothespile)
+                        cond IsStanding(self)
+                        act Walk(clothespile)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    cond IsClose(clothespile)
+                    cond IsNear(self,clothesshirt)
+                    act RightGrab(clothesshirt)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsClose(clothespile)
+                cond IsStanding(self)
+                act Walk(clothesshirt)

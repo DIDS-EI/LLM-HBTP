@@ -1,0 +1,29 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"a3013527-9b95-42b0-b7f0-370e7031144b" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"ca2cac80-d95b-412b-9aa5-dbcd5e7ebe83" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsOpen(kitchencabinet)", shape=ellipse, style=filled];
+"a3013527-9b95-42b0-b7f0-370e7031144b" -> "ca2cac80-d95b-412b-9aa5-dbcd5e7ebe83";
+"ce8e95f0-3f77-4f79-95e5-7bd69b445b2f" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"a3013527-9b95-42b0-b7f0-370e7031144b" -> "ce8e95f0-3f77-4f79-95e5-7bd69b445b2f";
+"0206f5da-2607-4c0f-bf28-100a4429ec00" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsLeftHandEmpty(self)", shape=ellipse, style=filled];
+"ce8e95f0-3f77-4f79-95e5-7bd69b445b2f" -> "0206f5da-2607-4c0f-bf28-100a4429ec00";
+"9f64859a-abc7-48a5-bd41-5404a5a5f14a" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsClose(kitchencabinet)", shape=ellipse, style=filled];
+"ce8e95f0-3f77-4f79-95e5-7bd69b445b2f" -> "9f64859a-abc7-48a5-bd41-5404a5a5f14a";
+"9d8f7940-3c45-43c5-b415-bf8c08db4148" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"ce8e95f0-3f77-4f79-95e5-7bd69b445b2f" -> "9d8f7940-3c45-43c5-b415-bf8c08db4148";
+"16ba3234-2f67-49fc-aa7f-ae87bddafdb6" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"9d8f7940-3c45-43c5-b415-bf8c08db4148" -> "16ba3234-2f67-49fc-aa7f-ae87bddafdb6";
+"54b1093c-f845-4eaa-a328-9e6a56c1659f" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsNear(self,kitchencabinet)", shape=ellipse, style=filled];
+"16ba3234-2f67-49fc-aa7f-ae87bddafdb6" -> "54b1093c-f845-4eaa-a328-9e6a56c1659f";
+"dd1e0d9b-b9d5-4735-819b-b4ebcc60a475" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Open(kitchencabinet)", shape=box, style=filled];
+"16ba3234-2f67-49fc-aa7f-ae87bddafdb6" -> "dd1e0d9b-b9d5-4735-819b-b4ebcc60a475";
+"ad1cab63-8aa2-454c-b5bf-1fb4fcc2edf0" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"9d8f7940-3c45-43c5-b415-bf8c08db4148" -> "ad1cab63-8aa2-454c-b5bf-1fb4fcc2edf0";
+"a574ad0a-f789-4153-998b-86d9be84ebea" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsStanding(self)", shape=ellipse, style=filled];
+"ad1cab63-8aa2-454c-b5bf-1fb4fcc2edf0" -> "a574ad0a-f789-4153-998b-86d9be84ebea";
+"bd0d431b-eca3-4181-893c-d83ade94b37c" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Walk(kitchencabinet)", shape=box, style=filled];
+"ad1cab63-8aa2-454c-b5bf-1fb4fcc2edf0" -> "bd0d431b-eca3-4181-893c-d83ade94b37c";
+}

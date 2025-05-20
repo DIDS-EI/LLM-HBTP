@@ -1,0 +1,29 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"0005e6e3-762b-4eb2-a8cc-6fb7df7e075b" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"1cf3cd97-a641-4672-90ad-382cd2457db2" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsPlugged(tv)", shape=ellipse, style=filled];
+"0005e6e3-762b-4eb2-a8cc-6fb7df7e075b" -> "1cf3cd97-a641-4672-90ad-382cd2457db2";
+"f478d047-ae5f-4f3a-a2d0-22818f771f30" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"0005e6e3-762b-4eb2-a8cc-6fb7df7e075b" -> "f478d047-ae5f-4f3a-a2d0-22818f771f30";
+"747ece57-8b6c-40ac-8061-02c8f41aeeed" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsLeftHandEmpty(self)", shape=ellipse, style=filled];
+"f478d047-ae5f-4f3a-a2d0-22818f771f30" -> "747ece57-8b6c-40ac-8061-02c8f41aeeed";
+"070bd3f5-444f-43f8-918b-3903b7d27245" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsUnplugged(tv)", shape=ellipse, style=filled];
+"f478d047-ae5f-4f3a-a2d0-22818f771f30" -> "070bd3f5-444f-43f8-918b-3903b7d27245";
+"948ef6dd-c582-49c7-8c6f-71efcce82577" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"f478d047-ae5f-4f3a-a2d0-22818f771f30" -> "948ef6dd-c582-49c7-8c6f-71efcce82577";
+"8f2f7e7e-9764-41ee-bd0c-8ffc811ccefe" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"948ef6dd-c582-49c7-8c6f-71efcce82577" -> "8f2f7e7e-9764-41ee-bd0c-8ffc811ccefe";
+"bc76ec90-554f-4b74-aa62-bb83ea7dfee3" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsNear(self,tv)", shape=ellipse, style=filled];
+"8f2f7e7e-9764-41ee-bd0c-8ffc811ccefe" -> "bc76ec90-554f-4b74-aa62-bb83ea7dfee3";
+"b90070bb-c606-4512-af24-bae79f1504f3" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="PlugIn(tv)", shape=box, style=filled];
+"8f2f7e7e-9764-41ee-bd0c-8ffc811ccefe" -> "b90070bb-c606-4512-af24-bae79f1504f3";
+"e842c244-c1a3-4238-8dce-591bf12ee80f" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"948ef6dd-c582-49c7-8c6f-71efcce82577" -> "e842c244-c1a3-4238-8dce-591bf12ee80f";
+"0f0876f4-724c-437b-8d6b-1f7f3a4ca9c9" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsStanding(self)", shape=ellipse, style=filled];
+"e842c244-c1a3-4238-8dce-591bf12ee80f" -> "0f0876f4-724c-437b-8d6b-1f7f3a4ca9c9";
+"492a3bb1-5094-489f-b8b2-0f0172977e1c" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Walk(tv)", shape=box, style=filled];
+"e842c244-c1a3-4238-8dce-591bf12ee80f" -> "492a3bb1-5094-489f-b8b2-0f0172977e1c";
+}

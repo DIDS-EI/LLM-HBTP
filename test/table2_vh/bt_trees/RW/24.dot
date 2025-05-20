@@ -1,0 +1,15 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"ae94e1b5-7c58-47a8-8ef6-1938ddda3cfa" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"1ed51056-2861-4ff5-8c9e-ef8712adf020" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="Activate(TubeLight)", shape=ellipse, style=filled];
+"ae94e1b5-7c58-47a8-8ef6-1938ddda3cfa" -> "1ed51056-2861-4ff5-8c9e-ef8712adf020";
+"d42684c7-fc57-4afd-95cb-c12916201d2e" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"ae94e1b5-7c58-47a8-8ef6-1938ddda3cfa" -> "d42684c7-fc57-4afd-95cb-c12916201d2e";
+"b5e73c02-6cec-497f-ad3f-4b3a8f59240f" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="Holding(Nothing)", shape=ellipse, style=filled];
+"d42684c7-fc57-4afd-95cb-c12916201d2e" -> "b5e73c02-6cec-497f-ad3f-4b3a8f59240f";
+"430c9430-52e9-482e-9141-8a48c0f5dcb7" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Turn(TubeLight,On)", shape=box, style=filled];
+"d42684c7-fc57-4afd-95cb-c12916201d2e" -> "430c9430-52e9-482e-9141-8a48c0f5dcb7";
+}

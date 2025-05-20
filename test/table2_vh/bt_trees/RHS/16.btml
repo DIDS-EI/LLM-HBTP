@@ -1,0 +1,12 @@
+selector
+    cond IsPlugged(microwave)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsUnplugged(microwave)
+        selector
+            sequence
+                cond IsNear(self,microwave)
+                act PlugIn(microwave)
+            sequence
+                cond IsStanding(self)
+                act Walk(microwave)

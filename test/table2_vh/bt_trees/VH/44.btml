@@ -1,0 +1,36 @@
+selector
+    sequence
+        cond IsSwitchedOn(tablelamp)
+        cond IsOn(fryingpan,stove)
+    sequence
+        cond IsSwitchedOn(tablelamp)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,fryingpan)
+                    selector
+                        sequence
+                            cond IsNear(self,stove)
+                            act RightPut(fryingpan,stove)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(stove)
+                sequence
+                    cond IsNear(self,fryingpan)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(fryingpan)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(fryingpan)
+    sequence
+        cond IsSwitchedOff(tablelamp)
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,tablelamp)
+                act SwitchOn(tablelamp)
+            act Walk(tablelamp)

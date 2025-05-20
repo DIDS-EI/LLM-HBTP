@@ -1,0 +1,12 @@
+selector
+    cond IsSwitchedOn(candle)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsSwitchedOff(candle)
+        selector
+            sequence
+                cond IsNear(self,candle)
+                act SwitchOn(candle)
+            sequence
+                cond IsStanding(self)
+                act Walk(candle)

@@ -1,0 +1,12 @@
+selector
+    cond IsSwitchedOn(computer)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsSwitchedOff(computer)
+        selector
+            sequence
+                cond IsNear(self,computer)
+                act SwitchOn(computer)
+            sequence
+                cond IsStanding(self)
+                act Walk(computer)

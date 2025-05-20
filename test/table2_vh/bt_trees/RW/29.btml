@@ -1,0 +1,18 @@
+selector
+    cond On(MilkDrink,BrightTable6)
+    sequence
+        cond Holding(MilkDrink)
+        selector
+            sequence
+                cond RobotNear(BrightTable6)
+                act PutDown(MilkDrink,BrightTable6)
+            act MoveTo(BrightTable6)
+    sequence
+        cond Holding(Nothing)
+        selector
+            sequence
+                cond RobotNear(MilkDrink)
+                act PickUp(MilkDrink)
+            sequence
+                cond Exists(MilkDrink)
+                act MoveTo(MilkDrink)

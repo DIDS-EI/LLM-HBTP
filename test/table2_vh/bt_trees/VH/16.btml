@@ -1,0 +1,19 @@
+selector
+    cond IsOn(chicken,nightstand)
+    sequence
+        cond IsRightHolding(self,chicken)
+        selector
+            sequence
+                cond IsNear(self,nightstand)
+                act RightPut(chicken,nightstand)
+            sequence
+                cond IsStanding(self)
+                act Walk(nightstand)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,chicken)
+                act RightGrab(chicken)
+            act Walk(chicken)

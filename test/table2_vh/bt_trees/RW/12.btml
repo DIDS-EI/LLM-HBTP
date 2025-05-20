@@ -1,0 +1,5 @@
+selector
+    cond IsClean(Floor)
+    sequence
+        cond Holding(Nothing)
+        act Clean(Floor)

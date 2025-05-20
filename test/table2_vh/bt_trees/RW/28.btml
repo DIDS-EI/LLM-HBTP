@@ -1,0 +1,5 @@
+selector
+    cond Active(TubeLight)
+    sequence
+        cond Holding(Nothing)
+        act Turn(TubeLight,On)

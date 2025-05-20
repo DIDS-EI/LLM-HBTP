@@ -1,0 +1,12 @@
+selector
+    cond IsSwitchedOn(tablelamp)
+    sequence
+        cond IsSwitchedOff(tablelamp)
+        cond IsLeftHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,tablelamp)
+                act SwitchOn(tablelamp)
+            sequence
+                cond IsStanding(self)
+                act Walk(tablelamp)

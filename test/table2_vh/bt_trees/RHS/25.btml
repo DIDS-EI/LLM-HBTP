@@ -1,0 +1,54 @@
+selector
+    sequence
+        cond IsIn(apple,garbagecan)
+        cond IsIn(wine,garbagecan)
+    sequence
+        cond IsOpen(garbagecan)
+        selector
+            sequence
+                cond IsIn(wine,garbagecan)
+                selector
+                    selector
+                        sequence
+                            cond IsRightHolding(self,apple)
+                            selector
+                                sequence
+                                    cond IsNear(self,garbagecan)
+                                    act RightPutIn(apple,garbagecan)
+                                sequence
+                                    cond IsStanding(self)
+                                    act Walk(garbagecan)
+                        sequence
+                            cond IsStanding(self)
+                            cond IsRightHandEmpty(self)
+                            cond IsNear(self,apple)
+                            act RightGrab(apple)
+                    sequence
+                        cond IsRightHandEmpty(self)
+                        cond IsStanding(self)
+                        act Walk(apple)
+            sequence
+                cond IsRightHolding(self,wine)
+                cond IsNear(self,garbagecan)
+                cond IsStanding(self)
+                act RightPutIn(wine,garbagecan)
+    sequence
+        cond IsClose(garbagecan)
+        cond IsLeftHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,wine)
+                    selector
+                        sequence
+                            cond IsNear(self,garbagecan)
+                            act Open(garbagecan)
+                        act Walk(garbagecan)
+                sequence
+                    cond IsNear(self,wine)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(wine)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(wine)

@@ -1,0 +1,54 @@
+selector
+    sequence
+        cond IsIn(milk,fridge)
+        cond IsIn(chicken,fridge)
+    sequence
+        cond IsOpen(fridge)
+        selector
+            sequence
+                cond IsIn(milk,fridge)
+                selector
+                    selector
+                        sequence
+                            cond IsRightHolding(self,chicken)
+                            selector
+                                sequence
+                                    cond IsNear(self,fridge)
+                                    act RightPutIn(chicken,fridge)
+                                sequence
+                                    cond IsStanding(self)
+                                    act Walk(fridge)
+                        sequence
+                            cond IsNear(self,chicken)
+                            cond IsRightHandEmpty(self)
+                            cond IsStanding(self)
+                            act RightGrab(chicken)
+                    sequence
+                        cond IsRightHandEmpty(self)
+                        cond IsStanding(self)
+                        act Walk(chicken)
+            sequence
+                cond IsRightHolding(self,milk)
+                cond IsNear(self,fridge)
+                cond IsStanding(self)
+                act RightPutIn(milk,fridge)
+    sequence
+        cond IsClose(fridge)
+        cond IsLeftHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,milk)
+                    selector
+                        sequence
+                            cond IsNear(self,fridge)
+                            act Open(fridge)
+                        act Walk(fridge)
+                sequence
+                    cond IsNear(self,milk)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(milk)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(milk)

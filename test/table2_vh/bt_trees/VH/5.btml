@@ -1,0 +1,44 @@
+selector
+    sequence
+        cond IsOn(book,nightstand)
+        cond IsOn(cupcake,nightstand)
+    sequence
+        cond IsOn(book,nightstand)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,cupcake)
+                    selector
+                        sequence
+                            cond IsNear(self,nightstand)
+                            act RightPut(cupcake,nightstand)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(nightstand)
+                sequence
+                    cond IsNear(self,cupcake)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(cupcake)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(cupcake)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,book)
+                    selector
+                        sequence
+                            cond IsNear(self,nightstand)
+                            act RightPut(book,nightstand)
+                        act Walk(nightstand)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,book)
+                    act RightGrab(book)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(book)

@@ -1,0 +1,38 @@
+selector
+    sequence
+        cond IsOn(apple,bed)
+        cond IsOpen(kitchencabinet)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsClose(kitchencabinet)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(apple,bed)
+                            selector
+                                sequence
+                                    cond IsNear(self,kitchencabinet)
+                                    act Open(kitchencabinet)
+                                sequence
+                                    cond IsStanding(self)
+                                    act Walk(kitchencabinet)
+                        sequence
+                            cond IsStanding(self)
+                            cond IsNear(self,bed)
+                            cond IsRightHolding(self,apple)
+                            act RightPut(apple,bed)
+                    sequence
+                        cond IsStanding(self)
+                        cond IsRightHolding(self,apple)
+                        act Walk(bed)
+                sequence
+                    cond IsStanding(self)
+                    cond IsNear(self,apple)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(apple)
+            sequence
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Walk(apple)

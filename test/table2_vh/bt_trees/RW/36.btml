@@ -1,0 +1,18 @@
+selector
+    cond On(Yogurt,Table3)
+    sequence
+        cond Holding(Yogurt)
+        selector
+            sequence
+                cond RobotNear(Table3)
+                act PutDown(Yogurt,Table3)
+            act MoveTo(Table3)
+    sequence
+        cond Holding(Nothing)
+        selector
+            sequence
+                cond RobotNear(Yogurt)
+                act PickUp(Yogurt)
+            sequence
+                cond Exists(Yogurt)
+                act MoveTo(Yogurt)

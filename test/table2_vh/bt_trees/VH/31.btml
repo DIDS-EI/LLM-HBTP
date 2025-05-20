@@ -1,0 +1,39 @@
+selector
+    sequence
+        cond IsIn(waterglass,microwave)
+        cond IsSwitchedOff(computer)
+    sequence
+        cond IsSwitchedOff(computer)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,waterglass)
+                    selector
+                        sequence
+                            cond IsNear(self,microwave)
+                            selector
+                                sequence
+                                    cond IsOpen(microwave)
+                                    act RightPutIn(waterglass,microwave)
+                                sequence
+                                    cond IsClose(microwave)
+                                    cond IsLeftHandEmpty(self)
+                                    act Open(microwave)
+                        sequence
+                            cond IsClose(microwave)
+                            cond IsLeftHandEmpty(self)
+                            cond IsStanding(self)
+                            act Walk(microwave)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsLeftHandEmpty(self)
+                    cond IsNear(self,waterglass)
+                    cond IsClose(microwave)
+                    cond IsStanding(self)
+                    act RightGrab(waterglass)
+            sequence
+                cond IsLeftHandEmpty(self)
+                cond IsClose(microwave)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(waterglass)

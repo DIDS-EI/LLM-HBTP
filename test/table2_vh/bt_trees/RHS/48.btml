@@ -1,0 +1,59 @@
+selector
+    sequence
+        cond IsOn(wine,bed)
+        cond IsClean(cutlets)
+    sequence
+        cond IsOn(wine,bed)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,cutlets)
+                    selector
+                        sequence
+                            cond IsNear(self,faucet)
+                            selector
+                                sequence
+                                    cond IsSwitchedOn(faucet)
+                                    act Wash(cutlets)
+                                sequence
+                                    cond IsLeftHandEmpty(self)
+                                    cond IsSwitchedOff(faucet)
+                                    act SwitchOn(faucet)
+                        sequence
+                            cond IsStanding(self)
+                            cond IsLeftHandEmpty(self)
+                            cond IsSwitchedOff(faucet)
+                            act Walk(faucet)
+                sequence
+                    cond IsNear(self,cutlets)
+                    cond IsLeftHandEmpty(self)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    cond IsSwitchedOff(faucet)
+                    act RightGrab(cutlets)
+            sequence
+                cond IsSwitchedOff(faucet)
+                cond IsStanding(self)
+                cond IsLeftHandEmpty(self)
+                cond IsRightHandEmpty(self)
+                act Walk(cutlets)
+    sequence
+        cond IsStanding(self)
+        cond IsLeftHandEmpty(self)
+        cond IsSwitchedOff(faucet)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,wine)
+                    selector
+                        sequence
+                            cond IsNear(self,bed)
+                            act RightPut(wine,bed)
+                        act Walk(bed)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,wine)
+                    act RightGrab(wine)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(wine)

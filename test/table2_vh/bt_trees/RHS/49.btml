@@ -1,0 +1,49 @@
+selector
+    sequence
+        cond IsSwitchedOn(faucet)
+        cond IsIn(cutlets,garbagecan)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsSwitchedOff(faucet)
+        selector
+            selector
+                selector
+                    selector
+                        selector
+                            sequence
+                                cond IsIn(cutlets,garbagecan)
+                                selector
+                                    sequence
+                                        cond IsNear(self,faucet)
+                                        act SwitchOn(faucet)
+                                    sequence
+                                        cond IsStanding(self)
+                                        act Walk(faucet)
+                            sequence
+                                cond IsOpen(garbagecan)
+                                cond IsRightHolding(self,cutlets)
+                                cond IsStanding(self)
+                                cond IsNear(self,garbagecan)
+                                act RightPutIn(cutlets,garbagecan)
+                        sequence
+                            cond IsRightHolding(self,cutlets)
+                            cond IsStanding(self)
+                            cond IsClose(garbagecan)
+                            cond IsNear(self,garbagecan)
+                            act Open(garbagecan)
+                    sequence
+                        cond IsStanding(self)
+                        cond IsClose(garbagecan)
+                        cond IsRightHolding(self,cutlets)
+                        act Walk(garbagecan)
+                sequence
+                    cond IsClose(garbagecan)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    cond IsNear(self,cutlets)
+                    act RightGrab(cutlets)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                cond IsClose(garbagecan)
+                act Walk(cutlets)

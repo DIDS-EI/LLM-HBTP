@@ -1,0 +1,69 @@
+selector
+    sequence
+        cond IsOn(facecream,bathroomcounter)
+        cond IsOn(carrot,cuttingboard)
+        cond IsOn(barsoap,bathroomcounter)
+    sequence
+        cond IsOn(facecream,bathroomcounter)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(carrot,cuttingboard)
+                            selector
+                                selector
+                                    sequence
+                                        cond IsRightHolding(self,barsoap)
+                                        selector
+                                            sequence
+                                                cond IsNear(self,bathroomcounter)
+                                                act RightPut(barsoap,bathroomcounter)
+                                            sequence
+                                                cond IsStanding(self)
+                                                act Walk(bathroomcounter)
+                                    sequence
+                                        cond IsNear(self,barsoap)
+                                        cond IsRightHandEmpty(self)
+                                        cond IsStanding(self)
+                                        act RightGrab(barsoap)
+                                sequence
+                                    cond IsRightHandEmpty(self)
+                                    cond IsStanding(self)
+                                    act Walk(barsoap)
+                        sequence
+                            cond IsNear(self,cuttingboard)
+                            cond IsStanding(self)
+                            cond IsRightHolding(self,carrot)
+                            act RightPut(carrot,cuttingboard)
+                    sequence
+                        cond IsStanding(self)
+                        cond IsRightHolding(self,carrot)
+                        act Walk(cuttingboard)
+                sequence
+                    cond IsNear(self,carrot)
+                    cond IsStanding(self)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(carrot)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(carrot)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,facecream)
+                    selector
+                        sequence
+                            cond IsNear(self,bathroomcounter)
+                            act RightPut(facecream,bathroomcounter)
+                        act Walk(bathroomcounter)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,facecream)
+                    act RightGrab(facecream)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(facecream)

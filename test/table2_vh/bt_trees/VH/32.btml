@@ -1,0 +1,44 @@
+selector
+    sequence
+        cond IsOn(wine,cabinet)
+        cond IsOn(milk,kitchentable)
+    sequence
+        cond IsOn(milk,kitchentable)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,wine)
+                    selector
+                        sequence
+                            cond IsNear(self,cabinet)
+                            act RightPut(wine,cabinet)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(cabinet)
+                sequence
+                    cond IsNear(self,wine)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(wine)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(wine)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,milk)
+                    selector
+                        sequence
+                            cond IsNear(self,kitchentable)
+                            act RightPut(milk,kitchentable)
+                        act Walk(kitchentable)
+                sequence
+                    cond IsNear(self,milk)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(milk)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(milk)

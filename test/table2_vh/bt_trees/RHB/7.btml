@@ -1,0 +1,125 @@
+selector
+    sequence
+        cond IsIn(dishbowl,dishwasher)
+        cond IsIn(milk,fridge)
+        cond IsSwitchedOn(dishwasher)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsSwitchedOff(dishwasher)
+        selector
+            selector
+                selector
+                    selector
+                        selector
+                            selector
+                                sequence
+                                    cond IsIn(milk,fridge)
+                                    selector
+                                        selector
+                                            selector
+                                                sequence
+                                                    cond IsNear(self,dishwasher)
+                                                    selector
+                                                        selector
+                                                            sequence
+                                                                cond IsPlugged(dishwasher)
+                                                                selector
+                                                                    sequence
+                                                                        cond IsIn(dishbowl,dishwasher)
+                                                                        selector
+                                                                            sequence
+                                                                                cond IsClose(dishwasher)
+                                                                                act SwitchOn(dishwasher)
+                                                                            sequence
+                                                                                cond IsOpen(dishwasher)
+                                                                                act Close(dishwasher)
+                                                                    sequence
+                                                                        cond IsRightHolding(self,dishbowl)
+                                                                        cond IsOpen(dishwasher)
+                                                                        act RightPutIn(dishbowl,dishwasher)
+                                                            sequence
+                                                                cond IsRightHolding(self,dishbowl)
+                                                                cond IsUnplugged(dishwasher)
+                                                                cond IsOpen(dishwasher)
+                                                                act PlugIn(dishwasher)
+                                                        sequence
+                                                            cond IsRightHolding(self,dishbowl)
+                                                            cond IsClose(dishwasher)
+                                                            cond IsUnplugged(dishwasher)
+                                                            act Open(dishwasher)
+                                                sequence
+                                                    cond IsRightHolding(self,dishbowl)
+                                                    cond IsClose(dishwasher)
+                                                    cond IsStanding(self)
+                                                    cond IsUnplugged(dishwasher)
+                                                    act Walk(dishwasher)
+                                            sequence
+                                                cond IsNear(self,dishbowl)
+                                                cond IsClose(dishwasher)
+                                                cond IsUnplugged(dishwasher)
+                                                cond IsRightHandEmpty(self)
+                                                cond IsStanding(self)
+                                                act RightGrab(dishbowl)
+                                        sequence
+                                            cond IsClose(dishwasher)
+                                            cond IsRightHandEmpty(self)
+                                            cond IsStanding(self)
+                                            cond IsUnplugged(dishwasher)
+                                            act Walk(dishbowl)
+                                sequence
+                                    cond IsRightHolding(self,milk)
+                                    cond IsPlugged(fridge)
+                                    cond IsOpen(fridge)
+                                    cond IsClose(dishwasher)
+                                    cond IsUnplugged(dishwasher)
+                                    cond IsNear(self,fridge)
+                                    cond IsStanding(self)
+                                    act RightPutIn(milk,fridge)
+                            sequence
+                                cond IsSwitchedOff(fridge)
+                                cond IsClose(fridge)
+                                cond IsRightHolding(self,milk)
+                                cond IsPlugged(fridge)
+                                cond IsClose(dishwasher)
+                                cond IsUnplugged(dishwasher)
+                                cond IsNear(self,fridge)
+                                cond IsStanding(self)
+                                act Open(fridge)
+                        sequence
+                            cond IsUnplugged(fridge)
+                            cond IsSwitchedOff(fridge)
+                            cond IsClose(fridge)
+                            cond IsRightHolding(self,milk)
+                            cond IsClose(dishwasher)
+                            cond IsUnplugged(dishwasher)
+                            cond IsNear(self,fridge)
+                            cond IsStanding(self)
+                            act PlugIn(fridge)
+                    sequence
+                        cond IsUnplugged(fridge)
+                        cond IsSwitchedOff(fridge)
+                        cond IsClose(fridge)
+                        cond IsRightHolding(self,milk)
+                        cond IsClose(dishwasher)
+                        cond IsUnplugged(dishwasher)
+                        cond IsStanding(self)
+                        act Walk(fridge)
+                sequence
+                    cond IsUnplugged(fridge)
+                    cond IsSwitchedOff(fridge)
+                    cond IsClose(fridge)
+                    cond IsClose(dishwasher)
+                    cond IsUnplugged(dishwasher)
+                    cond IsNear(self,milk)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(milk)
+            sequence
+                cond IsUnplugged(fridge)
+                cond IsSwitchedOff(fridge)
+                cond IsClose(fridge)
+                cond IsClose(dishwasher)
+                cond IsUnplugged(dishwasher)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(milk)

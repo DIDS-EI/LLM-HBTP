@@ -1,0 +1,44 @@
+selector
+    sequence
+        cond IsOn(waterglass,kitchentable)
+        cond IsOn(fryingpan,stove)
+    sequence
+        cond IsOn(fryingpan,stove)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,waterglass)
+                    selector
+                        sequence
+                            cond IsNear(self,kitchentable)
+                            act RightPut(waterglass,kitchentable)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(kitchentable)
+                sequence
+                    cond IsNear(self,waterglass)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(waterglass)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(waterglass)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,fryingpan)
+                    selector
+                        sequence
+                            cond IsNear(self,stove)
+                            act RightPut(fryingpan,stove)
+                        act Walk(stove)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,fryingpan)
+                    act RightGrab(fryingpan)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(fryingpan)

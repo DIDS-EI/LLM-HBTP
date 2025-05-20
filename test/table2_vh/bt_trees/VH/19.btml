@@ -1,0 +1,26 @@
+selector
+    sequence
+        cond IsOn(book,desk)
+        cond IsSwitchedOff(computer)
+    sequence
+        cond IsSwitchedOff(computer)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,book)
+                    selector
+                        sequence
+                            cond IsNear(self,desk)
+                            act RightPut(book,desk)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(desk)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,book)
+                    cond IsStanding(self)
+                    act RightGrab(book)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(book)

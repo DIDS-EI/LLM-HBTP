@@ -1,0 +1,19 @@
+selector
+    cond IsOn(apple,kitchencabinet)
+    sequence
+        cond IsRightHolding(self,apple)
+        selector
+            sequence
+                cond IsNear(self,kitchencabinet)
+                act RightPut(apple,kitchencabinet)
+            sequence
+                cond IsStanding(self)
+                act Walk(kitchencabinet)
+    sequence
+        cond IsStanding(self)
+        cond IsRightHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,apple)
+                act RightGrab(apple)
+            act Walk(apple)

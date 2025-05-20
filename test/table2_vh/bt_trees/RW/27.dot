@@ -1,0 +1,15 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"e3f65e12-35b6-4f89-8478-77c1a304c69a" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"7a9049ce-17d7-47c1-b2f8-aaa14d6ef984" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsClean(Table1)", shape=ellipse, style=filled];
+"e3f65e12-35b6-4f89-8478-77c1a304c69a" -> "7a9049ce-17d7-47c1-b2f8-aaa14d6ef984";
+"9d3df990-80e1-4829-a5a4-dbcd99a42334" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"e3f65e12-35b6-4f89-8478-77c1a304c69a" -> "9d3df990-80e1-4829-a5a4-dbcd99a42334";
+"67fcb992-328c-42e7-832c-7e5827e639be" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="Holding(Nothing)", shape=ellipse, style=filled];
+"9d3df990-80e1-4829-a5a4-dbcd99a42334" -> "67fcb992-328c-42e7-832c-7e5827e639be";
+"e43be169-2c15-46c5-873d-9df461bd5fc3" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Clean(Table1)", shape=box, style=filled];
+"9d3df990-80e1-4829-a5a4-dbcd99a42334" -> "e43be169-2c15-46c5-873d-9df461bd5fc3";
+}

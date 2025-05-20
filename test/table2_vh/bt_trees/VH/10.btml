@@ -1,0 +1,12 @@
+selector
+    cond IsSwitchedOn(lightswitch)
+    sequence
+        cond IsSwitchedOff(lightswitch)
+        cond IsLeftHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,lightswitch)
+                act SwitchOn(lightswitch)
+            sequence
+                cond IsStanding(self)
+                act Walk(lightswitch)

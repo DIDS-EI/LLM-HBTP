@@ -1,0 +1,99 @@
+selector
+    sequence
+        cond IsClean(clothespants)
+        cond IsCut(pie)
+    sequence
+        cond IsCut(pie)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsHoldingCleaningTool(self)
+                            selector
+                                sequence
+                                    cond IsNear(self,clothespants)
+                                    act Wipe(clothespants)
+                                sequence
+                                    cond IsStanding(self)
+                                    act Walk(clothespants)
+                        sequence
+                            cond IsLeftHandEmpty(self)
+                            cond IsNear(self,rag)
+                            cond IsStanding(self)
+                            act LeftGrab(rag)
+                    sequence
+                        cond IsLeftHandEmpty(self)
+                        cond IsStanding(self)
+                        act Walk(rag)
+                sequence
+                    cond IsStanding(self)
+                    cond IsLeftHolding(self,pie)
+                    cond IsNear(self,fridge)
+                    cond IsPlugged(fridge)
+                    cond IsOpen(fridge)
+                    act LeftPutIn(pie,fridge)
+            sequence
+                cond IsPlugged(fridge)
+                cond IsOpen(fridge)
+                cond IsStanding(self)
+                cond IsLeftHolding(self,pie)
+                act Walk(fridge)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsHoldingKnife(self)
+                    selector
+                        selector
+                            sequence
+                                cond IsOpen(fridge)
+                                selector
+                                    sequence
+                                        cond IsPlugged(fridge)
+                                        selector
+                                            selector
+                                                sequence
+                                                    cond IsLeftHolding(self,pie)
+                                                    act Cut(pie)
+                                                sequence
+                                                    cond IsNear(self,pie)
+                                                    cond IsLeftHandEmpty(self)
+                                                    act LeftGrab(pie)
+                                            sequence
+                                                cond IsLeftHandEmpty(self)
+                                                act Walk(pie)
+                                    sequence
+                                        cond IsUnplugged(fridge)
+                                        cond IsNear(self,fridge)
+                                        cond IsLeftHandEmpty(self)
+                                        act PlugIn(fridge)
+                            sequence
+                                cond IsUnplugged(fridge)
+                                cond IsClose(fridge)
+                                cond IsLeftHandEmpty(self)
+                                cond IsSwitchedOff(fridge)
+                                cond IsNear(self,fridge)
+                                act Open(fridge)
+                        sequence
+                            cond IsUnplugged(fridge)
+                            cond IsSwitchedOff(fridge)
+                            cond IsClose(fridge)
+                            cond IsLeftHandEmpty(self)
+                            act Walk(fridge)
+                sequence
+                    cond IsUnplugged(fridge)
+                    cond IsClose(fridge)
+                    cond IsNear(self,kitchenknife)
+                    cond IsLeftHandEmpty(self)
+                    cond IsSwitchedOff(fridge)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(kitchenknife)
+            sequence
+                cond IsUnplugged(fridge)
+                cond IsClose(fridge)
+                cond IsLeftHandEmpty(self)
+                cond IsSwitchedOff(fridge)
+                cond IsRightHandEmpty(self)
+                act Walk(kitchenknife)

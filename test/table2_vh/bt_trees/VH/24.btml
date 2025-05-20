@@ -1,0 +1,26 @@
+selector
+    sequence
+        cond IsSwitchedOff(lightswitch)
+        cond IsOn(dishbowl,nightstand)
+    sequence
+        cond IsSwitchedOff(lightswitch)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,dishbowl)
+                    selector
+                        sequence
+                            cond IsNear(self,nightstand)
+                            act RightPut(dishbowl,nightstand)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(nightstand)
+                sequence
+                    cond IsNear(self,dishbowl)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(dishbowl)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(dishbowl)

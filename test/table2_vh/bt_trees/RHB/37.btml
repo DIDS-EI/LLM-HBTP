@@ -1,0 +1,19 @@
+selector
+    cond IsClean(wallpictureframe)
+    sequence
+        cond IsHoldingCleaningTool(self)
+        selector
+            sequence
+                cond IsNear(self,wallpictureframe)
+                act Wipe(wallpictureframe)
+            sequence
+                cond IsStanding(self)
+                act Walk(wallpictureframe)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,rag)
+                act RightGrab(rag)
+            act Walk(rag)

@@ -1,0 +1,29 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"49fcf46b-4a4d-4843-8ef3-a8b142880dd2" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"abc46017-96f8-4555-868a-b3e1350f56ee" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsSwitchedOn(tablelamp)", shape=ellipse, style=filled];
+"49fcf46b-4a4d-4843-8ef3-a8b142880dd2" -> "abc46017-96f8-4555-868a-b3e1350f56ee";
+"fca4d6fa-283f-49f2-8bfd-9ecd6eaba50d" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"49fcf46b-4a4d-4843-8ef3-a8b142880dd2" -> "fca4d6fa-283f-49f2-8bfd-9ecd6eaba50d";
+"cbd3160c-9a19-4182-96ac-561610218ad2" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsSwitchedOff(tablelamp)", shape=ellipse, style=filled];
+"fca4d6fa-283f-49f2-8bfd-9ecd6eaba50d" -> "cbd3160c-9a19-4182-96ac-561610218ad2";
+"cd3837f4-f40d-4f16-8413-ffa3a2db678f" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsLeftHandEmpty(self)", shape=ellipse, style=filled];
+"fca4d6fa-283f-49f2-8bfd-9ecd6eaba50d" -> "cd3837f4-f40d-4f16-8413-ffa3a2db678f";
+"0ce36474-4557-46c1-894a-6c77a040c374" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"fca4d6fa-283f-49f2-8bfd-9ecd6eaba50d" -> "0ce36474-4557-46c1-894a-6c77a040c374";
+"16fb9f3b-2690-4058-bb7d-b83371fe021a" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"0ce36474-4557-46c1-894a-6c77a040c374" -> "16fb9f3b-2690-4058-bb7d-b83371fe021a";
+"759abef0-fc1b-4755-93a5-2bb6eaf5ce3b" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsNear(self,tablelamp)", shape=ellipse, style=filled];
+"16fb9f3b-2690-4058-bb7d-b83371fe021a" -> "759abef0-fc1b-4755-93a5-2bb6eaf5ce3b";
+"32e2203d-3606-447c-bb02-37d0004ddb7d" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="SwitchOn(tablelamp)", shape=box, style=filled];
+"16fb9f3b-2690-4058-bb7d-b83371fe021a" -> "32e2203d-3606-447c-bb02-37d0004ddb7d";
+"df1108af-9056-47db-8925-b725195464ce" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"0ce36474-4557-46c1-894a-6c77a040c374" -> "df1108af-9056-47db-8925-b725195464ce";
+"f24f667f-27df-4f4c-a06f-d9e6f50a7e5e" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="IsStanding(self)", shape=ellipse, style=filled];
+"df1108af-9056-47db-8925-b725195464ce" -> "f24f667f-27df-4f4c-a06f-d9e6f50a7e5e";
+"39949a5a-efca-4c5b-adcb-069711b40bb7" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Walk(tablelamp)", shape=box, style=filled];
+"df1108af-9056-47db-8925-b725195464ce" -> "39949a5a-efca-4c5b-adcb-069711b40bb7";
+}

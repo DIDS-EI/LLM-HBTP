@@ -1,0 +1,30 @@
+selector
+    cond IsIn(chocolatesyrup,fridge)
+    sequence
+        cond IsRightHolding(self,chocolatesyrup)
+        selector
+            sequence
+                cond IsNear(self,fridge)
+                selector
+                    sequence
+                        cond IsOpen(fridge)
+                        act RightPutIn(chocolatesyrup,fridge)
+                    sequence
+                        cond IsClose(fridge)
+                        cond IsLeftHandEmpty(self)
+                        act Open(fridge)
+            sequence
+                cond IsClose(fridge)
+                cond IsLeftHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(fridge)
+    sequence
+        cond IsClose(fridge)
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,chocolatesyrup)
+                act RightGrab(chocolatesyrup)
+            act Walk(chocolatesyrup)

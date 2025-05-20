@@ -1,0 +1,50 @@
+selector
+    sequence
+        cond IsIn(chicken,fridge)
+        cond IsSwitchedOn(faucet)
+    sequence
+        cond IsSwitchedOn(faucet)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,chicken)
+                    selector
+                        sequence
+                            cond IsNear(self,fridge)
+                            selector
+                                sequence
+                                    cond IsOpen(fridge)
+                                    act RightPutIn(chicken,fridge)
+                                sequence
+                                    cond IsClose(fridge)
+                                    cond IsLeftHandEmpty(self)
+                                    act Open(fridge)
+                        sequence
+                            cond IsClose(fridge)
+                            cond IsLeftHandEmpty(self)
+                            cond IsStanding(self)
+                            act Walk(fridge)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,chicken)
+                    cond IsLeftHandEmpty(self)
+                    cond IsClose(fridge)
+                    cond IsStanding(self)
+                    act RightGrab(chicken)
+            sequence
+                cond IsClose(fridge)
+                cond IsLeftHandEmpty(self)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(chicken)
+    sequence
+        cond IsSwitchedOff(faucet)
+        cond IsRightHandEmpty(self)
+        cond IsLeftHandEmpty(self)
+        cond IsClose(fridge)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,faucet)
+                act SwitchOn(faucet)
+            act Walk(faucet)

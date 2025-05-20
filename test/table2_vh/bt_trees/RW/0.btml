@@ -1,0 +1,5 @@
+selector
+    cond Exists(Coffee)
+    sequence
+        cond Holding(Nothing)
+        act Make(Coffee)

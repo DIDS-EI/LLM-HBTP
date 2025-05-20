@@ -1,0 +1,60 @@
+selector
+    sequence
+        cond IsSwitchedOn(lightswitch)
+        cond IsOn(juice,bathroomcounter)
+        cond IsOn(book,desk)
+    sequence
+        cond IsSwitchedOn(lightswitch)
+        selector
+            selector
+                sequence
+                    cond IsOn(book,desk)
+                    selector
+                        selector
+                            sequence
+                                cond IsRightHolding(self,juice)
+                                selector
+                                    sequence
+                                        cond IsNear(self,bathroomcounter)
+                                        act RightPut(juice,bathroomcounter)
+                                    sequence
+                                        cond IsStanding(self)
+                                        act Walk(bathroomcounter)
+                            sequence
+                                cond IsStanding(self)
+                                cond IsRightHandEmpty(self)
+                                cond IsNear(self,juice)
+                                act RightGrab(juice)
+                        sequence
+                            cond IsRightHandEmpty(self)
+                            cond IsStanding(self)
+                            act Walk(juice)
+                sequence
+                    cond IsRightHolding(self,book)
+                    cond IsNear(self,desk)
+                    cond IsStanding(self)
+                    act RightPut(book,desk)
+            sequence
+                cond IsRightHolding(self,book)
+                cond IsStanding(self)
+                act Walk(desk)
+    sequence
+        cond IsSwitchedOff(lightswitch)
+        cond IsLeftHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,book)
+                    selector
+                        sequence
+                            cond IsNear(self,lightswitch)
+                            act SwitchOn(lightswitch)
+                        act Walk(lightswitch)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,book)
+                    act RightGrab(book)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(book)

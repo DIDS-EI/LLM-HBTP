@@ -1,0 +1,95 @@
+selector
+    sequence
+        cond IsClean(tv)
+        cond IsClean(cutlets)
+    sequence
+        cond IsClean(cutlets)
+        selector
+            selector
+                selector
+                    selector
+                        selector
+                            selector
+                                sequence
+                                    cond IsHoldingCleaningTool(self)
+                                    selector
+                                        sequence
+                                            cond IsNear(self,tv)
+                                            act Wipe(tv)
+                                        sequence
+                                            cond IsStanding(self)
+                                            act Walk(tv)
+                                sequence
+                                    cond IsStanding(self)
+                                    cond IsNear(self,rag)
+                                    cond IsRightHandEmpty(self)
+                                    act RightGrab(rag)
+                            sequence
+                                cond IsStanding(self)
+                                cond IsRightHandEmpty(self)
+                                act Walk(rag)
+                        sequence
+                            cond IsPlugged(fridge)
+                            cond IsNear(self,fridge)
+                            cond IsRightHolding(self,cutlets)
+                            cond IsStanding(self)
+                            cond IsOpen(fridge)
+                            act RightPutIn(cutlets,fridge)
+                    sequence
+                        cond IsPlugged(fridge)
+                        cond IsNear(self,fridge)
+                        cond IsSwitchedOff(fridge)
+                        cond IsLeftHandEmpty(self)
+                        cond IsRightHolding(self,cutlets)
+                        cond IsClose(fridge)
+                        cond IsStanding(self)
+                        act Open(fridge)
+                sequence
+                    cond IsNear(self,fridge)
+                    cond IsSwitchedOff(fridge)
+                    cond IsLeftHandEmpty(self)
+                    cond IsRightHolding(self,cutlets)
+                    cond IsClose(fridge)
+                    cond IsStanding(self)
+                    cond IsUnplugged(fridge)
+                    act PlugIn(fridge)
+            sequence
+                cond IsSwitchedOff(fridge)
+                cond IsLeftHandEmpty(self)
+                cond IsRightHolding(self,cutlets)
+                cond IsClose(fridge)
+                cond IsStanding(self)
+                cond IsUnplugged(fridge)
+                act Walk(fridge)
+    sequence
+        cond IsSwitchedOff(fridge)
+        cond IsLeftHandEmpty(self)
+        cond IsClose(fridge)
+        cond IsStanding(self)
+        cond IsUnplugged(fridge)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,cutlets)
+                    selector
+                        sequence
+                            cond IsNear(self,faucet)
+                            selector
+                                sequence
+                                    cond IsSwitchedOn(faucet)
+                                    act Wash(cutlets)
+                                sequence
+                                    cond IsSwitchedOff(faucet)
+                                    act SwitchOn(faucet)
+                        sequence
+                            cond IsSwitchedOff(faucet)
+                            act Walk(faucet)
+                sequence
+                    cond IsNear(self,cutlets)
+                    cond IsSwitchedOff(faucet)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(cutlets)
+            sequence
+                cond IsSwitchedOff(faucet)
+                cond IsRightHandEmpty(self)
+                act Walk(cutlets)

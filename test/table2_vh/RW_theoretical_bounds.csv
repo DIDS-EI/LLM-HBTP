@@ -1,0 +1,51 @@
+priority_act_ls,priority_act_ls_length,algo_actions_length
+['Make(Coffee)'],1,1
+"['Make(Water)', 'MoveTo(Water)', 'PickUp(Water)', 'MoveTo(Table1)', 'PutDown(Water,Table1)']",5,5
+['Make(Dessert)'],1,1
+"['Make(Water)', 'MoveTo(Water)', 'PickUp(Water)', 'MoveTo(Bar2)', 'PutDown(Water,Bar2)']",5,5
+"['Turn(AC,On)']",1,1
+"['Turn(HallLight,On)']",1,1
+"['MoveTo(NFCJuice)', 'PickUp(NFCJuice)', 'MoveTo(Table2)', 'PutDown(NFCJuice,Table2)']",4,4
+['Clean(Floor)'],1,1
+"['MoveTo(Milk)', 'PickUp(Milk)', 'MoveTo(Bar)', 'PutDown(Milk,Bar)']",4,4
+"['MoveTo(Softdrink)', 'PickUp(Softdrink)', 'MoveTo(Table3)', 'PutDown(Softdrink,Table3)']",4,4
+"['Make(Coffee)', 'MoveTo(Coffee)', 'PickUp(Coffee)', 'MoveTo(Table3)', 'PutDown(Coffee,Table3)']",5,5
+"['Turn(HallLight,On)']",1,1
+['Clean(Floor)'],1,1
+"['Turn(TubeLight,On)']",1,1
+"['Turn(HallLight,On)']",1,1
+"['MoveTo(Yogurt)', 'PickUp(Yogurt)', 'MoveTo(Table2)', 'PutDown(Yogurt,Table2)']",4,4
+['Clean(Table1)'],1,1
+"['Turn(TubeLight,On)']",1,1
+"['MoveTo(MilkDrink)', 'PickUp(MilkDrink)', 'MoveTo(BrightTable6)', 'PutDown(MilkDrink,BrightTable6)']",4,4
+"['Turn(AC,On)']",1,1
+"['MoveTo(Softdrink)', 'PickUp(Softdrink)', 'MoveTo(Bar2)', 'PutDown(Softdrink,Bar2)']",4,4
+"['Turn(AC,On)']",1,1
+"['Turn(AC,On)']",1,1
+['Clean(Floor)'],1,1
+"['Turn(TubeLight,On)']",1,1
+"['Turn(HallLight,On)']",1,1
+"['MoveTo(Yogurt)', 'PickUp(Yogurt)', 'MoveTo(Table2)', 'PutDown(Yogurt,Table2)']",4,4
+['Clean(Table1)'],1,1
+"['Turn(TubeLight,On)']",1,1
+"['MoveTo(MilkDrink)', 'PickUp(MilkDrink)', 'MoveTo(BrightTable6)', 'PutDown(MilkDrink,BrightTable6)']",4,4
+"['Turn(AC,On)']",1,1
+"['MoveTo(Softdrink)', 'PickUp(Softdrink)', 'MoveTo(Bar2)', 'PutDown(Softdrink,Bar2)']",4,4
+"['Turn(TubeLight,On)']",1,1
+"['MoveTo(Yogurt)', 'PickUp(Yogurt)', 'MoveTo(Table3)', 'PutDown(Yogurt,Table3)']",4,4
+"['Turn(HallLight,On)']",1,1
+"['Turn(TubeLight,On)']",1,1
+"['MoveTo(Yogurt)', 'PickUp(Yogurt)', 'MoveTo(Table3)', 'PutDown(Yogurt,Table3)']",4,4
+"['Turn(HallLight,On)']",1,1
+"['MoveTo(Softdrink)', 'PickUp(Softdrink)', 'MoveTo(Bar)', 'PutDown(Softdrink,Bar)']",4,4
+"['MoveTo(Softdrink)', 'PickUp(Softdrink)', 'MoveTo(Bar)', 'PutDown(Softdrink,Bar)']",4,4
+"['Turn(AC,On)']",1,1
+"['MoveTo(MilkDrink)', 'PickUp(MilkDrink)', 'MoveTo(BrightTable6)', 'PutDown(MilkDrink,BrightTable6)']",4,4
+"['Turn(HallLight,On)']",1,1
+"['MoveTo(Softdrink)', 'PickUp(Softdrink)', 'MoveTo(Bar2)', 'PutDown(Softdrink,Bar2)']",4,4
+"['MoveTo(VacuumCup)', 'PickUp(VacuumCup)', 'MoveTo(WaterStation)', 'PutDown(VacuumCup,WaterStation)']",4,4
+"['Make(Water)', 'MoveTo(Water)', 'PickUp(Water)', 'MoveTo(Table1)', 'PutDown(Water,Table1)']",5,5
+"['MoveTo(Yogurt)', 'PickUp(Yogurt)', 'MoveTo(Table2)', 'PutDown(Yogurt,Table2)']",4,4
+"['Turn(AC,On)']",1,1
+"['MoveTo(VacuumCup)', 'PickUp(VacuumCup)', 'MoveTo(Table1)', 'PutDown(VacuumCup,Table1)']",4,4
+"['MoveTo(VacuumCup)', 'PickUp(VacuumCup)', 'MoveTo(Table2)', 'PutDown(VacuumCup,Table2)']",4,4

@@ -1,0 +1,42 @@
+selector
+    sequence
+        cond IsIn(cutlets,microwave)
+        cond IsSwitchedOn(microwave)
+    sequence
+        cond IsRightHolding(self,cutlets)
+        selector
+            sequence
+                cond IsNear(self,microwave)
+                selector
+                    sequence
+                        cond IsSwitchedOn(microwave)
+                        selector
+                            sequence
+                                cond IsOpen(microwave)
+                                act RightPutIn(cutlets,microwave)
+                            sequence
+                                cond IsClose(microwave)
+                                cond IsLeftHandEmpty(self)
+                                act Open(microwave)
+                    sequence
+                        cond IsSwitchedOff(microwave)
+                        cond IsClose(microwave)
+                        cond IsLeftHandEmpty(self)
+                        act SwitchOn(microwave)
+            sequence
+                cond IsSwitchedOff(microwave)
+                cond IsClose(microwave)
+                cond IsLeftHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(microwave)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsSwitchedOff(microwave)
+        cond IsLeftHandEmpty(self)
+        cond IsClose(microwave)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,cutlets)
+                act RightGrab(cutlets)
+            act Walk(cutlets)

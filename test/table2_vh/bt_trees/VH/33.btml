@@ -1,0 +1,85 @@
+selector
+    sequence
+        cond IsSwitchedOff(tablelamp)
+        cond IsIn(chicken,fridge)
+        cond IsIn(breadslice,microwave)
+    sequence
+        cond IsSwitchedOff(tablelamp)
+        selector
+            selector
+                selector
+                    selector
+                        selector
+                            sequence
+                                cond IsIn(chicken,fridge)
+                                selector
+                                    selector
+                                        sequence
+                                            cond IsRightHolding(self,breadslice)
+                                            selector
+                                                sequence
+                                                    cond IsNear(self,microwave)
+                                                    selector
+                                                        sequence
+                                                            cond IsOpen(microwave)
+                                                            act RightPutIn(breadslice,microwave)
+                                                        sequence
+                                                            cond IsClose(microwave)
+                                                            cond IsLeftHandEmpty(self)
+                                                            act Open(microwave)
+                                                sequence
+                                                    cond IsClose(microwave)
+                                                    cond IsLeftHandEmpty(self)
+                                                    cond IsStanding(self)
+                                                    act Walk(microwave)
+                                        sequence
+                                            cond IsRightHandEmpty(self)
+                                            cond IsNear(self,breadslice)
+                                            cond IsLeftHandEmpty(self)
+                                            cond IsClose(microwave)
+                                            cond IsStanding(self)
+                                            act RightGrab(breadslice)
+                                    sequence
+                                        cond IsLeftHandEmpty(self)
+                                        cond IsClose(microwave)
+                                        cond IsRightHandEmpty(self)
+                                        cond IsStanding(self)
+                                        act Walk(breadslice)
+                            sequence
+                                cond IsOpen(fridge)
+                                cond IsRightHolding(self,chicken)
+                                cond IsLeftHandEmpty(self)
+                                cond IsNear(self,fridge)
+                                cond IsClose(microwave)
+                                cond IsStanding(self)
+                                act RightPutIn(chicken,fridge)
+                        sequence
+                            cond IsRightHolding(self,chicken)
+                            cond IsLeftHandEmpty(self)
+                            cond IsNear(self,fridge)
+                            cond IsClose(fridge)
+                            cond IsClose(microwave)
+                            cond IsStanding(self)
+                            act Open(fridge)
+                    sequence
+                        cond IsRightHolding(self,chicken)
+                        cond IsLeftHandEmpty(self)
+                        cond IsClose(fridge)
+                        cond IsClose(microwave)
+                        cond IsStanding(self)
+                        act Walk(fridge)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,chicken)
+                    cond IsLeftHandEmpty(self)
+                    cond IsClose(fridge)
+                    cond IsClose(microwave)
+                    cond IsStanding(self)
+                    act RightGrab(chicken)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsLeftHandEmpty(self)
+                cond IsClose(fridge)
+                cond IsClose(microwave)
+                cond IsStanding(self)
+                act Walk(chicken)

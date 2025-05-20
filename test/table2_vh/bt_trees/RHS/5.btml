@@ -1,0 +1,45 @@
+selector
+    sequence
+        cond IsOn(plate,bed)
+        cond IsSwitchedOn(microwave)
+    sequence
+        cond IsSwitchedOn(microwave)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,plate)
+                    selector
+                        sequence
+                            cond IsNear(self,bed)
+                            act RightPut(plate,bed)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(bed)
+                sequence
+                    cond IsStanding(self)
+                    cond IsNear(self,plate)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(plate)
+            sequence
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                act Walk(plate)
+    sequence
+        cond IsSwitchedOff(microwave)
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        cond IsClose(microwave)
+        selector
+            sequence
+                cond IsNear(self,microwave)
+                selector
+                    sequence
+                        cond IsPlugged(microwave)
+                        act SwitchOn(microwave)
+                    sequence
+                        cond IsUnplugged(microwave)
+                        act PlugIn(microwave)
+            sequence
+                cond IsUnplugged(microwave)
+                act Walk(microwave)

@@ -1,0 +1,5 @@
+selector
+    cond IsNear(self,cutlets)
+    sequence
+        cond IsStanding(self)
+        act Walk(cutlets)

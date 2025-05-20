@@ -1,0 +1,19 @@
+selector
+    cond IsOn(dishbowl,kitchentable)
+    sequence
+        cond IsRightHolding(self,dishbowl)
+        selector
+            sequence
+                cond IsNear(self,kitchentable)
+                act RightPut(dishbowl,kitchentable)
+            sequence
+                cond IsStanding(self)
+                act Walk(kitchentable)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,dishbowl)
+                act RightGrab(dishbowl)
+            act Walk(dishbowl)

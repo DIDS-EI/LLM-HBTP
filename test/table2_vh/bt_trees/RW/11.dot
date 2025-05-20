@@ -1,0 +1,15 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"a0ebace3-a920-4d29-93d8-833e2222a3d4" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"5770a82e-89ce-4dfa-b713-306688db005a" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="Activate(HallLight)", shape=ellipse, style=filled];
+"a0ebace3-a920-4d29-93d8-833e2222a3d4" -> "5770a82e-89ce-4dfa-b713-306688db005a";
+"55ab4682-5419-47e1-a3de-2c0f527a971f" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"a0ebace3-a920-4d29-93d8-833e2222a3d4" -> "55ab4682-5419-47e1-a3de-2c0f527a971f";
+"7013d825-6b58-40b1-9114-fe67278e5d5b" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="Holding(Nothing)", shape=ellipse, style=filled];
+"55ab4682-5419-47e1-a3de-2c0f527a971f" -> "7013d825-6b58-40b1-9114-fe67278e5d5b";
+"64fcdbcb-1f0c-42ae-8e3a-20a3852321c5" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Turn(HallLight,On)", shape=box, style=filled];
+"55ab4682-5419-47e1-a3de-2c0f527a971f" -> "64fcdbcb-1f0c-42ae-8e3a-20a3852321c5";
+}

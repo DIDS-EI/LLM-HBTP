@@ -1,0 +1,15 @@
+digraph pastafarianism {
+ordering=out;
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+"746ec511-aae4-4f89-a15a-5c37eb98e9ad" [fillcolor="#B0FFFF", fontcolor=black, fontsize=20, height=0.01, label=" ? ", shape=box, style=filled, width=0.01];
+"0febca39-eee1-4129-815c-0c9be2110fba" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="Activate(AC)", shape=ellipse, style=filled];
+"746ec511-aae4-4f89-a15a-5c37eb98e9ad" -> "0febca39-eee1-4129-815c-0c9be2110fba";
+"129fb587-8291-42c6-9540-9a3cd2f5db11" [fillcolor="#FF8080", fontcolor=black, fontsize=20, height=0.01, label="&rarr;", shape=box, style=filled, width=0.01];
+"746ec511-aae4-4f89-a15a-5c37eb98e9ad" -> "129fb587-8291-42c6-9540-9a3cd2f5db11";
+"3e854939-c167-4ce4-ad2d-1080fbc02385" [fillcolor="#FFFF80", fontcolor=black, fontsize=20, label="Holding(Nothing)", shape=ellipse, style=filled];
+"129fb587-8291-42c6-9540-9a3cd2f5db11" -> "3e854939-c167-4ce4-ad2d-1080fbc02385";
+"81f4591d-ccf6-4d04-a6b1-8284c19981f2" [fillcolor=lightgreen, fontcolor=black, fontsize=20, label="Turn(AC,On)", shape=box, style=filled];
+"129fb587-8291-42c6-9540-9a3cd2f5db11" -> "81f4591d-ccf6-4d04-a6b1-8284c19981f2";
+}

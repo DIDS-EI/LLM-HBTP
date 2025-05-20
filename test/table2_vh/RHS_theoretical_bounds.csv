@@ -1,0 +1,51 @@
+priority_act_ls,priority_act_ls_length,algo_actions_length
+"['Walk(cutlets)', 'RightGrab(cutlets)', 'Walk(fridge)', 'Open(fridge)', 'PlugIn(fridge)', 'RightPutIn(cutlets,fridge)', 'Close(fridge)']",7,7
+"['Walk(microwave)', 'Open(microwave)']",2,2
+"['Walk(plate)', 'RightGrab(plate)', 'Walk(bed)', 'RightPut(plate,bed)', 'Walk(wine)', 'RightGrab(wine)', 'Walk(kitchencabinet)', 'RightPut(wine,kitchencabinet)']",8,12
+"['Walk(tv)', 'PlugIn(tv)', 'SwitchOn(tv)']",3,3
+"['Walk(kitchencabinet)', 'Open(kitchencabinet)']",2,2
+"['Walk(microwave)', 'PlugIn(microwave)', 'SwitchOn(microwave)', 'Walk(plate)', 'RightGrab(plate)', 'Walk(bed)', 'RightPut(plate,bed)']",7,8
+['Walk(bed)'],1,1
+"['Walk(kitchenknife)', 'RightGrab(kitchenknife)', 'Walk(fridge)', 'PlugIn(fridge)', 'Open(fridge)', 'RightPutIn(kitchenknife,fridge)', 'Close(fridge)']",7,7
+"['Walk(tv)', 'PlugIn(tv)', 'Walk(rag)', 'RightGrab(rag)', 'Walk(faucet)', 'Wipe(faucet)']",6,7
+"['Walk(mouse)', 'PlugIn(mouse)', 'Walk(rag)', 'RightGrab(rag)', 'Walk(kitchencabinet)', 'RightPut(rag,kitchencabinet)']",6,7
+"['Walk(plate)', 'RightGrab(plate)', 'Walk(kitchencabinet)', 'RightPut(plate,kitchencabinet)']",4,5
+"['Walk(rag)', 'RightGrab(rag)', 'Walk(fridge)', 'Wipe(fridge)']",4,4
+"['Walk(fridge)', 'Open(fridge)']",2,2
+"['Walk(kitchenknife)', 'LeftGrab(kitchenknife)', 'Walk(bed)', 'LeftPut(kitchenknife,bed)']",4,4
+['Walk(fridge)'],1,1
+"['Walk(tv)', 'PlugIn(tv)']",2,2
+"['Walk(microwave)', 'PlugIn(microwave)']",2,2
+['Walk(cutlets)'],1,1
+"['Walk(fridge)', 'PlugIn(fridge)', 'Walk(wine)', 'RightGrab(wine)', 'Walk(bed)', 'RightPut(wine,bed)']",6,7
+"['Walk(cutlets)', 'RightGrab(cutlets)', 'Walk(faucet)', 'SwitchOn(faucet)', 'Wash(cutlets)', 'Walk(rag)', 'LeftGrab(rag)', 'Walk(tv)', 'Wipe(tv)']",9,14
+"['Walk(kitchenknife)', 'RightGrab(kitchenknife)', 'Walk(cutlets)', 'LeftGrab(cutlets)', 'Walk(kitchencabinet)', 'Cut(cutlets)', 'LeftPut(cutlets,kitchencabinet)']",7,12
+"['Walk(cutlets)', 'RightGrab(cutlets)', 'Walk(bed)', 'RightPut(cutlets,bed)']",4,4
+"['Walk(rag)', 'LeftGrab(rag)', 'Walk(kitchencabinet)', 'LeftPut(rag,kitchencabinet)', 'Walk(microwave)', 'Open(microwave)']",6,9
+"['Walk(candle)', 'SwitchOn(candle)', 'Walk(plate)', 'RightGrab(plate)', 'Walk(kitchencabinet)', 'RightPut(plate,kitchencabinet)']",6,7
+"['Walk(rag)', 'LeftGrab(rag)', 'Walk(bed)', 'LeftPut(rag,bed)', 'Walk(window)']",5,5
+"['Walk(wine)', 'LeftGrab(wine)', 'Walk(apple)', 'RightGrab(apple)', 'Walk(garbagecan)', 'RightPutIn(apple,garbagecan)', 'LeftPutIn(wine,garbagecan)']",7,11
+['Walk(window)'],1,1
+['Walk(apple)'],1,1
+"['Walk(apple)', 'LeftGrab(apple)', 'Walk(kitchenknife)', 'RightGrab(kitchenknife)', 'Walk(microwave)', 'Cut(apple)']",6,8
+"['Walk(apple)', 'RightGrab(apple)', 'Walk(kitchencabinet)', 'RightPut(apple,kitchencabinet)']",4,5
+"['Walk(rag)', 'LeftGrab(rag)', 'Walk(fridge)', 'Wipe(fridge)']",4,4
+"['Walk(candle)', 'SwitchOn(candle)', 'Walk(kitchencabinet)']",3,3
+"['Walk(kitchenknife)', 'RightGrab(kitchenknife)', 'Walk(apple)', 'LeftGrab(apple)', 'Cut(apple)']",5,7
+"['Walk(fridge)', 'PlugIn(fridge)', 'Walk(kitchenknife)', 'RightGrab(kitchenknife)', 'Walk(cutlets)', 'LeftGrab(cutlets)', 'Cut(cutlets)']",7,9
+"['Walk(rag)', 'RightGrab(rag)', 'Walk(kitchencabinet)', 'Wipe(kitchencabinet)', 'Walk(window)', 'Open(window)']",6,8
+"['Walk(candle)', 'SwitchOn(candle)', 'Walk(fridge)', 'Open(fridge)']",4,4
+"['Walk(kitchencabinet)', 'Open(kitchencabinet)', 'Walk(fridge)']",3,4
+"['Walk(fridge)', 'PlugIn(fridge)']",2,2
+"['Walk(tv)', 'PlugIn(tv)', 'Walk(kitchenknife)', 'RightGrab(kitchenknife)', 'Walk(cutlets)', 'LeftGrab(cutlets)', 'Cut(cutlets)']",7,9
+"['Walk(kitchenknife)', 'RightGrab(kitchenknife)', 'Walk(cutlets)', 'LeftGrab(cutlets)', 'Cut(cutlets)']",5,7
+"['Walk(rag)', 'RightGrab(rag)', 'Walk(microwave)', 'Open(microwave)', 'PlugIn(microwave)', 'RightPutIn(rag,microwave)', 'Close(microwave)']",7,7
+"['Walk(kitchenknife)', 'LeftGrab(kitchenknife)', 'Walk(bed)', 'LeftPut(kitchenknife,bed)', 'Walk(microwave)', 'PlugIn(microwave)']",6,7
+['Walk(candle)'],1,1
+"['Walk(rag)', 'RightGrab(rag)', 'Walk(candle)', 'Wipe(candle)']",4,4
+"['Walk(apple)', 'RightGrab(apple)', 'Walk(bed)', 'RightPut(apple,bed)', 'Walk(kitchencabinet)', 'Open(kitchencabinet)']",6,8
+"['Walk(tv)', 'PlugIn(tv)', 'Walk(mouse)', 'PlugIn(mouse)']",4,4
+"['Walk(candle)', 'SwitchOn(candle)']",2,2
+"['Walk(rag)', 'LeftGrab(rag)', 'Walk(garbagecan)', 'LeftPutIn(rag,garbagecan)', 'Walk(plate)']",5,7
+"['Walk(cutlets)', 'RightGrab(cutlets)', 'Walk(faucet)', 'SwitchOn(faucet)', 'Wash(cutlets)', 'Walk(wine)', 'LeftGrab(wine)', 'Walk(bed)', 'LeftPut(wine,bed)']",9,12
+"['Walk(faucet)', 'SwitchOn(faucet)', 'Walk(cutlets)', 'RightGrab(cutlets)', 'Walk(garbagecan)', 'RightPutIn(cutlets,garbagecan)']",6,6

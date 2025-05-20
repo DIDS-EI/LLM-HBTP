@@ -1,0 +1,68 @@
+selector
+    sequence
+        cond IsClose(fridge)
+        cond IsIn(milk,fridge)
+        cond IsIn(juice,fridge)
+    sequence
+        cond IsLeftHandEmpty(self)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOpen(fridge)
+                            selector
+                                sequence
+                                    cond IsIn(milk,fridge)
+                                    selector
+                                        selector
+                                            selector
+                                                sequence
+                                                    cond IsNear(self,fridge)
+                                                    selector
+                                                        sequence
+                                                            cond IsIn(juice,fridge)
+                                                            act Close(fridge)
+                                                        sequence
+                                                            cond IsRightHolding(self,juice)
+                                                            act RightPutIn(juice,fridge)
+                                                sequence
+                                                    cond IsRightHolding(self,juice)
+                                                    cond IsStanding(self)
+                                                    act Walk(fridge)
+                                            sequence
+                                                cond IsStanding(self)
+                                                cond IsRightHandEmpty(self)
+                                                cond IsNear(self,juice)
+                                                act RightGrab(juice)
+                                        sequence
+                                            cond IsRightHandEmpty(self)
+                                            cond IsStanding(self)
+                                            act Walk(juice)
+                                sequence
+                                    cond IsRightHolding(self,milk)
+                                    cond IsStanding(self)
+                                    cond IsNear(self,fridge)
+                                    act RightPutIn(milk,fridge)
+                        sequence
+                            cond IsRightHolding(self,milk)
+                            cond IsClose(fridge)
+                            cond IsStanding(self)
+                            cond IsNear(self,fridge)
+                            act Open(fridge)
+                    sequence
+                        cond IsRightHolding(self,milk)
+                        cond IsClose(fridge)
+                        cond IsStanding(self)
+                        act Walk(fridge)
+                sequence
+                    cond IsNear(self,milk)
+                    cond IsClose(fridge)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    act RightGrab(milk)
+            sequence
+                cond IsClose(fridge)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(milk)

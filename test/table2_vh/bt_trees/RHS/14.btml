@@ -1,0 +1,5 @@
+selector
+    cond IsNear(self,fridge)
+    sequence
+        cond IsStanding(self)
+        act Walk(fridge)

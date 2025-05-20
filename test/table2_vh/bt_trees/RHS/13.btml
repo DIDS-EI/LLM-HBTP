@@ -1,0 +1,19 @@
+selector
+    cond IsOn(kitchenknife,bed)
+    sequence
+        cond IsRightHolding(self,kitchenknife)
+        selector
+            sequence
+                cond IsNear(self,bed)
+                act RightPut(kitchenknife,bed)
+            sequence
+                cond IsStanding(self)
+                act Walk(bed)
+    sequence
+        cond IsStanding(self)
+        cond IsRightHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,kitchenknife)
+                act RightGrab(kitchenknife)
+            act Walk(kitchenknife)

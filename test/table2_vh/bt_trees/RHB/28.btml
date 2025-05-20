@@ -1,0 +1,86 @@
+selector
+    sequence
+        cond IsIn(facecream,bathroomcabinet)
+        cond IsIn(hairproduct,bathroomcabinet)
+        cond IsClose(bathroomcabinet)
+        cond IsIn(barsoap,bathroomcabinet)
+    sequence
+        cond IsOpen(bathroomcabinet)
+        selector
+            sequence
+                cond IsIn(hairproduct,bathroomcabinet)
+                selector
+                    selector
+                        selector
+                            selector
+                                selector
+                                    sequence
+                                        cond IsNear(self,bathroomcabinet)
+                                        selector
+                                            sequence
+                                                cond IsLeftHandEmpty(self)
+                                                cond IsIn(facecream,bathroomcabinet)
+                                                selector
+                                                    sequence
+                                                        cond IsIn(barsoap,bathroomcabinet)
+                                                        act Close(bathroomcabinet)
+                                                    sequence
+                                                        cond IsRightHolding(self,barsoap)
+                                                        act RightPutIn(barsoap,bathroomcabinet)
+                                            sequence
+                                                cond IsRightHolding(self,barsoap)
+                                                cond IsLeftHolding(self,facecream)
+                                                act LeftPutIn(facecream,bathroomcabinet)
+                                    sequence
+                                        cond IsRightHolding(self,barsoap)
+                                        cond IsStanding(self)
+                                        cond IsLeftHolding(self,facecream)
+                                        act Walk(bathroomcabinet)
+                                sequence
+                                    cond IsRightHolding(self,barsoap)
+                                    cond IsLeftHandEmpty(self)
+                                    cond IsStanding(self)
+                                    cond IsNear(self,facecream)
+                                    act LeftGrab(facecream)
+                            sequence
+                                cond IsRightHolding(self,barsoap)
+                                cond IsLeftHandEmpty(self)
+                                cond IsStanding(self)
+                                act Walk(facecream)
+                        sequence
+                            cond IsNear(self,barsoap)
+                            cond IsLeftHandEmpty(self)
+                            cond IsRightHandEmpty(self)
+                            cond IsStanding(self)
+                            act RightGrab(barsoap)
+                    sequence
+                        cond IsLeftHandEmpty(self)
+                        cond IsRightHandEmpty(self)
+                        cond IsStanding(self)
+                        act Walk(barsoap)
+            sequence
+                cond IsNear(self,bathroomcabinet)
+                cond IsLeftHandEmpty(self)
+                cond IsRightHolding(self,hairproduct)
+                cond IsStanding(self)
+                act RightPutIn(hairproduct,bathroomcabinet)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsClose(bathroomcabinet)
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,hairproduct)
+                    selector
+                        sequence
+                            cond IsNear(self,bathroomcabinet)
+                            act Open(bathroomcabinet)
+                        act Walk(bathroomcabinet)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,hairproduct)
+                    act RightGrab(hairproduct)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(hairproduct)

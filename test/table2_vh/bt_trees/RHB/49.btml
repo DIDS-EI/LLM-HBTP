@@ -1,0 +1,19 @@
+selector
+    cond IsOn(condimentbottle,radio)
+    sequence
+        cond IsRightHolding(self,condimentbottle)
+        selector
+            sequence
+                cond IsNear(self,radio)
+                act RightPut(condimentbottle,radio)
+            sequence
+                cond IsStanding(self)
+                act Walk(radio)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,condimentbottle)
+                act RightGrab(condimentbottle)
+            act Walk(condimentbottle)

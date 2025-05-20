@@ -1,0 +1,20 @@
+selector
+    cond On(Water,Bar2)
+    sequence
+        cond Holding(Water)
+        selector
+            sequence
+                cond RobotNear(Bar2)
+                act PutDown(Water,Bar2)
+            act MoveTo(Bar2)
+    sequence
+        cond Holding(Nothing)
+        selector
+            selector
+                sequence
+                    cond RobotNear(Water)
+                    act PickUp(Water)
+                sequence
+                    cond Exists(Water)
+                    act MoveTo(Water)
+            act Make(Water)

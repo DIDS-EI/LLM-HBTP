@@ -1,0 +1,64 @@
+selector
+    sequence
+        cond IsOn(creamybuns,plate)
+        cond IsOn(plate,kitchentable)
+        cond IsOn(milk,kitchentable)
+    sequence
+        cond IsOn(milk,kitchentable)
+        selector
+            selector
+                selector
+                    selector
+                        sequence
+                            cond IsOn(creamybuns,plate)
+                            selector
+                                sequence
+                                    cond IsRightHolding(self,plate)
+                                    selector
+                                        sequence
+                                            cond IsNear(self,kitchentable)
+                                            act RightPut(plate,kitchentable)
+                                        sequence
+                                            cond IsStanding(self)
+                                            act Walk(kitchentable)
+                                sequence
+                                    cond IsNear(self,plate)
+                                    cond IsRightHandEmpty(self)
+                                    cond IsStanding(self)
+                                    act RightGrab(plate)
+                        sequence
+                            cond IsNear(self,plate)
+                            cond IsRightHolding(self,creamybuns)
+                            cond IsStanding(self)
+                            act RightPut(creamybuns,plate)
+                    sequence
+                        cond IsRightHolding(self,creamybuns)
+                        cond IsStanding(self)
+                        act Walk(plate)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    cond IsNear(self,creamybuns)
+                    act RightGrab(creamybuns)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(creamybuns)
+    sequence
+        cond IsStanding(self)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,milk)
+                    selector
+                        sequence
+                            cond IsNear(self,kitchentable)
+                            act RightPut(milk,kitchentable)
+                        act Walk(kitchentable)
+                sequence
+                    cond IsNear(self,milk)
+                    cond IsRightHandEmpty(self)
+                    act RightGrab(milk)
+            sequence
+                cond IsRightHandEmpty(self)
+                act Walk(milk)

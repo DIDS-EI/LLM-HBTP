@@ -1,0 +1,60 @@
+selector
+    sequence
+        cond IsSwitchedOn(microwave)
+        cond IsClose(microwave)
+        cond IsIn(milk,microwave)
+    sequence
+        cond IsSwitchedOff(microwave)
+        cond IsLeftHandEmpty(self)
+        selector
+            selector
+                selector
+                    sequence
+                        cond IsNear(self,microwave)
+                        selector
+                            selector
+                                sequence
+                                    cond IsPlugged(microwave)
+                                    selector
+                                        sequence
+                                            cond IsIn(milk,microwave)
+                                            selector
+                                                sequence
+                                                    cond IsClose(microwave)
+                                                    act SwitchOn(microwave)
+                                                sequence
+                                                    cond IsOpen(microwave)
+                                                    act Close(microwave)
+                                        sequence
+                                            cond IsRightHolding(self,milk)
+                                            cond IsOpen(microwave)
+                                            act RightPutIn(milk,microwave)
+                                sequence
+                                    cond IsOpen(microwave)
+                                    cond IsRightHolding(self,milk)
+                                    cond IsUnplugged(microwave)
+                                    act PlugIn(microwave)
+                            sequence
+                                cond IsClose(microwave)
+                                cond IsRightHolding(self,milk)
+                                cond IsUnplugged(microwave)
+                                act Open(microwave)
+                    sequence
+                        cond IsStanding(self)
+                        cond IsClose(microwave)
+                        cond IsRightHolding(self,milk)
+                        cond IsUnplugged(microwave)
+                        act Walk(microwave)
+                sequence
+                    cond IsClose(microwave)
+                    cond IsNear(self,milk)
+                    cond IsRightHandEmpty(self)
+                    cond IsStanding(self)
+                    cond IsUnplugged(microwave)
+                    act RightGrab(milk)
+            sequence
+                cond IsStanding(self)
+                cond IsRightHandEmpty(self)
+                cond IsClose(microwave)
+                cond IsUnplugged(microwave)
+                act Walk(milk)

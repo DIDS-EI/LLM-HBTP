@@ -1,0 +1,27 @@
+selector
+    sequence
+        cond IsPlugged(mouse)
+        cond IsPlugged(tv)
+    sequence
+        cond IsUnplugged(mouse)
+        cond IsLeftHandEmpty(self)
+        selector
+            selector
+                sequence
+                    cond IsPlugged(tv)
+                    selector
+                        sequence
+                            cond IsNear(self,mouse)
+                            act PlugIn(mouse)
+                        sequence
+                            cond IsStanding(self)
+                            act Walk(mouse)
+                sequence
+                    cond IsNear(self,tv)
+                    cond IsStanding(self)
+                    cond IsUnplugged(tv)
+                    act PlugIn(tv)
+            sequence
+                cond IsStanding(self)
+                cond IsUnplugged(tv)
+                act Walk(tv)

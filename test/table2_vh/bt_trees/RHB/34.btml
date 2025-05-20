@@ -1,0 +1,47 @@
+selector
+    sequence
+        cond IsClean(rag)
+        cond IsClean(desk)
+    sequence
+        cond IsHoldingCleaningTool(self)
+        selector
+            selector
+                selector
+                    sequence
+                        cond IsClean(rag)
+                        selector
+                            sequence
+                                cond IsNear(self,desk)
+                                act Wipe(desk)
+                            sequence
+                                cond IsStanding(self)
+                                act Walk(desk)
+                    sequence
+                        cond IsNear(self,faucet)
+                        cond IsSwitchedOn(faucet)
+                        cond IsRightHolding(self,rag)
+                        cond IsStanding(self)
+                        act Wash(rag)
+                sequence
+                    cond IsNear(self,faucet)
+                    cond IsRightHolding(self,rag)
+                    cond IsLeftHandEmpty(self)
+                    cond IsStanding(self)
+                    cond IsSwitchedOff(faucet)
+                    act SwitchOn(faucet)
+            sequence
+                cond IsLeftHandEmpty(self)
+                cond IsRightHolding(self,rag)
+                cond IsStanding(self)
+                cond IsSwitchedOff(faucet)
+                act Walk(faucet)
+    sequence
+        cond IsLeftHandEmpty(self)
+        cond IsRightHandEmpty(self)
+        cond IsStanding(self)
+        cond IsSwitchedOff(faucet)
+        selector
+            sequence
+                cond IsNear(self,rag)
+                act RightGrab(rag)
+            act Walk(rag)

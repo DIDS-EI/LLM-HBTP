@@ -1,0 +1,19 @@
+selector
+    cond IsClean(fridge)
+    sequence
+        cond IsHoldingCleaningTool(self)
+        selector
+            sequence
+                cond IsNear(self,fridge)
+                act Wipe(fridge)
+            sequence
+                cond IsStanding(self)
+                act Walk(fridge)
+    sequence
+        cond IsStanding(self)
+        cond IsRightHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,rag)
+                act RightGrab(rag)
+            act Walk(rag)

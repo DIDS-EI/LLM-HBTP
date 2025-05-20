@@ -1,0 +1,30 @@
+selector
+    cond IsIn(cupcake,fridge)
+    sequence
+        cond IsRightHolding(self,cupcake)
+        selector
+            sequence
+                cond IsNear(self,fridge)
+                selector
+                    sequence
+                        cond IsOpen(fridge)
+                        act RightPutIn(cupcake,fridge)
+                    sequence
+                        cond IsClose(fridge)
+                        cond IsLeftHandEmpty(self)
+                        act Open(fridge)
+            sequence
+                cond IsClose(fridge)
+                cond IsLeftHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(fridge)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsClose(fridge)
+        cond IsLeftHandEmpty(self)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,cupcake)
+                act RightGrab(cupcake)
+            act Walk(cupcake)

@@ -1,0 +1,12 @@
+selector
+    cond IsSwitchedOn(faucet)
+    sequence
+        cond IsSwitchedOff(faucet)
+        cond IsLeftHandEmpty(self)
+        selector
+            sequence
+                cond IsNear(self,faucet)
+                act SwitchOn(faucet)
+            sequence
+                cond IsStanding(self)
+                act Walk(faucet)

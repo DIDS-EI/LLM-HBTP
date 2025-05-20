@@ -1,0 +1,55 @@
+selector
+    sequence
+        cond IsIn(cutlets,fridge)
+        cond IsClose(fridge)
+    sequence
+        cond IsLeftHandEmpty(self)
+        selector
+            selector
+                selector
+                    sequence
+                        cond IsNear(self,fridge)
+                        selector
+                            sequence
+                                cond IsOpen(fridge)
+                                selector
+                                    selector
+                                        sequence
+                                            cond IsIn(cutlets,fridge)
+                                            act Close(fridge)
+                                        sequence
+                                            cond IsPlugged(fridge)
+                                            cond IsRightHolding(self,cutlets)
+                                            act RightPutIn(cutlets,fridge)
+                                    sequence
+                                        cond IsRightHolding(self,cutlets)
+                                        cond IsUnplugged(fridge)
+                                        act PlugIn(fridge)
+                            sequence
+                                cond IsSwitchedOff(fridge)
+                                cond IsClose(fridge)
+                                cond IsRightHolding(self,cutlets)
+                                cond IsUnplugged(fridge)
+                                act Open(fridge)
+                    sequence
+                        cond IsStanding(self)
+                        cond IsClose(fridge)
+                        cond IsUnplugged(fridge)
+                        cond IsRightHolding(self,cutlets)
+                        cond IsSwitchedOff(fridge)
+                        act Walk(fridge)
+                sequence
+                    cond IsRightHandEmpty(self)
+                    cond IsNear(self,cutlets)
+                    cond IsStanding(self)
+                    cond IsClose(fridge)
+                    cond IsUnplugged(fridge)
+                    cond IsSwitchedOff(fridge)
+                    act RightGrab(cutlets)
+            sequence
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                cond IsClose(fridge)
+                cond IsUnplugged(fridge)
+                cond IsSwitchedOff(fridge)
+                act Walk(cutlets)

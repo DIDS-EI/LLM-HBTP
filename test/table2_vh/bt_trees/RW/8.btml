@@ -1,0 +1,18 @@
+selector
+    cond On(Milk,Bar)
+    sequence
+        cond Holding(Milk)
+        selector
+            sequence
+                cond RobotNear(Bar)
+                act PutDown(Milk,Bar)
+            act MoveTo(Bar)
+    sequence
+        cond Holding(Nothing)
+        selector
+            sequence
+                cond RobotNear(Milk)
+                act PickUp(Milk)
+            sequence
+                cond Exists(Milk)
+                act MoveTo(Milk)

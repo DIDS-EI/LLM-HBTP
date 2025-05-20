@@ -1,0 +1,50 @@
+selector
+    sequence
+        cond IsSwitchedOn(tv)
+        cond IsIn(chips,microwave)
+    sequence
+        cond IsSwitchedOn(tv)
+        selector
+            selector
+                sequence
+                    cond IsRightHolding(self,chips)
+                    selector
+                        sequence
+                            cond IsNear(self,microwave)
+                            selector
+                                sequence
+                                    cond IsOpen(microwave)
+                                    act RightPutIn(chips,microwave)
+                                sequence
+                                    cond IsClose(microwave)
+                                    cond IsLeftHandEmpty(self)
+                                    act Open(microwave)
+                        sequence
+                            cond IsClose(microwave)
+                            cond IsLeftHandEmpty(self)
+                            cond IsStanding(self)
+                            act Walk(microwave)
+                sequence
+                    cond IsNear(self,chips)
+                    cond IsRightHandEmpty(self)
+                    cond IsLeftHandEmpty(self)
+                    cond IsClose(microwave)
+                    cond IsStanding(self)
+                    act RightGrab(chips)
+            sequence
+                cond IsLeftHandEmpty(self)
+                cond IsClose(microwave)
+                cond IsRightHandEmpty(self)
+                cond IsStanding(self)
+                act Walk(chips)
+    sequence
+        cond IsRightHandEmpty(self)
+        cond IsLeftHandEmpty(self)
+        cond IsSwitchedOff(tv)
+        cond IsClose(microwave)
+        cond IsStanding(self)
+        selector
+            sequence
+                cond IsNear(self,tv)
+                act SwitchOn(tv)
+            act Walk(tv)
