@@ -1,4 +1,4 @@
-# HBTP: Heuristic Behavior Tree Planning with Large Language Model Reasoning
+# HBTP: Heuristic Behavior Tree Planning with Large Language Model Reasoning (ICRA 2025)
 
 <div align="center">
 
